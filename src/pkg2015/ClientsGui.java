@@ -52,8 +52,8 @@ public class ClientsGui extends javax.swing.JFrame {
         TableColumnModel m=taulaModelClient.getColumnModel();
      //   taula2.setColumnModel(m);
         
-        //Obtenim la columna que volem treure de l'estructura de la taula (la columna 11, que conté l'index)
-        TableColumn col=m.getColumn(1);
+        //Obtenim la columna que volem treure de l'estructura de la taula (la columna 18, que conté l'index)
+        TableColumn col=m.getColumn(18);
         
         //Borrem la columna index de l'estructura de taula1 i taula2, així no es vorà, encara que continua estant al model de dades
         taulaModelClient.removeColumn(col);
@@ -696,14 +696,14 @@ public class ClientsGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Notes", "Actiu", "VIP", "Toca Obra"
+                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Notes", "Actiu", "VIP", "Toca Obra", "Index"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -729,6 +729,7 @@ public class ClientsGui extends javax.swing.JFrame {
             taulaModelClient.getColumnModel().getColumn(11).setPreferredWidth(8);
             taulaModelClient.getColumnModel().getColumn(12).setPreferredWidth(8);
             taulaModelClient.getColumnModel().getColumn(13).setPreferredWidth(8);
+            taulaModelClient.getColumnModel().getColumn(18).setResizable(false);
         }
 
         jTextField4.setEditable(false);
@@ -1483,23 +1484,23 @@ public class ClientsGui extends javax.swing.JFrame {
         //I ara actualitzo la taula
         
         taulaModelClient.setValueAt(vector[index].getCodi(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getNomCom(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getDataAlta(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getNomFis(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getCifNif(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getPais(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getPoblacio(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getDireccio(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getCp(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getTfon(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getEmail(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getWebsite(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getCc(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getDescompte(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getNotes(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].isBorrat(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].isEsVip(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].isTocaObra(),taulaModelClient.getSelectedRow(), 0);
+        taulaModelClient.setValueAt(vector[index].getNomCom(),taulaModelClient.getSelectedRow(), 1);
+        taulaModelClient.setValueAt(vector[index].getDataAlta(),taulaModelClient.getSelectedRow(), 2);
+        taulaModelClient.setValueAt(vector[index].getNomFis(),taulaModelClient.getSelectedRow(), 3);
+        taulaModelClient.setValueAt(vector[index].getCifNif(),taulaModelClient.getSelectedRow(), 4);
+        taulaModelClient.setValueAt(vector[index].getPais(),taulaModelClient.getSelectedRow(), 5);
+        taulaModelClient.setValueAt(vector[index].getPoblacio(),taulaModelClient.getSelectedRow(), 6);
+        taulaModelClient.setValueAt(vector[index].getDireccio(),taulaModelClient.getSelectedRow(), 7);
+        taulaModelClient.setValueAt(vector[index].getCp(),taulaModelClient.getSelectedRow(), 8);
+        taulaModelClient.setValueAt(vector[index].getTfon(),taulaModelClient.getSelectedRow(), 9);
+        taulaModelClient.setValueAt(vector[index].getEmail(),taulaModelClient.getSelectedRow(), 10);
+        taulaModelClient.setValueAt(vector[index].getWebsite(),taulaModelClient.getSelectedRow(), 11);
+        taulaModelClient.setValueAt(vector[index].getCc(),taulaModelClient.getSelectedRow(), 12);
+        taulaModelClient.setValueAt(vector[index].getDescompte(),taulaModelClient.getSelectedRow(), 13);
+        taulaModelClient.setValueAt(vector[index].getNotes(),taulaModelClient.getSelectedRow(), 14);
+        taulaModelClient.setValueAt(vector[index].isBorrat(),taulaModelClient.getSelectedRow(), 15);
+        taulaModelClient.setValueAt(vector[index].isEsVip(),taulaModelClient.getSelectedRow(), 16);
+        taulaModelClient.setValueAt(vector[index].isTocaObra(),taulaModelClient.getSelectedRow(), 17);
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
