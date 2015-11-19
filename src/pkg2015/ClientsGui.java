@@ -75,10 +75,9 @@ public class ClientsGui extends javax.swing.JFrame {
                 // Si seleccionem un client posem les seues dades als jtextfields corresponents i els activem 
                 int i=taulaModelClient.getSelectedRow();
                 if(i!=-1){
-
                     
-                    
-                    modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
+                    modNomCom.setText(vector.get(i).get2nomCom());
+                    //modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
                     modDataAlta.setText(taulaModelClient.getModel().getValueAt(i, 1).toString());
                     modNomFis.setText(taulaModelClient.getModel().getValueAt(i, 2).toString());
                     modCifNif.setText(taulaModelClient.getModel().getValueAt(i, 3).toString());
