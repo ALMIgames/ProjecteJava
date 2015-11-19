@@ -8,8 +8,10 @@ package pkg2015;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.Action;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -49,19 +51,19 @@ public class ClientsGui extends javax.swing.JFrame {
         //Fixeu-vos que les 2 taules compartixen el mateix model, per tant tenen les mateixes dades
         
         //Assignem a la propietat tm el tableModel de taula1 i el compartim en taula2
-        tm=(DefaultTableModel) taulaModelClient.getModel();
+        //tm=(DefaultTableModel) taulaModelClient.getModel();
      //   taula2.setModel(tm);
      //   taula4.setModel(tm);
         
         //Obtenim el columnModel de taula1 i el compartim en taula2
-        TableColumnModel m=taulaModelClient.getColumnModel();
+        //TableColumnModel m=taulaModelClient.getColumnModel();
      //   taula2.setColumnModel(m);
         
         //Obtenim la columna que volem treure de l'estructura de la taula (la columna 18, que conté l'index)
-        TableColumn col=m.getColumn(18);
+        //TableColumn col=m.getColumn(15);
         
         //Borrem la columna index de l'estructura de taula1 i taula2, així no es vorà, encara que continua estant al model de dades
-        taulaModelClient.removeColumn(col);
+        //taulaModelClient.removeColumn(col);
       //  taula2.removeColumn(col);
         
         //Fi nou v4
@@ -92,9 +94,8 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText((String)taulaModelClient.getModel().getValueAt(i, 12).toString()); 
                     modDescompte.setText((String)taulaModelClient.getModel().getValueAt(i, 13).toString()); 
                     modNotes.setText(taulaModelClient.getModel().getValueAt(i, 14).toString()); 
-                    modEsActiu.setText(taulaModelClient.getModel().getValueAt(i, 15).toString()); 
-                    modEsVip.setText(taulaModelClient.getModel().getValueAt(i, 16).toString()); 
-                    modTocaObra.setText(taulaModelClient.getModel().getValueAt(i, 17).toString()); 
+                    modEsVip.setText(taulaModelClient.getModel().getValueAt(i, 15).toString()); 
+                    modTocaObra.setText(taulaModelClient.getModel().getValueAt(i, 16).toString()); 
                     
                     modCodiClient.setEnabled(false);
                     modNomCom.setEnabled(true);
@@ -111,7 +112,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(true); 
                     modDescompte.setEnabled(true); 
                     modNotes.setEnabled(true);
-                    modEsActiu.setEnabled(true);
                     modEsVip.setEnabled(true);
                     modTocaObra.setEnabled(true);
                     
@@ -150,7 +150,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(false); 
                     modDescompte.setEnabled(false); 
                     modNotes.setEnabled(false);
-                    modEsActiu.setEnabled(false);
                     modEsVip.setEnabled(false);
                     modTocaObra.setEnabled(false);  
                 }
@@ -345,14 +344,14 @@ public class ClientsGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Notes", "Actiu", "VIP", "Toca Obra", "Index"
+                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Toca Obra", "Es Vip", "Notes", "Index"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -378,7 +377,6 @@ public class ClientsGui extends javax.swing.JFrame {
             taulaModelClient.getColumnModel().getColumn(11).setPreferredWidth(8);
             taulaModelClient.getColumnModel().getColumn(12).setPreferredWidth(8);
             taulaModelClient.getColumnModel().getColumn(13).setPreferredWidth(8);
-            taulaModelClient.getColumnModel().getColumn(18).setResizable(false);
         }
 
         jTextField4.setEditable(false);
@@ -1121,7 +1119,7 @@ public class ClientsGui extends javax.swing.JFrame {
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1012, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1205,7 +1203,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText("");
                     modDescompte.setText("");
                     modNotes.setText("");
-                    modEsActiu.setEnabled(false);
                     modEsVip.setEnabled(false);
                     modTocaObra.setEnabled(false); 
 
@@ -1239,8 +1236,7 @@ public class ClientsGui extends javax.swing.JFrame {
         
         int Descompte;
         Descompte=Integer.parseInt(addDescompte.getText());
-        
-        boolean actiu = true;
+       
         
         boolean esVip;
         esVip=addEsVip.isEnabled();
@@ -1264,21 +1260,15 @@ public class ClientsGui extends javax.swing.JFrame {
             Cc,
             Descompte,
             addNotes.getText(),
-            actiu,
             esVip,
             tocaObra
         );
 
         //El guardem a la primera posició lliure del vector
-        int i;
-        for (i = 0; i < vector.length && vector[i] != null && !vector[i].isBorrat(); i++);
-        if (i == vector.length) {
-            JOptionPane.showMessageDialog(this, "No caben més clients!!");
-        } else {
-            vector[i] = client;
-            //Si arribem aquí el client s'ha guardat
-            JOptionPane.showMessageDialog(this, "Client guardat correctament!!");
-            //Resetejem els camps de text.
+        vector.add(client);
+        //Si arribem aquí el client s'ha guardat
+        JOptionPane.showMessageDialog(this, "Client guardat correctament!!");
+        //Resetejem els camps de text.
         //Resetejem els camps de text.
                     modCodiClient.setText("");
                     modNomCom.setText("");
@@ -1295,12 +1285,11 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText("");
                     modDescompte.setText("");
                     modNotes.setText("");
-                    modEsActiu.setEnabled(false);
                     modEsVip.setEnabled(false);
                     modTocaObra.setEnabled(false); 
 
            
-        }
+        
 
     }//GEN-LAST:event_btn_saveMouseClicked
 
@@ -1312,50 +1301,9 @@ public class ClientsGui extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // Mètode que s'executa quan obrim l'aplicació
 
-        //Si el fixer existix creem un vector i l'omplim en les dades del fitxer i en cas contrari el dixem sense dades 
+        //Si el fixer existix creem un vector i l'omplim en les dades del fitxer i en cas contrari el dixem sense dades     
         if (f.exists()) {
-            //Stream per llegir el fitxer
             ObjectInputStream entrada = null;
-            //Comptador d'objectes continguts al fitxer
-            int numObjs = 0;
-
-            //Calculem quants clients conté el fitxer recorrent-lo d'inici a fi
-            try {
-                //Obrim el fitxer per lectura
-                entrada = new ObjectInputStream(new FileInputStream(f));
-
-                while (true) {
-                    try {
-                        entrada.readObject();
-                        numObjs++;
-                    } catch (IOException e) {
-                        break;
-                    }
-                }
-            } catch (IOException | ClassNotFoundException e) {
-                //Si hi ha un error de lectura del fitxer mostrem avís i tanquem l'aplicació
-                JOptionPane.showMessageDialog(this, "Error en obrir el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
-                System.exit(-1);
-            } finally {
-                if (entrada != null) {
-                    try {
-                        entrada.close();
-                    } catch (IOException e) {
-                        //Si hi ha un error de tancament del fitxer mostrem avís i tanquem l'aplicació
-                        JOptionPane.showMessageDialog(this, "Error en tancar el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
-                        System.exit(-1);
-                    }
-                }
-            }
-
-            //Mentre executem l'aplicació tindrem els clients a un vector i així podrem afegir, borrar i modificar-los
-            //La dimensió del vector serà el màxim entre 100 i el doble dels clients continguts al fitxer
-            if (numObjs < 50) {
-                numObjs = 100;
-            } else {
-                numObjs *= 2;
-            }
-            vector = new Clients[numObjs];
 
             //LLegim el fitxer i omplim el vector en els clients continguts dins ell
             try {
@@ -1364,14 +1312,17 @@ public class ClientsGui extends javax.swing.JFrame {
 
                 //Index del vector per guardar els clients trobats
                 int i = 0;
-
                 while (true) {
                     try {
-                        vector[i] = (Clients) entrada.readObject();
-                        i++;
-                    } catch (IOException | ClassNotFoundException e) {
+                        vector.add((Clients) entrada.readObject());
+                        System.out.println(vector);
+                    } catch (EOFException e) {
+                        System.out.println("eofe");
                         break;
+                    } catch (IOException|ClassNotFoundException ex) {
+                        Logger.getLogger(ClientsGui.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                       
                 }
 
             } catch (IOException e) {
@@ -1389,9 +1340,8 @@ public class ClientsGui extends javax.swing.JFrame {
                     }
                 }
             }
-            //El fitxer no existix    
         } else {
-            vector = new Clients[100];
+            System.out.println("Fitxer nou");
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -1405,11 +1355,9 @@ public class ClientsGui extends javax.swing.JFrame {
             //Pes escriure des de 0
             sortida = new ObjectOutputStream(new FileOutputStream(f));
             int i;
-            for (i = 0; i < vector.length; i++) //Escrivim els objectes no borrats al fitxer
+            for (i = 0; i < vector.size(); i++) //Escrivim els objectes al fitxer
             {
-                if (vector[i] != null && !vector[i].isBorrat()) {
-                    sortida.writeObject(vector[i]);
-                }
+                sortida.writeObject(vector.get(i));
             }
         } catch (IOException e) {
             //Mostrem avís
@@ -1436,7 +1384,10 @@ public class ClientsGui extends javax.swing.JFrame {
 //Nou v4
 
         //Primer que res hem de saber quin element del vector hem de modificar i això ho tenim guardat a 18ª columna de tableModel tm
-        int index=(int)tm.getValueAt(taulaModelClient.getSelectedRow(), 18);
+        int index=0;//(int)tm.getValueAt(taulaModelClient.getSelectedRow(), 17);
+        //int asd=((Integer) vector.getIdentifier(17)).intValue();
+        
+         
         //Fi nou v4
 
 
@@ -1458,51 +1409,48 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText("");
                     modDescompte.setText("");
                     modNotes.setText("");
-                    modEsActiu.setEnabled(false);
                     modEsVip.setEnabled(false);
                     modTocaObra.setEnabled(false); 
 
         
-        vector[index].setCodi(Integer.parseInt(modCodiClient.getText().trim()));
-        vector[index].setNomCom(modNomCom.getText().trim());
-        vector[index].setDataAlta(modDataAlta.getText().trim());
-        vector[index].setNomFis(modNomFis.getText().trim());
-        vector[index].setCifNif(modCifNif.getText().trim());
-        vector[index].setPais(modPais.getText().trim());
-        vector[index].setPoblacio(modPoblacio.getText().trim());
-        vector[index].setDireccio(modDireccio.getText().trim());
-        vector[index].setCp(Integer.parseInt(modCp.getText().trim()));
-        vector[index].setTfon(Integer.parseInt(modTel.getText().trim()));
-        vector[index].setEmail(modEmail.getText().trim());
-        vector[index].setWebsite(modWebsite.getText().trim());
-        vector[index].setCc(Integer.parseInt(modCc.getText().trim()));
-        vector[index].setDescompte(Integer.parseInt(modDescompte.getText().trim()));
-        vector[index].setNotes(modNotes.getText().trim());
-        vector[index].setesBorrat(Boolean.parseBoolean(modEsActiu.getText().trim()));
-        vector[index].setEsVip(Boolean.parseBoolean(modEsVip.getText().trim()));
-        vector[index].setTocaObra(Boolean.parseBoolean(modTocaObra.getText().trim()));
+        vector.get(index).set1codi(Integer.parseInt(modCodiClient.getText().trim()));
+        vector.get(index).set2nomCom(modNomCom.getText().trim());
+        vector.get(index).set3dataAlta(modDataAlta.getText().trim());
+        vector.get(index).set4nomFis(modNomFis.getText().trim());
+        vector.get(index).set5cifNif(modCifNif.getText().trim());
+        vector.get(index).set6pais(modPais.getText().trim());
+        vector.get(index).set7poblacio(modPoblacio.getText().trim());
+        vector.get(index).set8direccio(modDireccio.getText().trim());
+        vector.get(index).set9cp(Integer.parseInt(modCp.getText().trim()));
+        vector.get(index).set10tfon(Integer.parseInt(modTel.getText().trim()));
+        vector.get(index).set11email(modEmail.getText().trim());
+        vector.get(index).set12website(modWebsite.getText().trim());
+        vector.get(index).set13cc(Integer.parseInt(modCc.getText().trim()));
+        vector.get(index).set15descompte(Integer.parseInt(modDescompte.getText().trim()));
+        vector.get(index).set14notes(modNotes.getText().trim());
+        vector.get(index).set1esVip(Boolean.parseBoolean(modEsVip.getText().trim()));
+        vector.get(index).set2tocaObra(Boolean.parseBoolean(modTocaObra.getText().trim()));
 
         
         //I ara actualitzo la taula
         
-        taulaModelClient.setValueAt(vector[index].getCodi(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector[index].getNomCom(),taulaModelClient.getSelectedRow(), 1);
-        taulaModelClient.setValueAt(vector[index].getDataAlta(),taulaModelClient.getSelectedRow(), 2);
-        taulaModelClient.setValueAt(vector[index].getNomFis(),taulaModelClient.getSelectedRow(), 3);
-        taulaModelClient.setValueAt(vector[index].getCifNif(),taulaModelClient.getSelectedRow(), 4);
-        taulaModelClient.setValueAt(vector[index].getPais(),taulaModelClient.getSelectedRow(), 5);
-        taulaModelClient.setValueAt(vector[index].getPoblacio(),taulaModelClient.getSelectedRow(), 6);
-        taulaModelClient.setValueAt(vector[index].getDireccio(),taulaModelClient.getSelectedRow(), 7);
-        taulaModelClient.setValueAt(vector[index].getCp(),taulaModelClient.getSelectedRow(), 8);
-        taulaModelClient.setValueAt(vector[index].getTfon(),taulaModelClient.getSelectedRow(), 9);
-        taulaModelClient.setValueAt(vector[index].getEmail(),taulaModelClient.getSelectedRow(), 10);
-        taulaModelClient.setValueAt(vector[index].getWebsite(),taulaModelClient.getSelectedRow(), 11);
-        taulaModelClient.setValueAt(vector[index].getCc(),taulaModelClient.getSelectedRow(), 12);
-        taulaModelClient.setValueAt(vector[index].getDescompte(),taulaModelClient.getSelectedRow(), 13);
-        taulaModelClient.setValueAt(vector[index].getNotes(),taulaModelClient.getSelectedRow(), 14);
-        taulaModelClient.setValueAt(vector[index].isBorrat(),taulaModelClient.getSelectedRow(), 15);
-        taulaModelClient.setValueAt(vector[index].isEsVip(),taulaModelClient.getSelectedRow(), 16);
-        taulaModelClient.setValueAt(vector[index].isTocaObra(),taulaModelClient.getSelectedRow(), 17);
+        taulaModelClient.setValueAt(vector.get(index).get1codi(),taulaModelClient.getSelectedRow(), 0);
+        taulaModelClient.setValueAt(vector.get(index).get2nomCom(),taulaModelClient.getSelectedRow(), 1);
+        taulaModelClient.setValueAt(vector.get(index).get3dataAlta(),taulaModelClient.getSelectedRow(), 2);
+        taulaModelClient.setValueAt(vector.get(index).get4nomFis(),taulaModelClient.getSelectedRow(), 3);
+        taulaModelClient.setValueAt(vector.get(index).get5cifNif(),taulaModelClient.getSelectedRow(), 4);
+        taulaModelClient.setValueAt(vector.get(index).get6pais(),taulaModelClient.getSelectedRow(), 5);
+        taulaModelClient.setValueAt(vector.get(index).get7poblacio(),taulaModelClient.getSelectedRow(), 6);
+        taulaModelClient.setValueAt(vector.get(index).get8direccio(),taulaModelClient.getSelectedRow(), 7);
+        taulaModelClient.setValueAt(vector.get(index).get9cp(),taulaModelClient.getSelectedRow(), 8);
+        taulaModelClient.setValueAt(vector.get(index).get10tfon(),taulaModelClient.getSelectedRow(), 9);
+        taulaModelClient.setValueAt(vector.get(index).get11email(),taulaModelClient.getSelectedRow(), 10);
+        taulaModelClient.setValueAt(vector.get(index).get12website(),taulaModelClient.getSelectedRow(), 11);
+        taulaModelClient.setValueAt(vector.get(index).get13cc(),taulaModelClient.getSelectedRow(), 12);
+        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);
+        taulaModelClient.setValueAt(vector.get(index).get14notes(),taulaModelClient.getSelectedRow(), 14);
+        taulaModelClient.setValueAt(vector.get(index).is1esVip(),taulaModelClient.getSelectedRow(), 16);
+        taulaModelClient.setValueAt(vector.get(index).is2tocaObra(),taulaModelClient.getSelectedRow(), 17);
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
@@ -1521,7 +1469,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(false);
                     modDescompte.setEnabled(false);
                     modNotes.setEnabled(false);
-                    modEsActiu.setEnabled(false);
                     modEsVip.setEnabled(false);
                     modTocaObra.setEnabled(false); 
         
@@ -1552,11 +1499,10 @@ public class ClientsGui extends javax.swing.JFrame {
         modCc.setEnabled(false);
         modDescompte.setEnabled(false);
         modNotes.setEnabled(false);
-        modEsActiu.setEnabled(false);
         modEsVip.setEnabled(false);
         modTocaObra.setEnabled(false); 
         
-        //Omplim la taula en els clients no borrats del vector
+        //Omplim la taula en els clients del vector
 
         //LLegim el vector i anem omplint la taula
         //Index del vector
@@ -1569,47 +1515,46 @@ public class ClientsGui extends javax.swing.JFrame {
         //Nou v4
 
         //Eliminem del model de la taula les files afegides anteriorment
-        tm.setNumRows(0);
+        //tm.setNumRows(0);
         
         
 
         //Recorrem el vector
-        System.out.println(vector.length);
-        for (i = 0; i < vector.length; i++) {
-            if (vector[i] != null && !vector[i].isBorrat()) {
-                System.out.println("Asd");
-                //Obtenim el client contingut al vector
-                Clients a = vector[i];
-
-                //Creem un array d'Strings a partir de les dades del client
-                Object[] data = new Object[19];                
-                data[0] = a.getCodi();
-                data[1] = a.getNomCom();
-                data[2] = a.getDataAlta();
-                data[3] = a.getNomFis();
-                data[4] = a.getCifNif();
-                data[5] = a.getPais();
-                data[6] = a.getPoblacio();
-                data[7] = a.getDireccio();
-                data[8] = a.getCp();
-                data[9] = a.getTfon();
-                data[10] = a.getEmail();
-                data[11] = a.getWebsite();
-                data[12] = a.getCc();
-                data[13] = a.getDescompte();
-                data[14] = a.getNotes();
-                data[15] = a.isBorrat();
-                data[16] = a.isEsVip();
-                data[17] = a.isTocaObra();
-                data[18] = i;
-                                
-                //Nou v4
-
-                //Afegim una nova fila al model de la taula usant l'array dStrings
-                tm.addRow(data);
-
-            }
-        }
+//        System.out.println(vector.length);
+//        for (i = 0; i < vector.length; i++) {
+//            
+//                System.out.println("Asd");
+//                //Obtenim el client contingut al vector
+//                Clients a = vector.get(i);
+//
+//                //Creem un array d'Strings a partir de les dades del client
+//                Object[] data = new Object[19];                
+//                data[0] = a.getCodi();
+//                data[1] = a.getNomCom();
+//                data[2] = a.getDataAlta();
+//                data[3] = a.getNomFis();
+//                data[4] = a.getCifNif();
+//                data[5] = a.getPais();
+//                data[6] = a.getPoblacio();
+//                data[7] = a.getDireccio();
+//                data[8] = a.getCp();
+//                data[9] = a.getTfon();
+//                data[10] = a.getEmail();
+//                data[11] = a.getWebsite();
+//                data[12] = a.getCc();
+//                data[13] = a.getDescompte();
+//                data[14] = a.getNotes();
+//                data[16] = a.isEsVip();
+//                data[17] = a.isTocaObra();
+//                data[18] = i;
+//                                
+//                //Nou v4
+//
+//                //Afegim una nova fila al model de la taula usant l'array dStrings
+//                tm.addRow(data);
+//
+//            
+//        }
         //Fi nou v4
     }//GEN-LAST:event_button_modificarMouseClicked
 
@@ -1628,7 +1573,10 @@ public class ClientsGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField15ActionPerformed
 
     private void button_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modificarActionPerformed
-        // TODO add your handling code here:
+        ModelTaula<Clients> mt = new ModelTaula(vector);
+        
+        //Li assigno el model a la taula
+        taulaModelClient.setModel(mt);
     }//GEN-LAST:event_button_modificarActionPerformed
 
     private void modNomComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modNomComActionPerformed
@@ -1831,10 +1779,11 @@ public class ClientsGui extends javax.swing.JFrame {
 
     //Variables nostres
     //Vector per guardar els clients durant l'execució
-    private static Clients[] vector;
+    private static ArrayList<Clients> vector=new ArrayList<>();
 
     //Nom del fitxer de clients
-    private static File f = new File("clients.dat");
+    private static final File f = new File("clients.dat");
+    
     
     //Nou v4
     
@@ -1842,7 +1791,7 @@ public class ClientsGui extends javax.swing.JFrame {
     //private static TableColumn col;
 
     //tableModel de les taules d0afegir i borrar que usaré en diferents moments. S'instància dins el mètode initMeusComponents()
-    private static DefaultTableModel tm;
+    //private static DefaultTableModel tm;
     
     //Fi nou v4
 

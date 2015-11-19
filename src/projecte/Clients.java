@@ -5,36 +5,40 @@
  */
 package projecte;
 
+import java.io.Serializable;
+
 /**
  *
  * @author albert
  */
-public class Clients extends Entitats{
+public class Clients extends Entitats implements Serializable{
 
-    private boolean esVip;
-    private boolean tocaObra;
+    private boolean _1esVip;
+    private boolean _2tocaObra;
 
-    public Clients(int codi, String nomCom, String dataAlta, String nomFis, String cifNif, String pais, String poblacio, String direccio, int cp, int tfon, String email, String website, int cc, int descompte, String notes, boolean actiu, boolean esVip, boolean tocaObra) {
-        super(codi, nomCom, dataAlta, nomFis, cifNif, pais, poblacio, direccio, cp, tfon, email, website, cc, descompte, notes, actiu);
-        this.esVip = esVip;
-        this.tocaObra = tocaObra;
+    public Clients(int codi, String nomCom, String dataAlta, String nomFis, String cifNif, String pais, String poblacio, String direccio, int cp, int tfon, String email, String website, int cc, int descompte, String notes, boolean _1esVip, boolean _2tocaObra) {
+        super(codi, nomCom, dataAlta, nomFis, cifNif, pais, poblacio, direccio, cp, tfon, email, website, cc, descompte, notes);        
+        this._1esVip = _1esVip;
+        this._2tocaObra = _2tocaObra;
     }
+
+
 
     
-    public boolean isEsVip() {
-        return esVip;
+    public boolean is1esVip() {
+        return _1esVip;
     }
 
-    public void setEsVip(boolean esVip) {
-        this.esVip = esVip;
+    public void set1esVip(boolean _1esVip) {
+        this._1esVip = _1esVip;
     }
 
-    public boolean isTocaObra() {
-        return tocaObra;
+    public boolean is2tocaObra() {
+        return _2tocaObra;
     }
 
-    public void setTocaObra(boolean tocaObra) {
-        this.tocaObra = tocaObra;
+    public void set2tocaObra(boolean _2tocaObra) {
+        this._2tocaObra = _2tocaObra;
     }
 
 

@@ -16,8 +16,8 @@ public class Proveidors extends Entitats {
     private String portsGratuits;
     private String expoEnDiposit;
 
-    public Proveidors(int codi, String nomCom, String dataAlta, String nomFis, String cifNif, String pais, String poblacio, String direccio, int cp, int tfon, String email, String website, int cc, int descompte, String notes, boolean actiu, String tempsEntrega, String portsGratuits, String expoEnDiposit) {
-        super(codi, nomCom, dataAlta, nomFis, cifNif, pais, poblacio, direccio, cp, tfon, email, website, cc, descompte, notes, actiu);
+    public Proveidors(int codi, String nomCom, String dataAlta, String nomFis, String cifNif, String pais, String poblacio, String direccio, int cp, int tfon, String email, String website, int cc, int descompte, String notes, String tempsEntrega, String portsGratuits, String expoEnDiposit) {
+        super(codi, nomCom, dataAlta, nomFis, cifNif, pais, poblacio, direccio, cp, tfon, email, website, cc, descompte, notes);
         this.tempsEntrega = tempsEntrega;
         this.portsGratuits = portsGratuits;
         this.expoEnDiposit = expoEnDiposit;
