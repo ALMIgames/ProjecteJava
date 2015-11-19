@@ -93,6 +93,7 @@ public class Inici extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
+
 class ModelTaula<T> extends AbstractTableModel {
 
     private String[] columnNames;
@@ -108,34 +109,20 @@ class ModelTaula<T> extends AbstractTableModel {
         if(dades!=null && !dades.isEmpty()){
             //Obtinc els noms de les columnes a partir de la reflexió de la classe
             Class<?> classe = dades.get(0).getClass();
-            Class<?> classePare = dades.get(0).getClass().getSuperclass();
-            
 
             //Anoto el nº de camps de la classe
             int ncamps = classe.getDeclaredFields().length;
-            int ncampsPare=classePare.getDeclaredFields().length;
 
             //Omplo l'array de noms de columna a partir del camps de la classe. Se suposa que el format dels noms dels camps 
             //és _xnom_camp, sent x un enter major o igual que 0, per això elimino els dígits i el _
-            this.columnNames=new String[ncamps+ncampsPare];
-            int i;
-            for(i=0;i<ncampsPare;i++){
+            this.columnNames=new String[ncamps];
+
+            for(int i=0;i<ncamps;i++){
                 //Busquem el primer grup de _dígits numèrics del nom de camp
-                Matcher matcher = Pattern.compile("_\\d+").matcher(classePare.getDeclaredFields()[i].getName());
+                Matcher matcher = Pattern.compile("_\\d+").matcher(classe.getDeclaredFields()[i].getName());
                 matcher.find();
                 //El nom que mostrarem serà a partir del següent caracter que hi ha després del _grup numèric trobat
-                this.columnNames[i]=classePare.getDeclaredFields()[i].getName().substring(matcher.group().length()).toUpperCase();
-                //this.columnNames[i]=classePare.getDeclaredFields()[i].getName();
-                //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_0-9]", "").toUpperCase();
-                //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_\\d]", "").toUpperCase();
-            }
-            for(int j=0;j<ncamps;j++){
-                //Busquem el primer grup de _dígits numèrics del nom de camp
-                Matcher matcher = Pattern.compile("_\\d+").matcher(classe.getDeclaredFields()[j].getName());
-                matcher.find();
-                //El nom que mostrarem serà a partir del següent caracter que hi ha després del _grup numèric trobat
-                this.columnNames[i+j]=classe.getDeclaredFields()[j].getName().substring(matcher.group().length()).toUpperCase();
-                //this.columnNames[i+j]=classe.getDeclaredFields()[j].getName();
+                this.columnNames[i]=classe.getDeclaredFields()[i].getName().substring(matcher.group().length()).toUpperCase();
                 //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_0-9]", "").toUpperCase();
                 //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_\\d]", "").toUpperCase();
             }
@@ -175,52 +162,26 @@ class ModelTaula<T> extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
 
         Class<?> classe = dades.get(0).getClass();
-        Class<?> classePare = dades.get(0).getClass().getSuperclass();
-            
-
-        //Anoto el nº de camps de la classe
+        //Anotem el nº de camps de la classe
         int ncamps = classe.getDeclaredFields().length;
-        int ncampsPare=classePare.getDeclaredFields().length;
 
-        if(columnIndex<ncampsPare){
-            Method[] methods = new Method[ncampsPare];
-            int i = 0;
-            try {
-                for (PropertyDescriptor pD : Introspector.getBeanInfo(classePare).getPropertyDescriptors()) {
-                    Method m = pD.getReadMethod();
-                    if (m != null & !m.getName().equals("getClass")) {
-                        methods[i++] = m;
-                    }
+        Method[] methods = new Method[ncamps];
+        int i = 0;
+        try {
+            for (PropertyDescriptor pD : Introspector.getBeanInfo(classe).getPropertyDescriptors()) {
+                Method m = pD.getReadMethod();
+                if (m != null & !m.getName().equals("getClass")) {
+                    methods[i++] = m;
                 }
-            } catch (java.beans.IntrospectionException ex) {
-                //Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } catch (java.beans.IntrospectionException ex) {
+            //Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-            try {
-                return methods[columnIndex].invoke(dades.get(rowIndex));
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }        
-        else{
-            Method[] methods = new Method[ncamps+ncampsPare];
-            int i = 0;
-            try {
-                for (PropertyDescriptor pD : Introspector.getBeanInfo(classe).getPropertyDescriptors()) {
-                    Method m = pD.getReadMethod();
-                    if (m != null & !m.getName().equals("getClass")) {
-                        methods[i++] = m;
-                    }
-                }
-            } catch (java.beans.IntrospectionException ex) {
-                //Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            try {
-                return methods[columnIndex-ncamps].invoke(dades.get(rowIndex));
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            return methods[columnIndex].invoke(dades.get(rowIndex));
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
 

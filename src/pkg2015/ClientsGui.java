@@ -39,7 +39,6 @@ public class ClientsGui extends javax.swing.JFrame {
         initComponentsMeus();
     }
     
-    int codiClient;
     
     private void initComponentsMeus(){
 
@@ -79,25 +78,23 @@ public class ClientsGui extends javax.swing.JFrame {
 
                     
                     
-                    modCodiClient.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
-                    modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 1).toString());
-                    modDataAlta.setText(taulaModelClient.getModel().getValueAt(i, 2).toString());
-                    modNomFis.setText(taulaModelClient.getModel().getValueAt(i, 3).toString());
-                    modCifNif.setText(taulaModelClient.getModel().getValueAt(i, 4).toString());
-                    modPais.setText(taulaModelClient.getModel().getValueAt(i, 5).toString());
-                    modPoblacio.setText(taulaModelClient.getModel().getValueAt(i, 6).toString());
-                    modDireccio.setText(taulaModelClient.getModel().getValueAt(i, 7).toString());
-                    modCp.setText((String)taulaModelClient.getModel().getValueAt(i, 8).toString());
-                    modTel.setText((String)taulaModelClient.getModel().getValueAt(i, 9).toString());
-                    modEmail.setText(taulaModelClient.getModel().getValueAt(i, 10).toString()); 
-                    modWebsite.setText(taulaModelClient.getModel().getValueAt(i, 11).toString()); 
-                    modCc.setText((String)taulaModelClient.getModel().getValueAt(i, 12).toString()); 
-                    modDescompte.setText((String)taulaModelClient.getModel().getValueAt(i, 13).toString()); 
-                    modNotes.setText(taulaModelClient.getModel().getValueAt(i, 14).toString()); 
-                    modEsVip.setText(taulaModelClient.getModel().getValueAt(i, 15).toString()); 
-                    modTocaObra.setText(taulaModelClient.getModel().getValueAt(i, 16).toString()); 
+                    modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
+                    modDataAlta.setText(taulaModelClient.getModel().getValueAt(i, 1).toString());
+                    modNomFis.setText(taulaModelClient.getModel().getValueAt(i, 2).toString());
+                    modCifNif.setText(taulaModelClient.getModel().getValueAt(i, 3).toString());
+                    modPais.setText(taulaModelClient.getModel().getValueAt(i, 4).toString());
+                    modPoblacio.setText(taulaModelClient.getModel().getValueAt(i, 5).toString());
+                    modDireccio.setText(taulaModelClient.getModel().getValueAt(i, 6).toString());
+                    modCp.setText((String)taulaModelClient.getModel().getValueAt(i, 7).toString());
+                    modTel.setText((String)taulaModelClient.getModel().getValueAt(i, 8).toString());
+                    modEmail.setText(taulaModelClient.getModel().getValueAt(i, 9).toString()); 
+                    modWebsite.setText(taulaModelClient.getModel().getValueAt(i, 10).toString()); 
+                    modCc.setText((String)taulaModelClient.getModel().getValueAt(i, 11).toString()); 
+                    modDescompte.setText((String)taulaModelClient.getModel().getValueAt(i, 12).toString()); 
+                    modNotes.setText(taulaModelClient.getModel().getValueAt(i, 13).toString()); 
+                    modEsVip.setText(taulaModelClient.getModel().getValueAt(i, 14).toString()); 
+                    modTocaObra.setText(taulaModelClient.getModel().getValueAt(i, 15).toString()); 
                     
-                    modCodiClient.setEnabled(false);
                     modNomCom.setEnabled(true);
                     modDataAlta.setEnabled(false);
                     modNomFis.setEnabled(true);
@@ -119,7 +116,6 @@ public class ClientsGui extends javax.swing.JFrame {
                 
                 //Si no hem seleccionat cap fila resetejem els jtextfields i els desactivem
                 else{
-                    modCodiClient.setText("");
                     modNomCom.setText("");
                     modDataAlta.setText("");
                     modNomFis.setText("");
@@ -135,7 +131,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modDescompte.setText(""); 
                     modNotes.setText("");
 
-                    modCodiClient.setEnabled(false);
                     modNomCom.setEnabled(false);
                     modDataAlta.setEnabled(false);
                     modNomFis.setEnabled(false);
@@ -1188,7 +1183,6 @@ public class ClientsGui extends javax.swing.JFrame {
         panel_modificar.setVisible(false);
 
         //Resetejem els camps de text.
-                    modCodiClient.setText("");
                     modNomCom.setText("");
                     modDataAlta.setText("");
                     modNomFis.setText("");
@@ -1216,7 +1210,6 @@ public class ClientsGui extends javax.swing.JFrame {
     private void btn_saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_saveMouseClicked
 
 
-        codiClient = codiClient ++;
         //Creem l'objecte client recuperant les dades introduïdes per l'usuari
         //Miro la data actual i la guardo a date.
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -1233,11 +1226,7 @@ public class ClientsGui extends javax.swing.JFrame {
         
         int Cc;
         Cc=Integer.parseInt(addCc.getText());
-        
-        int Descompte;
-        Descompte=Integer.parseInt(addDescompte.getText());
-       
-        
+               
         boolean esVip;
         esVip=addEsVip.isEnabled();
         
@@ -1245,7 +1234,6 @@ public class ClientsGui extends javax.swing.JFrame {
         tocaObra=addTocaObra.isEnabled();
         
         projecte.Clients client = new projecte.Clients(          
-            codiClient,
             addNomCom.getText(),
             dataAlta,
             addNomFis.getText(),
@@ -1258,8 +1246,8 @@ public class ClientsGui extends javax.swing.JFrame {
             addEmail.getText(),
             addWebsite.getText(),
             Cc,
-            Descompte,
             addNotes.getText(),
+            addDescompte.getText(),
             esVip,
             tocaObra
         );
@@ -1270,7 +1258,6 @@ public class ClientsGui extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Client guardat correctament!!");
         //Resetejem els camps de text.
         //Resetejem els camps de text.
-                    modCodiClient.setText("");
                     modNomCom.setText("");
                     modDataAlta.setText("");
                     modNomFis.setText("");
@@ -1394,7 +1381,6 @@ public class ClientsGui extends javax.swing.JFrame {
         
         //Com ja sé l'índex ja puc actualitzar el vector
                 //Resetejem els camps de text.
-                    modCodiClient.setText("");
                     modNomCom.setText("");
                     modDataAlta.setText("");
                     modNomFis.setText("");
@@ -1413,7 +1399,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modTocaObra.setEnabled(false); 
 
         
-        vector.get(index).set1codi(Integer.parseInt(modCodiClient.getText().trim()));
         vector.get(index).set2nomCom(modNomCom.getText().trim());
         vector.get(index).set3dataAlta(modDataAlta.getText().trim());
         vector.get(index).set4nomFis(modNomFis.getText().trim());
@@ -1426,35 +1411,33 @@ public class ClientsGui extends javax.swing.JFrame {
         vector.get(index).set11email(modEmail.getText().trim());
         vector.get(index).set12website(modWebsite.getText().trim());
         vector.get(index).set13cc(Integer.parseInt(modCc.getText().trim()));
-        vector.get(index).set15descompte(Integer.parseInt(modDescompte.getText().trim()));
         vector.get(index).set14notes(modNotes.getText().trim());
-        vector.get(index).set1esVip(Boolean.parseBoolean(modEsVip.getText().trim()));
-        vector.get(index).set2tocaObra(Boolean.parseBoolean(modTocaObra.getText().trim()));
+        vector.get(index).set15descompte(modDescompte.getText().trim());
+        vector.get(index).set16esVip(Boolean.parseBoolean(modEsVip.getText().trim()));
+        vector.get(index).set17tocaObra(Boolean.parseBoolean(modTocaObra.getText().trim()));
 
         
         //I ara actualitzo la taula
         
-        taulaModelClient.setValueAt(vector.get(index).get1codi(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector.get(index).get2nomCom(),taulaModelClient.getSelectedRow(), 1);
-        taulaModelClient.setValueAt(vector.get(index).get3dataAlta(),taulaModelClient.getSelectedRow(), 2);
-        taulaModelClient.setValueAt(vector.get(index).get4nomFis(),taulaModelClient.getSelectedRow(), 3);
-        taulaModelClient.setValueAt(vector.get(index).get5cifNif(),taulaModelClient.getSelectedRow(), 4);
-        taulaModelClient.setValueAt(vector.get(index).get6pais(),taulaModelClient.getSelectedRow(), 5);
-        taulaModelClient.setValueAt(vector.get(index).get7poblacio(),taulaModelClient.getSelectedRow(), 6);
-        taulaModelClient.setValueAt(vector.get(index).get8direccio(),taulaModelClient.getSelectedRow(), 7);
-        taulaModelClient.setValueAt(vector.get(index).get9cp(),taulaModelClient.getSelectedRow(), 8);
-        taulaModelClient.setValueAt(vector.get(index).get10tfon(),taulaModelClient.getSelectedRow(), 9);
-        taulaModelClient.setValueAt(vector.get(index).get11email(),taulaModelClient.getSelectedRow(), 10);
-        taulaModelClient.setValueAt(vector.get(index).get12website(),taulaModelClient.getSelectedRow(), 11);
-        taulaModelClient.setValueAt(vector.get(index).get13cc(),taulaModelClient.getSelectedRow(), 12);
-        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);
-        taulaModelClient.setValueAt(vector.get(index).get14notes(),taulaModelClient.getSelectedRow(), 14);
-        taulaModelClient.setValueAt(vector.get(index).is1esVip(),taulaModelClient.getSelectedRow(), 16);
-        taulaModelClient.setValueAt(vector.get(index).is2tocaObra(),taulaModelClient.getSelectedRow(), 17);
+        taulaModelClient.setValueAt(vector.get(index).get2nomCom(),taulaModelClient.getSelectedRow(), 0);
+        taulaModelClient.setValueAt(vector.get(index).get3dataAlta(),taulaModelClient.getSelectedRow(), 1);
+        taulaModelClient.setValueAt(vector.get(index).get4nomFis(),taulaModelClient.getSelectedRow(), 2);
+        taulaModelClient.setValueAt(vector.get(index).get5cifNif(),taulaModelClient.getSelectedRow(), 3);
+        taulaModelClient.setValueAt(vector.get(index).get6pais(),taulaModelClient.getSelectedRow(), 4);
+        taulaModelClient.setValueAt(vector.get(index).get7poblacio(),taulaModelClient.getSelectedRow(), 5);
+        taulaModelClient.setValueAt(vector.get(index).get8direccio(),taulaModelClient.getSelectedRow(), 6);
+        taulaModelClient.setValueAt(vector.get(index).get9cp(),taulaModelClient.getSelectedRow(), 7);
+        taulaModelClient.setValueAt(vector.get(index).get10tfon(),taulaModelClient.getSelectedRow(), 8);
+        taulaModelClient.setValueAt(vector.get(index).get11email(),taulaModelClient.getSelectedRow(), 9);
+        taulaModelClient.setValueAt(vector.get(index).get12website(),taulaModelClient.getSelectedRow(), 10);
+        taulaModelClient.setValueAt(vector.get(index).get13cc(),taulaModelClient.getSelectedRow(), 11);
+        taulaModelClient.setValueAt(vector.get(index).get14notes(),taulaModelClient.getSelectedRow(), 12);
+        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);        
+        taulaModelClient.setValueAt(vector.get(index).is16esVip(),taulaModelClient.getSelectedRow(), 14);
+        taulaModelClient.setValueAt(vector.get(index).is17tocaObra(),taulaModelClient.getSelectedRow(), 15);
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
-                    modCodiClient.setEnabled(false);
                     modNomCom.setEnabled(false);
                     modDataAlta.setEnabled(false);
                     modNomFis.setEnabled(false);
@@ -1484,7 +1467,6 @@ public class ClientsGui extends javax.swing.JFrame {
 //Fem visible el jpanel de modificar i inicialment desactivem el botó d'actualitzar canvis i els quadres de text
 
         btn_actualitzar.setEnabled(false);
-        modCodiClient.setEnabled(false);
         modNomCom.setEnabled(false);
         modDataAlta.setEnabled(false);
         modNomFis.setEnabled(false);
