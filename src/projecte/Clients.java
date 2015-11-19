@@ -28,11 +28,8 @@ public class Clients implements Serializable {
     private int _13cc;
     private String _14notes;
     private String _15descompte;
-    private boolean _16esVip;
-    private boolean _17tocaObra;
 
-    public Clients( String _2nomCom, String _3dataAlta, String _4nomFis, String _5cifNif, String _6pais, String _7poblacio, String _8direccio, int _9cp, int _10tfon, String _11email, String _12website, int _13cc, String _14notes, String _15descompte, boolean _16esVip, boolean _17tocaObra) {
-
+    public Clients(String _2nomCom, String _3dataAlta, String _4nomFis, String _5cifNif, String _6pais, String _7poblacio, String _8direccio, int _9cp, int _10tfon, String _11email, String _12website, int _13cc, String _14notes, String _15descompte) {
         this._2nomCom = _2nomCom;
         this._3dataAlta = _3dataAlta;
         this._4nomFis = _4nomFis;
@@ -47,8 +44,6 @@ public class Clients implements Serializable {
         this._13cc = _13cc;
         this._14notes = _14notes;
         this._15descompte = _15descompte;
-        this._16esVip = _16esVip;
-        this._17tocaObra = _17tocaObra;
     }
 
     public String get2nomCom() {
@@ -58,7 +53,7 @@ public class Clients implements Serializable {
     public void set2nomCom(String _2nomCom) {
         this._2nomCom = _2nomCom;
     }
-    
+
     public String get3dataAlta() {
         return _3dataAlta;
     }
@@ -163,19 +158,5 @@ public class Clients implements Serializable {
         this._15descompte = _15descompte;
     }
 
-    public boolean is16esVip() {
-        return _16esVip;
-    }
-
-    public void set16esVip(boolean _16esVip) {
-        this._16esVip = _16esVip;
-    }
-
-    public boolean is17tocaObra() {
-        return _17tocaObra;
-    }
-
-    public void set17tocaObra(boolean _17tocaObra) {
-        this._17tocaObra = _17tocaObra;
-    }
+   
 }

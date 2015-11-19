@@ -91,8 +91,7 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText((String)taulaModelClient.getModel().getValueAt(i, 11).toString()); 
                     modDescompte.setText((String)taulaModelClient.getModel().getValueAt(i, 12).toString()); 
                     modNotes.setText(taulaModelClient.getModel().getValueAt(i, 13).toString()); 
-                    modEsVip.setText(taulaModelClient.getModel().getValueAt(i, 14).toString()); 
-                    modTocaObra.setText(taulaModelClient.getModel().getValueAt(i, 15).toString()); 
+                    
                     
                     modNomCom.setEnabled(true);
                     modDataAlta.setEnabled(false);
@@ -108,8 +107,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(true); 
                     modDescompte.setEnabled(true); 
                     modNotes.setEnabled(true);
-                    modEsVip.setEnabled(true);
-                    modTocaObra.setEnabled(true);
                     
                 }
                 
@@ -144,8 +141,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(false); 
                     modDescompte.setEnabled(false); 
                     modNotes.setEnabled(false);
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false);  
                 }
 
                 //Sempre que cliquem la taula desactivem el botó d'actualitzar fins que no es canvien els valors dels jtextfields
@@ -201,10 +196,6 @@ public class ClientsGui extends javax.swing.JFrame {
         jTextField31 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         modNotes = new javax.swing.JTextArea();
-        modCodiClient = new javax.swing.JTextField();
-        modEsVip = new javax.swing.JCheckBox();
-        modTocaObra = new javax.swing.JCheckBox();
-        modEsActiu = new javax.swing.JCheckBox();
         modDataAlta = new javax.swing.JTextField();
         panel_insert = new javax.swing.JPanel();
         jTextField13 = new javax.swing.JTextField();
@@ -236,8 +227,6 @@ public class ClientsGui extends javax.swing.JFrame {
         jTextField37 = new javax.swing.JTextField();
         jTextField38 = new javax.swing.JTextField();
         jTextField39 = new javax.swing.JTextField();
-        addEsVip = new javax.swing.JCheckBox();
-        addTocaObra = new javax.swing.JCheckBox();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -338,14 +327,14 @@ public class ClientsGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Toca Obra", "Es Vip", "Notes", "Index"
+                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Notes", "Index"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -606,14 +595,6 @@ public class ClientsGui extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(modNotes);
 
-        modCodiClient.setText("CodiClient");
-
-        modEsVip.setText("Es Vip");
-
-        modTocaObra.setText("Toca Obra");
-
-        modEsActiu.setText("Actiu");
-
         modDataAlta.setText("DataAlta");
 
         javax.swing.GroupLayout panel_modificarLayout = new javax.swing.GroupLayout(panel_modificar);
@@ -636,10 +617,7 @@ public class ClientsGui extends javax.swing.JFrame {
                             .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_modificarLayout.createSequentialGroup()
-                                .addComponent(modCodiClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(panel_modificarLayout.createSequentialGroup()
                                     .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -672,10 +650,7 @@ public class ClientsGui extends javax.swing.JFrame {
                                         .addComponent(modWebsite)
                                         .addComponent(modCc)
                                         .addComponent(modDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane3))
-                            .addComponent(modEsVip)
-                            .addComponent(modTocaObra)
-                            .addComponent(modEsActiu))))
+                                .addComponent(jScrollPane3)))))
                 .addContainerGap(35, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
         );
@@ -742,18 +717,10 @@ public class ClientsGui extends javax.swing.JFrame {
                     .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(modCodiClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modEsVip)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modTocaObra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modEsActiu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         panel_insert.setMaximumSize(new java.awt.Dimension(1000, 800));
@@ -967,20 +934,6 @@ public class ClientsGui extends javax.swing.JFrame {
         jTextField39.setText("CC");
         jTextField39.setFocusable(false);
 
-        addEsVip.setText("Es VIP");
-        addEsVip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEsVipActionPerformed(evt);
-            }
-        });
-
-        addTocaObra.setText("Toca Obra");
-        addTocaObra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addTocaObraActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panel_insertLayout = new javax.swing.GroupLayout(panel_insert);
         panel_insert.setLayout(panel_insertLayout);
         panel_insertLayout.setHorizontalGroup(
@@ -999,46 +952,41 @@ public class ClientsGui extends javax.swing.JFrame {
                             .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addEsVip)
-                            .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(panel_insertLayout.createSequentialGroup()
-                                    .addComponent(addTocaObra)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(addNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
+                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField37, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(addPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField38, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(addEmail)
-                                        .addComponent(addWebsite)
-                                        .addComponent(addCc)
-                                        .addComponent(addDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                                        .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField37, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField38, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addEmail)
+                                    .addComponent(addWebsite)
+                                    .addComponent(addCc)
+                                    .addComponent(addDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         panel_insertLayout.setVerticalGroup(
             panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1100,20 +1048,16 @@ public class ClientsGui extends javax.swing.JFrame {
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addEsVip)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addTocaObra)
-                    .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(493, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout first_panelLayout = new javax.swing.GroupLayout(first_panel);
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1196,9 +1140,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText("");
                     modDescompte.setText("");
                     modNotes.setText("");
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
-
    
 
         //Fem visible el jpanel d'afegir
@@ -1226,11 +1167,7 @@ public class ClientsGui extends javax.swing.JFrame {
         int Cc;
         Cc=Integer.parseInt(addCc.getText());
                
-        boolean esVip;
-        esVip=addEsVip.isEnabled();
-        
-        boolean tocaObra;
-        tocaObra=addTocaObra.isEnabled();
+
         
         projecte.Clients client = new projecte.Clients(          
             addNomCom.getText(),
@@ -1246,9 +1183,7 @@ public class ClientsGui extends javax.swing.JFrame {
             addWebsite.getText(),
             Cc,
             addNotes.getText(),
-            addDescompte.getText(),
-            esVip,
-            tocaObra
+            addDescompte.getText()
         );
 
         //El guardem a la primera posició lliure del vector
@@ -1271,8 +1206,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText("");
                     modDescompte.setText("");
                     modNotes.setText("");
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
 
            
         
@@ -1394,8 +1327,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText("");
                     modDescompte.setText("");
                     modNotes.setText("");
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
 
         
         vector.get(index).set2nomCom(modNomCom.getText().trim());
@@ -1412,8 +1343,6 @@ public class ClientsGui extends javax.swing.JFrame {
         vector.get(index).set13cc(Integer.parseInt(modCc.getText().trim()));
         vector.get(index).set14notes(modNotes.getText().trim());
         vector.get(index).set15descompte(modDescompte.getText().trim());
-        vector.get(index).set16esVip(Boolean.parseBoolean(modEsVip.getText().trim()));
-        vector.get(index).set17tocaObra(Boolean.parseBoolean(modTocaObra.getText().trim()));
 
         
         //I ara actualitzo la taula
@@ -1431,9 +1360,7 @@ public class ClientsGui extends javax.swing.JFrame {
         taulaModelClient.setValueAt(vector.get(index).get12website(),taulaModelClient.getSelectedRow(), 10);
         taulaModelClient.setValueAt(vector.get(index).get13cc(),taulaModelClient.getSelectedRow(), 11);
         taulaModelClient.setValueAt(vector.get(index).get14notes(),taulaModelClient.getSelectedRow(), 12);
-        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);        
-        taulaModelClient.setValueAt(vector.get(index).is16esVip(),taulaModelClient.getSelectedRow(), 14);
-        taulaModelClient.setValueAt(vector.get(index).is17tocaObra(),taulaModelClient.getSelectedRow(), 15);
+        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);    
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
@@ -1451,8 +1378,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(false);
                     modDescompte.setEnabled(false);
                     modNotes.setEnabled(false);
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
         
         
         
@@ -1480,8 +1405,6 @@ public class ClientsGui extends javax.swing.JFrame {
         modCc.setEnabled(false);
         modDescompte.setEnabled(false);
         modNotes.setEnabled(false);
-        modEsVip.setEnabled(false);
-        modTocaObra.setEnabled(false); 
         
         //Omplim la taula en els clients del vector
 
@@ -1712,14 +1635,6 @@ public class ClientsGui extends javax.swing.JFrame {
         btn_actualitzar.setEnabled(true);
     }//GEN-LAST:event_modNotesKeyTyped
 
-    private void addEsVipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEsVipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addEsVipActionPerformed
-
-    private void addTocaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTocaObraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addTocaObraActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1784,14 +1699,12 @@ public class ClientsGui extends javax.swing.JFrame {
     private javax.swing.JTextField addDescompte;
     private javax.swing.JTextField addDireccio;
     private javax.swing.JTextField addEmail;
-    private javax.swing.JCheckBox addEsVip;
     private javax.swing.JTextField addNomCom;
     private javax.swing.JTextField addNomFis;
     private javax.swing.JTextArea addNotes;
     private javax.swing.JTextField addPais;
     private javax.swing.JTextField addPoblacio;
     private javax.swing.JTextField addTel;
-    private javax.swing.JCheckBox addTocaObra;
     private javax.swing.JTextField addWebsite;
     private javax.swing.JButton btn_actualitzar;
     private javax.swing.JButton btn_exit;
@@ -1835,21 +1748,17 @@ public class ClientsGui extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField modCc;
     private javax.swing.JTextField modCifNif;
-    private javax.swing.JTextField modCodiClient;
     private javax.swing.JTextField modCp;
     private javax.swing.JTextField modDataAlta;
     private javax.swing.JTextField modDescompte;
     private javax.swing.JTextField modDireccio;
     private javax.swing.JTextField modEmail;
-    private javax.swing.JCheckBox modEsActiu;
-    private javax.swing.JCheckBox modEsVip;
     private javax.swing.JTextField modNomCom;
     private javax.swing.JTextField modNomFis;
     private javax.swing.JTextArea modNotes;
     private javax.swing.JTextField modPais;
     private javax.swing.JTextField modPoblacio;
     private javax.swing.JTextField modTel;
-    private javax.swing.JCheckBox modTocaObra;
     private javax.swing.JTextField modWebsite;
     private javax.swing.JPanel panel_insert;
     private javax.swing.JPanel panel_modificar;

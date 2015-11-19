@@ -189,7 +189,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1012" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1010" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
@@ -263,11 +263,7 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="modCodiClient" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                          <Component id="modDataAlta" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="modDataAlta" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -309,9 +305,6 @@
                                           </Group>
                                           <Component id="jScrollPane3" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="modEsVip" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="modTocaObra" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="modEsActiu" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -397,19 +390,10 @@
                               <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="modCodiClient" min="-2" max="-2" attributes="0"/>
-                              <Component id="modDataAlta" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="modEsVip" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="modTocaObra" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="modEsActiu" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="modDataAlta" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="157" max="-2" attributes="0"/>
-                          <EmptySpace pref="236" max="32767" attributes="0"/>
+                          <EmptySpace pref="270" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -425,7 +409,7 @@
                     <Component class="javax.swing.JTable" name="taulaModelClient">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="18" rowCount="0">
+                          <Table columnCount="16" rowCount="0">
                             <Column editable="false" title="ID" type="java.lang.Integer"/>
                             <Column editable="false" title="Nom Comercial" type="java.lang.String"/>
                             <Column editable="false" title="Data d&apos;alta" type="java.lang.String"/>
@@ -440,8 +424,6 @@
                             <Column editable="false" title="Website" type="java.lang.String"/>
                             <Column editable="false" title="CC" type="java.lang.Integer"/>
                             <Column editable="false" title="Descompte" type="java.lang.Integer"/>
-                            <Column editable="false" title="Toca Obra" type="java.lang.Boolean"/>
-                            <Column editable="false" title="Es Vip" type="java.lang.Boolean"/>
                             <Column editable="false" title="Notes" type="java.lang.String"/>
                             <Column editable="false" title="Index" type="java.lang.Integer"/>
                           </Table>
@@ -514,16 +496,6 @@
                               <Renderer/>
                             </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="8" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -879,26 +851,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JTextField" name="modCodiClient">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="CodiClient"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="modEsVip">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Es Vip"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="modTocaObra">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Toca Obra"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="modEsActiu">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Actiu"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="modDataAlta">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="DataAlta"/>
@@ -941,58 +893,51 @@
                                       <Component id="jTextField36" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="addEsVip" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="addTocaObra" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="btn_save" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btn_save" min="-2" pref="218" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="addNomCom" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                              <Component id="addNomFis" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                              <Component id="addCifNif" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                              <Component id="addPais" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="addNomCom" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                                  <Component id="addNomFis" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                                  <Component id="addCifNif" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                                  <Component id="addPais" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jTextField11" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                                                  <Component id="jTextField34" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                                      <Component id="jTextField35" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                                                      <Component id="jTextField37" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="addPoblacio" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                                  <Component id="addDireccio" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                                  <Component id="addCp" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                                  <Component id="addTel" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jTextField32" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
-                                                  <Component id="jTextField38" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
-                                                  <Component id="jTextField39" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
-                                                  <Component id="jTextField33" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="addEmail" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="addWebsite" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="addCc" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="addDescompte" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextField11" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <Component id="jTextField34" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                                  <Component id="jTextField35" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                                  <Component id="jTextField37" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="addPoblacio" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                              <Component id="addDireccio" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                              <Component id="addCp" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                              <Component id="addTel" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextField32" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <Component id="jTextField38" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <Component id="jTextField39" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <Component id="jTextField33" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="addEmail" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="addWebsite" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="addCc" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="addDescompte" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
+                                      <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="73" max="32767" attributes="0"/>
+                          <EmptySpace pref="75" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1069,14 +1014,9 @@
                               <Component id="jTextField36" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="addEsVip" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="addTocaObra" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_save" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="470" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btn_save" min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace pref="493" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1400,22 +1340,6 @@
                     <Property name="text" type="java.lang.String" value="CC"/>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="addEsVip">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Es VIP"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addEsVipActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="addTocaObra">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Toca Obra"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addTocaObraActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
