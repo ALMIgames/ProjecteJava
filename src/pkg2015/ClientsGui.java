@@ -76,8 +76,8 @@ public class ClientsGui extends javax.swing.JFrame {
                 int i=taulaModelClient.getSelectedRow();
                 if(i!=-1){
                     
-                    modNomCom.setText(vector.get(i).get2nomCom());
-                    //modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
+                    //modNomCom.setText(vector.get(i).get2nomCom());
+                    modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
                     modDataAlta.setText(taulaModelClient.getModel().getValueAt(i, 1).toString());
                     modNomFis.setText(taulaModelClient.getModel().getValueAt(i, 2).toString());
                     modCifNif.setText(taulaModelClient.getModel().getValueAt(i, 3).toString());
@@ -1191,21 +1191,19 @@ public class ClientsGui extends javax.swing.JFrame {
         //Si arribem aquí el client s'ha guardat
         JOptionPane.showMessageDialog(this, "Client guardat correctament!!");
         //Resetejem els camps de text.
-        //Resetejem els camps de text.
-                    modNomCom.setText("");
-                    modDataAlta.setText("");
-                    modNomFis.setText("");
-                    modCifNif.setText("");
-                    modPais.setText("");
-                    modPoblacio.setText("");
-                    modDireccio.setText("");
-                    modCp.setText("");
-                    modTel.setText("");
-                    modEmail.setText("");
-                    modWebsite.setText("");
-                    modCc.setText("");
-                    modDescompte.setText("");
-                    modNotes.setText("");
+        addNomCom.setText("");
+        addNomFis.setText("");
+        addCifNif.setText("");
+        addPais.setText("");
+        addPoblacio.setText("");
+        addDireccio.setText("");
+        addCp.setText("");
+        addTel.setText("");
+        addEmail.setText("");
+        addWebsite.setText("");
+        addCc.setText("");
+        addDescompte.setText("");
+        addNotes.setText("");
 
            
         
@@ -1329,38 +1327,38 @@ public class ClientsGui extends javax.swing.JFrame {
                     modNotes.setText("");
 
         
-        vector.get(index).set2nomCom(modNomCom.getText().trim());
-        vector.get(index).set3dataAlta(modDataAlta.getText().trim());
-        vector.get(index).set4nomFis(modNomFis.getText().trim());
-        vector.get(index).set5cifNif(modCifNif.getText().trim());
-        vector.get(index).set6pais(modPais.getText().trim());
-        vector.get(index).set7poblacio(modPoblacio.getText().trim());
-        vector.get(index).set8direccio(modDireccio.getText().trim());
-        vector.get(index).set9cp(Integer.parseInt(modCp.getText().trim()));
-        vector.get(index).set10tfon(Integer.parseInt(modTel.getText().trim()));
-        vector.get(index).set11email(modEmail.getText().trim());
-        vector.get(index).set12website(modWebsite.getText().trim());
-        vector.get(index).set13cc(Integer.parseInt(modCc.getText().trim()));
-        vector.get(index).set14notes(modNotes.getText().trim());
-        vector.get(index).set15descompte(modDescompte.getText().trim());
+        vector.get(index).set01nomCom(modNomCom.getText().trim());
+        vector.get(index).set02dataAlta(modDataAlta.getText().trim());
+        vector.get(index).set03nomFis(modNomFis.getText().trim());
+        vector.get(index).set04cifNif(modCifNif.getText().trim());
+        vector.get(index).set05pais(modPais.getText().trim());
+        vector.get(index).set06poblacio(modPoblacio.getText().trim());
+        vector.get(index).set07direccio(modDireccio.getText().trim());
+        vector.get(index).set08cp(Integer.parseInt(modCp.getText().trim()));
+        vector.get(index).set09tfon(Integer.parseInt(modTel.getText().trim()));
+        vector.get(index).set10email(modEmail.getText().trim());
+        vector.get(index).set11website(modWebsite.getText().trim());
+        vector.get(index).set12cc(Integer.parseInt(modCc.getText().trim()));
+        vector.get(index).set13notes(modNotes.getText().trim());
+        vector.get(index).set14descompte(modDescompte.getText().trim());
 
         
         //I ara actualitzo la taula
         
-        taulaModelClient.setValueAt(vector.get(index).get2nomCom(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector.get(index).get3dataAlta(),taulaModelClient.getSelectedRow(), 1);
-        taulaModelClient.setValueAt(vector.get(index).get4nomFis(),taulaModelClient.getSelectedRow(), 2);
-        taulaModelClient.setValueAt(vector.get(index).get5cifNif(),taulaModelClient.getSelectedRow(), 3);
-        taulaModelClient.setValueAt(vector.get(index).get6pais(),taulaModelClient.getSelectedRow(), 4);
-        taulaModelClient.setValueAt(vector.get(index).get7poblacio(),taulaModelClient.getSelectedRow(), 5);
-        taulaModelClient.setValueAt(vector.get(index).get8direccio(),taulaModelClient.getSelectedRow(), 6);
-        taulaModelClient.setValueAt(vector.get(index).get9cp(),taulaModelClient.getSelectedRow(), 7);
-        taulaModelClient.setValueAt(vector.get(index).get10tfon(),taulaModelClient.getSelectedRow(), 8);
-        taulaModelClient.setValueAt(vector.get(index).get11email(),taulaModelClient.getSelectedRow(), 9);
-        taulaModelClient.setValueAt(vector.get(index).get12website(),taulaModelClient.getSelectedRow(), 10);
-        taulaModelClient.setValueAt(vector.get(index).get13cc(),taulaModelClient.getSelectedRow(), 11);
-        taulaModelClient.setValueAt(vector.get(index).get14notes(),taulaModelClient.getSelectedRow(), 12);
-        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);    
+        taulaModelClient.setValueAt(vector.get(index).get01nomCom(),taulaModelClient.getSelectedRow(), 0);
+        taulaModelClient.setValueAt(vector.get(index).get02dataAlta(),taulaModelClient.getSelectedRow(), 1);
+        taulaModelClient.setValueAt(vector.get(index).get03nomFis(),taulaModelClient.getSelectedRow(), 2);
+        taulaModelClient.setValueAt(vector.get(index).get04cifNif(),taulaModelClient.getSelectedRow(), 3);
+        taulaModelClient.setValueAt(vector.get(index).get05pais(),taulaModelClient.getSelectedRow(), 4);
+        taulaModelClient.setValueAt(vector.get(index).get06poblacio(),taulaModelClient.getSelectedRow(), 5);
+        taulaModelClient.setValueAt(vector.get(index).get07direccio(),taulaModelClient.getSelectedRow(), 6);
+        taulaModelClient.setValueAt(vector.get(index).get08cp(),taulaModelClient.getSelectedRow(), 7);
+        taulaModelClient.setValueAt(vector.get(index).get09tfon(),taulaModelClient.getSelectedRow(), 8);
+        taulaModelClient.setValueAt(vector.get(index).get10email(),taulaModelClient.getSelectedRow(), 9);
+        taulaModelClient.setValueAt(vector.get(index).get11website(),taulaModelClient.getSelectedRow(), 10);
+        taulaModelClient.setValueAt(vector.get(index).get12cc(),taulaModelClient.getSelectedRow(), 11);
+        taulaModelClient.setValueAt(vector.get(index).get13notes(),taulaModelClient.getSelectedRow(), 12);
+        taulaModelClient.setValueAt(vector.get(index).get14descompte(),taulaModelClient.getSelectedRow(), 13);    
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
