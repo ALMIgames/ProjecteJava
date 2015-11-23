@@ -10,7 +10,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -40,9 +39,12 @@ public class ClientsGui extends javax.swing.JFrame {
         initComponentsMeus();
     }
     
+    /*DESCARTADA, BUSCA PEPEPEPE, ALLA S'EXPLICA*/
+    int indexupdate;
+    int indexDataAlta; //Ja que no se com generar un id en autoincrement sense una base de dades
+    //el que fare sera crear un id a partir de la data.
+    
     private void initComponentsMeus(){
-
-
  
         //Posem un listener a la taula de clients per modificar que actualitze els jtextfileds al canviar de fila seleccionada
         taulaModelClient.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -50,11 +52,10 @@ public class ClientsGui extends javax.swing.JFrame {
             public void valueChanged(ListSelectionEvent e) {
                 // Si seleccionem un client posem les seues dades als jtextfields corresponents i els activem 
                 int i=taulaModelClient.getSelectedRow();
-                
                 if(i!=-1){
                     
-                    modNomCom.setText(vector.get(i).get2nomCom());
-                    //modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
+                    //modNomCom.setText(vector.get(i).get2nomCom());
+                    modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
                     modDataAlta.setText(taulaModelClient.getModel().getValueAt(i, 1).toString());
                     modNomFis.setText(taulaModelClient.getModel().getValueAt(i, 2).toString());
                     modCifNif.setText(taulaModelClient.getModel().getValueAt(i, 3).toString());
@@ -85,7 +86,36 @@ public class ClientsGui extends javax.swing.JFrame {
                     modDescompte.setEnabled(true); 
                     modNotes.setEnabled(true);
                     
+                    String data = (taulaModelClient.getModel().getValueAt(i, 1).toString());
+                    indexupdate=0;
+                    for(int x = 0; data != (taulaModelClient.getModel().getValueAt(x, 1).toString()); x++){
+                        indexupdate++;
+                    }
+                    System.out.println("******************************************************************************************************************************************************************************************************");
+                    System.out.println(indexupdate);
+                    System.out.println("******************************************************************************************************************************************************************************************************");
+                    /*
+                    //PEPEPEPE
+                    DESCARTO LA IDEA PER QUE DESPRES NO EM SERVEIX, JA QUE DESPRES NECESSITO UN INT 
+                    REFERENCIANT LA LINIA, PERO A PARTIR D'AQUI HE PENSAT QUE EN LA DATA JA QUE ES UNICA
+                    PUC FER UN FOREACH PER TREURE LA LINIA QUE COINCIDEIX I TINDRE L'ID
+                        
+                    LLASTIMA, COMENÇAVA A AGRADAR-ME LA IDEA
+                    */
+                    
+                    //creem l'ID a partir de la data
+                    /*
+                    String str = taulaModelClient.getModel().getValueAt(i, 1).toString();//agafo l'string
+                    str = str.replaceAll("[^\\d.]", "");//trec tots els caracters no numerics
+                    str = str.substring(0, str.length() - 4);//trec els ultims 4 digits (2015) ja que si 
+                    //no es un numero massa gran per a un int i un long no el puc usar per a les funcions
+                    indexDataAlta =  Integer.parseInt(str);//passo l'string a int
+                    System.out.println("******************************************************************");
+                    System.out.println(indexDataAlta);//per si de cas auqi el puc revisar
+                    System.out.println("******************************************************************");
+                   */
                 }
+                
                 
                 //Si no hem seleccionat cap fila resetejem els jtextfields i els desactivem
                 else{
@@ -299,7 +329,7 @@ public class ClientsGui extends javax.swing.JFrame {
         panel_modificar.setPreferredSize(new java.awt.Dimension(1000, 800));
         panel_modificar.setVisible(false);
 
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 402));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 500));
 
         taulaModelClient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -324,7 +354,7 @@ public class ClientsGui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        taulaModelClient.setPreferredSize(new java.awt.Dimension(800, 0));
+        taulaModelClient.setPreferredSize(new java.awt.Dimension(800, 500));
         taulaModelClient.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(taulaModelClient);
         if (taulaModelClient.getColumnModel().getColumnCount() > 0) {
@@ -491,6 +521,11 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         modCp.setBackground(new java.awt.Color(204, 255, 255));
+        modCp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modCpActionPerformed(evt);
+            }
+        });
         modCp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modCpKeyTyped(evt);
@@ -575,8 +610,6 @@ public class ClientsGui extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(modNotes);
 
-        modDataAlta.setText("DataAlta");
-
         javax.swing.GroupLayout panel_modificarLayout = new javax.swing.GroupLayout(panel_modificar);
         panel_modificar.setLayout(panel_modificarLayout);
         panel_modificarLayout.setHorizontalGroup(
@@ -596,43 +629,42 @@ public class ClientsGui extends javax.swing.JFrame {
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(panel_modificarLayout.createSequentialGroup()
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(modNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panel_modificarLayout.createSequentialGroup()
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(modNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(modPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(modEmail)
-                                        .addComponent(modWebsite)
-                                        .addComponent(modCc)
-                                        .addComponent(modDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane3)))))
+                                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(modPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(modEmail)
+                                    .addComponent(modWebsite)
+                                    .addComponent(modCc)
+                                    .addComponent(modDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane3)
+                            .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(35, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panel_modificarLayout.setVerticalGroup(
             panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -696,9 +728,9 @@ public class ClientsGui extends javax.swing.JFrame {
                 .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
+                .addGap(85, 85, 85)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(270, Short.MAX_VALUE))
         );
@@ -1136,7 +1168,8 @@ public class ClientsGui extends javax.swing.JFrame {
         Date date = new Date();
         
         String dataAlta;
-        dataAlta = date.toString().trim();
+        //dataAlta = date.toString().trim();
+        dataAlta = "0";
         
         int Cp;
         Cp=Integer.parseInt(addCp.getText());
@@ -1171,21 +1204,19 @@ public class ClientsGui extends javax.swing.JFrame {
         //Si arribem aquí el client s'ha guardat
         JOptionPane.showMessageDialog(this, "Client guardat correctament!!");
         //Resetejem els camps de text.
-        //Resetejem els camps de text.
-                    modNomCom.setText("");
-                    modDataAlta.setText("");
-                    modNomFis.setText("");
-                    modCifNif.setText("");
-                    modPais.setText("");
-                    modPoblacio.setText("");
-                    modDireccio.setText("");
-                    modCp.setText("");
-                    modTel.setText("");
-                    modEmail.setText("");
-                    modWebsite.setText("");
-                    modCc.setText("");
-                    modDescompte.setText("");
-                    modNotes.setText("");
+        addNomCom.setText("");
+        addNomFis.setText("");
+        addCifNif.setText("");
+        addPais.setText("");
+        addPoblacio.setText("");
+        addDireccio.setText("");
+        addCp.setText("");
+        addTel.setText("");
+        addEmail.setText("");
+        addWebsite.setText("");
+        addCc.setText("");
+        addDescompte.setText("");
+        addNotes.setText("");
 
            
         
@@ -1214,7 +1245,6 @@ public class ClientsGui extends javax.swing.JFrame {
                 while (true) {
                     try {
                         vector.add((Clients) entrada.readObject());
-                        System.out.println(vector);
                     } catch (EOFException e) {
                         System.out.println("eofe");
                         break;
@@ -1278,82 +1308,59 @@ public class ClientsGui extends javax.swing.JFrame {
     private void btn_actualitzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualitzarActionPerformed
         //Ocultem els altres jpanels
         panel_insert.setVisible(false);
-        
-//Nou v4
-        //Primer que res hem de saber quin element del vector hem de modificar i això ho tenim guardat a 18ª columna de tableModel tm
-        int index = 0;// Integer.parseInt(vector.getValueAt(vector.getSelectedRow(), 14).toString()); //(int)tm.getValueAt(taulaModelClient.getSelectedRow(), 17);
-        //int asd=((Integer) vector.getIdentifier(17)).intValue();
-
-        //Fi nou v4
-
+                
         //Com ja sé l'índex ja puc actualitzar el vector
         //Resetejem els camps de text.
-        
-        modNomCom.setText("");
-        modDataAlta.setText("");
-        modNomFis.setText("");
-        modCifNif.setText("");
-        modPais.setText("");
-        modPoblacio.setText("");
-        modDireccio.setText("");
-        modCp.setText("");
-        modTel.setText("");
-        modEmail.setText("");
-        modWebsite.setText("");
-        modCc.setText("");
-        modDescompte.setText("");
-        modNotes.setText("");
+            modNomCom.setText("");
+            modDataAlta.setText("");
+            modNomFis.setText("");
+            modCifNif.setText("");
+            modPais.setText("");
+            modPoblacio.setText("");
+            modDireccio.setText("");
+            modCp.setText("");
+            modTel.setText("");
+            modEmail.setText("");
+            modWebsite.setText("");
+            modCc.setText("");
+            modDescompte.setText("");
+            modNotes.setText("");
 
         
-        vector.get(index).set2nomCom(modNomCom.getText().trim());
-        vector.get(index).set3dataAlta(modDataAlta.getText().trim());
-        vector.get(index).set4nomFis(modNomFis.getText().trim());
-        vector.get(index).set5cifNif(modCifNif.getText().trim());
-        vector.get(index).set6pais(modPais.getText().trim());
-        vector.get(index).set7poblacio(modPoblacio.getText().trim());
-        vector.get(index).set8direccio(modDireccio.getText().trim());
-        vector.get(index).set9cp(Integer.parseInt(modCp.getText().trim()));
-        vector.get(index).set10tfon(Integer.parseInt(modTel.getText().trim()));
-        vector.get(index).set11email(modEmail.getText().trim());
-        vector.get(index).set12website(modWebsite.getText().trim());
-        vector.get(index).set13cc(Integer.parseInt(modCc.getText().trim()));
-        vector.get(index).set14notes(modNotes.getText().trim());
-        vector.get(index).set15descompte(modDescompte.getText().trim());
+            //PETA AQUI
+            
+        vector.get(indexupdate).set01nomCom(modNomCom.getText().trim());
+        vector.get(indexupdate).set02dataAlta(modDataAlta.getText().trim());
+        vector.get(indexupdate).set03nomFis(modNomFis.getText().trim());
+        vector.get(indexupdate).set04cifNif(modCifNif.getText().trim());
+        vector.get(indexupdate).set05pais(modPais.getText().trim());
+        vector.get(indexupdate).set06poblacio(modPoblacio.getText().trim());
+        vector.get(indexupdate).set07direccio(modDireccio.getText().trim());
+        vector.get(indexupdate).set08cp(Integer.parseInt(modCp.getText().trim()));
+        vector.get(indexupdate).set09tfon(Integer.parseInt(modTel.getText().trim()));
+        vector.get(indexupdate).set10email(modEmail.getText().trim());
+        vector.get(indexupdate).set11website(modWebsite.getText().trim());
+        vector.get(indexupdate).set12cc(Integer.parseInt(modCc.getText().trim()));
+        vector.get(indexupdate).set13notes(modNotes.getText().trim());
+        vector.get(indexupdate).set14descompte(modDescompte.getText().trim());
 
         
         //I ara actualitzo la taula
-<<<<<<< HEAD
-        taulaModelClient.setValueAt(vector.get(index).get01nomCom(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector.get(index).get02dataAlta(),taulaModelClient.getSelectedRow(), 1);
-        taulaModelClient.setValueAt(vector.get(index).get03nomFis(),taulaModelClient.getSelectedRow(), 2);
-        taulaModelClient.setValueAt(vector.get(index).get04cifNif(),taulaModelClient.getSelectedRow(), 3);
-        taulaModelClient.setValueAt(vector.get(index).get05pais(),taulaModelClient.getSelectedRow(), 4);
-        taulaModelClient.setValueAt(vector.get(index).get06poblacio(),taulaModelClient.getSelectedRow(), 5);
-        taulaModelClient.setValueAt(vector.get(index).get07direccio(),taulaModelClient.getSelectedRow(), 6);
-        taulaModelClient.setValueAt(vector.get(index).get08cp(),taulaModelClient.getSelectedRow(), 7);
-        taulaModelClient.setValueAt(vector.get(index).get09tfon(),taulaModelClient.getSelectedRow(), 8);
-        taulaModelClient.setValueAt(vector.get(index).get10email(),taulaModelClient.getSelectedRow(), 9);
-        taulaModelClient.setValueAt(vector.get(index).get11website(),taulaModelClient.getSelectedRow(), 10);
-        taulaModelClient.setValueAt(vector.get(index).get12cc(),taulaModelClient.getSelectedRow(), 11);
-        taulaModelClient.setValueAt(vector.get(index).get13notes(),taulaModelClient.getSelectedRow(), 12);
-        taulaModelClient.setValueAt(vector.get(index).get14descompte(),taulaModelClient.getSelectedRow(), 13);    
-=======
         
-        taulaModelClient.setValueAt(vector.get(index).get2nomCom(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector.get(index).get3dataAlta(),taulaModelClient.getSelectedRow(), 1);
-        taulaModelClient.setValueAt(vector.get(index).get4nomFis(),taulaModelClient.getSelectedRow(), 2);
-        taulaModelClient.setValueAt(vector.get(index).get5cifNif(),taulaModelClient.getSelectedRow(), 3);
-        taulaModelClient.setValueAt(vector.get(index).get6pais(),taulaModelClient.getSelectedRow(), 4);
-        taulaModelClient.setValueAt(vector.get(index).get7poblacio(),taulaModelClient.getSelectedRow(), 5);
-        taulaModelClient.setValueAt(vector.get(index).get8direccio(),taulaModelClient.getSelectedRow(), 6);
-        taulaModelClient.setValueAt(vector.get(index).get9cp(),taulaModelClient.getSelectedRow(), 7);
-        taulaModelClient.setValueAt(vector.get(index).get10tfon(),taulaModelClient.getSelectedRow(), 8);
-        taulaModelClient.setValueAt(vector.get(index).get11email(),taulaModelClient.getSelectedRow(), 9);
-        taulaModelClient.setValueAt(vector.get(index).get12website(),taulaModelClient.getSelectedRow(), 10);
-        taulaModelClient.setValueAt(vector.get(index).get13cc(),taulaModelClient.getSelectedRow(), 11);
-        taulaModelClient.setValueAt(vector.get(index).get14notes(),taulaModelClient.getSelectedRow(), 12);
-        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);    
->>>>>>> parent of 633c982... Solved unsorted clients table
+        taulaModelClient.setValueAt(vector.get(indexupdate).get01nomCom(),taulaModelClient.getSelectedRow(), 0);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get02dataAlta(),taulaModelClient.getSelectedRow(), 1);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get03nomFis(),taulaModelClient.getSelectedRow(), 2);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get04cifNif(),taulaModelClient.getSelectedRow(), 3);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get05pais(),taulaModelClient.getSelectedRow(), 4);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get06poblacio(),taulaModelClient.getSelectedRow(), 5);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get07direccio(),taulaModelClient.getSelectedRow(), 6);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get08cp(),taulaModelClient.getSelectedRow(), 7);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get09tfon(),taulaModelClient.getSelectedRow(), 8);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get10email(),taulaModelClient.getSelectedRow(), 9);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get11website(),taulaModelClient.getSelectedRow(), 10);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get12cc(),taulaModelClient.getSelectedRow(), 11);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get13notes(),taulaModelClient.getSelectedRow(), 12);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get14descompte(),taulaModelClient.getSelectedRow(), 13);    
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
@@ -1371,7 +1378,7 @@ public class ClientsGui extends javax.swing.JFrame {
         modCc.setEnabled(false);
         modDescompte.setEnabled(false);
         modNotes.setEnabled(false);
-
+        
         
         
     }//GEN-LAST:event_btn_actualitzarActionPerformed
@@ -1409,7 +1416,7 @@ public class ClientsGui extends javax.swing.JFrame {
         
         String dataAlta;
         dataAlta = date.toString().trim();
-   
+
     }//GEN-LAST:event_button_modificarMouseClicked
 
     private void modNomComKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modNomComKeyTyped
@@ -1584,6 +1591,10 @@ public class ClientsGui extends javax.swing.JFrame {
     private void modNotesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modNotesKeyTyped
         btn_actualitzar.setEnabled(true);
     }//GEN-LAST:event_modNotesKeyTyped
+
+    private void modCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modCpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modCpActionPerformed
 
     /**
      * @param args the command line arguments
