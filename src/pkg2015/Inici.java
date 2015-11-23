@@ -175,9 +175,6 @@ class ModelTaula<T> extends AbstractTableModel {
                     methods[i++] = m;
                 }
                 
-            System.out.println(m);
-            System.out.println(i);
-            System.out.println(classe);
             }
         } catch (java.beans.IntrospectionException ex) {
             //Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);

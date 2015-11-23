@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,33 +40,8 @@ public class ClientsGui extends javax.swing.JFrame {
         initComponentsMeus();
     }
     
-    
     private void initComponentsMeus(){
 
-
-        //Nou v4
-        //Amaguem la columna "index" de les taules, que mos servix per saber quina posició del vector ocupa cada fila de la taula
-        //Les taules són l'estructura que veem, però tenen les dades a un altre objecte anomenat TableModel. Per amagar la columna
-        //que no volem que es veigue la borrem de l'estructura de la taula, però en el model de dades continua estant
-        //Fixeu-vos que les 2 taules compartixen el mateix model, per tant tenen les mateixes dades
-        
-        //Assignem a la propietat tm el tableModel de taula1 i el compartim en taula2
-        //tm=(DefaultTableModel) taulaModelClient.getModel();
-     //   taula2.setModel(tm);
-     //   taula4.setModel(tm);
-        
-        //Obtenim el columnModel de taula1 i el compartim en taula2
-        //TableColumnModel m=taulaModelClient.getColumnModel();
-     //   taula2.setColumnModel(m);
-        
-        //Obtenim la columna que volem treure de l'estructura de la taula (la columna 18, que conté l'index)
-        //TableColumn col=m.getColumn(15);
-        
-        //Borrem la columna index de l'estructura de taula1 i taula2, així no es vorà, encara que continua estant al model de dades
-        //taulaModelClient.removeColumn(col);
-      //  taula2.removeColumn(col);
-        
-        //Fi nou v4
 
  
         //Posem un listener a la taula de clients per modificar que actualitze els jtextfileds al canviar de fila seleccionada
@@ -74,6 +50,7 @@ public class ClientsGui extends javax.swing.JFrame {
             public void valueChanged(ListSelectionEvent e) {
                 // Si seleccionem un client posem les seues dades als jtextfields corresponents i els activem 
                 int i=taulaModelClient.getSelectedRow();
+                
                 if(i!=-1){
                     
                     //modNomCom.setText(vector.get(i).get2nomCom());
@@ -322,6 +299,8 @@ public class ClientsGui extends javax.swing.JFrame {
         panel_modificar.setPreferredSize(new java.awt.Dimension(1000, 800));
         panel_modificar.setVisible(false);
 
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 402));
+
         taulaModelClient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -345,6 +324,7 @@ public class ClientsGui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        taulaModelClient.setPreferredSize(new java.awt.Dimension(800, 0));
         taulaModelClient.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(taulaModelClient);
         if (taulaModelClient.getColumnModel().getColumnCount() > 0) {
@@ -652,7 +632,7 @@ public class ClientsGui extends javax.swing.JFrame {
                                         .addComponent(modDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jScrollPane3)))))
                 .addContainerGap(35, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panel_modificarLayout.setVerticalGroup(
             panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1297,34 +1277,30 @@ public class ClientsGui extends javax.swing.JFrame {
         //Ocultem els altres jpanels
         panel_insert.setVisible(false);
         
-
 //Nou v4
-
         //Primer que res hem de saber quin element del vector hem de modificar i això ho tenim guardat a 18ª columna de tableModel tm
-        int index=0;//(int)tm.getValueAt(taulaModelClient.getSelectedRow(), 17);
+        int index = 0;// Integer.parseInt(vector.getValueAt(vector.getSelectedRow(), 14).toString()); //(int)tm.getValueAt(taulaModelClient.getSelectedRow(), 17);
         //int asd=((Integer) vector.getIdentifier(17)).intValue();
-        
-         
+
         //Fi nou v4
 
-
-        
         //Com ja sé l'índex ja puc actualitzar el vector
-                //Resetejem els camps de text.
-                    modNomCom.setText("");
-                    modDataAlta.setText("");
-                    modNomFis.setText("");
-                    modCifNif.setText("");
-                    modPais.setText("");
-                    modPoblacio.setText("");
-                    modDireccio.setText("");
-                    modCp.setText("");
-                    modTel.setText("");
-                    modEmail.setText("");
-                    modWebsite.setText("");
-                    modCc.setText("");
-                    modDescompte.setText("");
-                    modNotes.setText("");
+        //Resetejem els camps de text.
+        
+        modNomCom.setText("");
+        modDataAlta.setText("");
+        modNomFis.setText("");
+        modCifNif.setText("");
+        modPais.setText("");
+        modPoblacio.setText("");
+        modDireccio.setText("");
+        modCp.setText("");
+        modTel.setText("");
+        modEmail.setText("");
+        modWebsite.setText("");
+        modCc.setText("");
+        modDescompte.setText("");
+        modNotes.setText("");
 
         
         vector.get(index).set01nomCom(modNomCom.getText().trim());
@@ -1344,7 +1320,6 @@ public class ClientsGui extends javax.swing.JFrame {
 
         
         //I ara actualitzo la taula
-        
         taulaModelClient.setValueAt(vector.get(index).get01nomCom(),taulaModelClient.getSelectedRow(), 0);
         taulaModelClient.setValueAt(vector.get(index).get02dataAlta(),taulaModelClient.getSelectedRow(), 1);
         taulaModelClient.setValueAt(vector.get(index).get03nomFis(),taulaModelClient.getSelectedRow(), 2);
@@ -1362,21 +1337,21 @@ public class ClientsGui extends javax.swing.JFrame {
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
-                    modNomCom.setEnabled(false);
-                    modDataAlta.setEnabled(false);
-                    modNomFis.setEnabled(false);
-                    modCifNif.setEnabled(false);
-                    modPais.setEnabled(false);
-                    modPoblacio.setEnabled(false);
-                    modDireccio.setEnabled(false);
-                    modCp.setEnabled(false);
-                    modTel.setEnabled(false);
-                    modEmail.setEnabled(false);
-                    modWebsite.setEnabled(false);
-                    modCc.setEnabled(false);
-                    modDescompte.setEnabled(false);
-                    modNotes.setEnabled(false);
-        
+        modNomCom.setEnabled(false);
+        modDataAlta.setEnabled(false);
+        modNomFis.setEnabled(false);
+        modCifNif.setEnabled(false);
+        modPais.setEnabled(false);
+        modPoblacio.setEnabled(false);
+        modDireccio.setEnabled(false);
+        modCp.setEnabled(false);
+        modTel.setEnabled(false);
+        modEmail.setEnabled(false);
+        modWebsite.setEnabled(false);
+        modCc.setEnabled(false);
+        modDescompte.setEnabled(false);
+        modNotes.setEnabled(false);
+
         
         
     }//GEN-LAST:event_btn_actualitzarActionPerformed
@@ -1414,50 +1389,7 @@ public class ClientsGui extends javax.swing.JFrame {
         
         String dataAlta;
         dataAlta = date.toString().trim();
-        //Nou v4
-
-        //Eliminem del model de la taula les files afegides anteriorment
-        //tm.setNumRows(0);
-        
-        
-
-        //Recorrem el vector
-//        System.out.println(vector.length);
-//        for (i = 0; i < vector.length; i++) {
-//            
-//                System.out.println("Asd");
-//                //Obtenim el client contingut al vector
-//                Clients a = vector.get(i);
-//
-//                //Creem un array d'Strings a partir de les dades del client
-//                Object[] data = new Object[19];                
-//                data[0] = a.getCodi();
-//                data[1] = a.getNomCom();
-//                data[2] = a.getDataAlta();
-//                data[3] = a.getNomFis();
-//                data[4] = a.getCifNif();
-//                data[5] = a.getPais();
-//                data[6] = a.getPoblacio();
-//                data[7] = a.getDireccio();
-//                data[8] = a.getCp();
-//                data[9] = a.getTfon();
-//                data[10] = a.getEmail();
-//                data[11] = a.getWebsite();
-//                data[12] = a.getCc();
-//                data[13] = a.getDescompte();
-//                data[14] = a.getNotes();
-//                data[16] = a.isEsVip();
-//                data[17] = a.isTocaObra();
-//                data[18] = i;
-//                                
-//                //Nou v4
-//
-//                //Afegim una nova fila al model de la taula usant l'array dStrings
-//                tm.addRow(data);
-//
-//            
-//        }
-        //Fi nou v4
+   
     }//GEN-LAST:event_button_modificarMouseClicked
 
     private void modNomComKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modNomComKeyTyped
