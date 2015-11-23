@@ -125,7 +125,6 @@ class ModelTaula<T> extends AbstractTableModel {
                 this.columnNames[i]=classe.getDeclaredFields()[i].getName().substring(matcher.group().length()).toUpperCase();
                 //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_0-9]", "").toUpperCase();
                 //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_\\d]", "").toUpperCase();
-                
             }
         }
         this.dades = dades;
@@ -174,7 +173,10 @@ class ModelTaula<T> extends AbstractTableModel {
                 if (m != null & !m.getName().equals("getClass")) {
                     methods[i++] = m;
                 }
+<<<<<<< HEAD
                 
+=======
+>>>>>>> parent of 633c982... Solved unsorted clients table
             }
         } catch (java.beans.IntrospectionException ex) {
             //Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
