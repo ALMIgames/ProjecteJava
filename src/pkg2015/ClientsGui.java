@@ -39,34 +39,12 @@ public class ClientsGui extends javax.swing.JFrame {
         initComponentsMeus();
     }
     
+    /*DESCARTADA, BUSCA PEPEPEPE, ALLA S'EXPLICA*/
+    int indexupdate;
+    int indexDataAlta; //Ja que no se com generar un id en autoincrement sense una base de dades
+    //el que fare sera crear un id a partir de la data.
     
     private void initComponentsMeus(){
-
-
-        //Nou v4
-        //Amaguem la columna "index" de les taules, que mos servix per saber quina posició del vector ocupa cada fila de la taula
-        //Les taules són l'estructura que veem, però tenen les dades a un altre objecte anomenat TableModel. Per amagar la columna
-        //que no volem que es veigue la borrem de l'estructura de la taula, però en el model de dades continua estant
-        //Fixeu-vos que les 2 taules compartixen el mateix model, per tant tenen les mateixes dades
-        
-        //Assignem a la propietat tm el tableModel de taula1 i el compartim en taula2
-        //tm=(DefaultTableModel) taulaModelClient.getModel();
-     //   taula2.setModel(tm);
-     //   taula4.setModel(tm);
-        
-        //Obtenim el columnModel de taula1 i el compartim en taula2
-        //TableColumnModel m=taulaModelClient.getColumnModel();
-     //   taula2.setColumnModel(m);
-        
-        //Obtenim la columna que volem treure de l'estructura de la taula (la columna 18, que conté l'index)
-        //TableColumn col=m.getColumn(15);
-        
-        //Borrem la columna index de l'estructura de taula1 i taula2, així no es vorà, encara que continua estant al model de dades
-        //taulaModelClient.removeColumn(col);
-      //  taula2.removeColumn(col);
-        
-        //Fi nou v4
-
  
         //Posem un listener a la taula de clients per modificar que actualitze els jtextfileds al canviar de fila seleccionada
         taulaModelClient.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -76,8 +54,8 @@ public class ClientsGui extends javax.swing.JFrame {
                 int i=taulaModelClient.getSelectedRow();
                 if(i!=-1){
                     
-                    modNomCom.setText(vector.get(i).get2nomCom());
-                    //modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
+                    //modNomCom.setText(vector.get(i).get2nomCom());
+                    modNomCom.setText(taulaModelClient.getModel().getValueAt(i, 0).toString());
                     modDataAlta.setText(taulaModelClient.getModel().getValueAt(i, 1).toString());
                     modNomFis.setText(taulaModelClient.getModel().getValueAt(i, 2).toString());
                     modCifNif.setText(taulaModelClient.getModel().getValueAt(i, 3).toString());
@@ -91,8 +69,7 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText((String)taulaModelClient.getModel().getValueAt(i, 11).toString()); 
                     modDescompte.setText((String)taulaModelClient.getModel().getValueAt(i, 12).toString()); 
                     modNotes.setText(taulaModelClient.getModel().getValueAt(i, 13).toString()); 
-                    modEsVip.setText(taulaModelClient.getModel().getValueAt(i, 14).toString()); 
-                    modTocaObra.setText(taulaModelClient.getModel().getValueAt(i, 15).toString()); 
+                    
                     
                     modNomCom.setEnabled(true);
                     modDataAlta.setEnabled(false);
@@ -108,10 +85,34 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(true); 
                     modDescompte.setEnabled(true); 
                     modNotes.setEnabled(true);
-                    modEsVip.setEnabled(true);
-                    modTocaObra.setEnabled(true);
                     
+                    String data = (taulaModelClient.getModel().getValueAt(i, 1).toString());
+                    indexupdate=0;
+                    for(int x = 0; data != (taulaModelClient.getModel().getValueAt(x, 1).toString()); x++){
+                        indexupdate++;
+                    }
+                    /*
+                    //PEPEPEPE
+                    DESCARTO LA IDEA PER QUE DESPRES NO EM SERVEIX, JA QUE DESPRES NECESSITO UN INT 
+                    REFERENCIANT LA LINIA, PERO A PARTIR D'AQUI HE PENSAT QUE EN LA DATA JA QUE ES UNICA
+                    PUC FER UN FOREACH PER TREURE LA LINIA QUE COINCIDEIX I TINDRE L'ID
+                        
+                    LLASTIMA, COMENÇAVA A AGRADAR-ME LA IDEA
+                    */
+                    
+                    //creem l'ID a partir de la data
+                    /*
+                    String str = taulaModelClient.getModel().getValueAt(i, 1).toString();//agafo l'string
+                    str = str.replaceAll("[^\\d.]", "");//trec tots els caracters no numerics
+                    str = str.substring(0, str.length() - 4);//trec els ultims 4 digits (2015) ja que si 
+                    //no es un numero massa gran per a un int i un long no el puc usar per a les funcions
+                    indexDataAlta =  Integer.parseInt(str);//passo l'string a int
+                    System.out.println("******************************************************************");
+                    System.out.println(indexDataAlta);//per si de cas auqi el puc revisar
+                    System.out.println("******************************************************************");
+                   */
                 }
+                
                 
                 //Si no hem seleccionat cap fila resetejem els jtextfields i els desactivem
                 else{
@@ -144,8 +145,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setEnabled(false); 
                     modDescompte.setEnabled(false); 
                     modNotes.setEnabled(false);
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false);  
                 }
 
                 //Sempre que cliquem la taula desactivem el botó d'actualitzar fins que no es canvien els valors dels jtextfields
@@ -201,10 +200,6 @@ public class ClientsGui extends javax.swing.JFrame {
         jTextField31 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         modNotes = new javax.swing.JTextArea();
-        modCodiClient = new javax.swing.JTextField();
-        modEsVip = new javax.swing.JCheckBox();
-        modTocaObra = new javax.swing.JCheckBox();
-        modEsActiu = new javax.swing.JCheckBox();
         modDataAlta = new javax.swing.JTextField();
         panel_insert = new javax.swing.JPanel();
         jTextField13 = new javax.swing.JTextField();
@@ -236,8 +231,6 @@ public class ClientsGui extends javax.swing.JFrame {
         jTextField37 = new javax.swing.JTextField();
         jTextField38 = new javax.swing.JTextField();
         jTextField39 = new javax.swing.JTextField();
-        addEsVip = new javax.swing.JCheckBox();
-        addTocaObra = new javax.swing.JCheckBox();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -333,19 +326,21 @@ public class ClientsGui extends javax.swing.JFrame {
         panel_modificar.setPreferredSize(new java.awt.Dimension(1000, 800));
         panel_modificar.setVisible(false);
 
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 500));
+
         taulaModelClient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Toca Obra", "Es Vip", "Notes", "Index"
+                "ID", "Nom Comercial", "Data d'alta", "Nom Fiscal", "CIF/NIF", "Pais", "Poblacio", "Direccio", "CP", "Telefon", "Email", "Website", "CC", "Descompte", "Notes", "Index"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -356,6 +351,7 @@ public class ClientsGui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        taulaModelClient.setPreferredSize(new java.awt.Dimension(800, 500));
         taulaModelClient.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(taulaModelClient);
         if (taulaModelClient.getColumnModel().getColumnCount() > 0) {
@@ -522,6 +518,11 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         modCp.setBackground(new java.awt.Color(204, 255, 255));
+        modCp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modCpActionPerformed(evt);
+            }
+        });
         modCp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modCpKeyTyped(evt);
@@ -606,16 +607,6 @@ public class ClientsGui extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(modNotes);
 
-        modCodiClient.setText("CodiClient");
-
-        modEsVip.setText("Es Vip");
-
-        modTocaObra.setText("Toca Obra");
-
-        modEsActiu.setText("Actiu");
-
-        modDataAlta.setText("DataAlta");
-
         javax.swing.GroupLayout panel_modificarLayout = new javax.swing.GroupLayout(panel_modificar);
         panel_modificar.setLayout(panel_modificarLayout);
         panel_modificarLayout.setHorizontalGroup(
@@ -635,49 +626,42 @@ public class ClientsGui extends javax.swing.JFrame {
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panel_modificarLayout.createSequentialGroup()
-                                .addComponent(modCodiClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(panel_modificarLayout.createSequentialGroup()
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(modNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(modNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(modPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(modTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(modEmail)
-                                        .addComponent(modWebsite)
-                                        .addComponent(modCc)
-                                        .addComponent(modDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane3))
-                            .addComponent(modEsVip)
-                            .addComponent(modTocaObra)
-                            .addComponent(modEsActiu))))
+                                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(modPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(modEmail)
+                                    .addComponent(modWebsite)
+                                    .addComponent(modCc)
+                                    .addComponent(modDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane3)
+                            .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(35, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panel_modificarLayout.setVerticalGroup(
             panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -741,19 +725,11 @@ public class ClientsGui extends javax.swing.JFrame {
                 .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(modCodiClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modEsVip)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modTocaObra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modEsActiu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         panel_insert.setMaximumSize(new java.awt.Dimension(1000, 800));
@@ -967,20 +943,6 @@ public class ClientsGui extends javax.swing.JFrame {
         jTextField39.setText("CC");
         jTextField39.setFocusable(false);
 
-        addEsVip.setText("Es VIP");
-        addEsVip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEsVipActionPerformed(evt);
-            }
-        });
-
-        addTocaObra.setText("Toca Obra");
-        addTocaObra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addTocaObraActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panel_insertLayout = new javax.swing.GroupLayout(panel_insert);
         panel_insert.setLayout(panel_insertLayout);
         panel_insertLayout.setHorizontalGroup(
@@ -999,46 +961,41 @@ public class ClientsGui extends javax.swing.JFrame {
                             .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addEsVip)
-                            .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(panel_insertLayout.createSequentialGroup()
-                                    .addComponent(addTocaObra)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(addNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
+                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addNomCom, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addNomFis, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addCifNif, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addPais, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField37, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(addPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField38, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(addEmail)
-                                        .addComponent(addWebsite)
-                                        .addComponent(addCc)
-                                        .addComponent(addDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                                        .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField37, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addPoblacio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addDireccio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addCp, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addTel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField38, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addEmail)
+                                    .addComponent(addWebsite)
+                                    .addComponent(addCc)
+                                    .addComponent(addDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         panel_insertLayout.setVerticalGroup(
             panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1100,20 +1057,16 @@ public class ClientsGui extends javax.swing.JFrame {
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addEsVip)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addTocaObra)
-                    .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(493, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout first_panelLayout = new javax.swing.GroupLayout(first_panel);
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1196,9 +1149,6 @@ public class ClientsGui extends javax.swing.JFrame {
                     modCc.setText("");
                     modDescompte.setText("");
                     modNotes.setText("");
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
-
    
 
         //Fem visible el jpanel d'afegir
@@ -1216,6 +1166,7 @@ public class ClientsGui extends javax.swing.JFrame {
         
         String dataAlta;
         dataAlta = date.toString().trim();
+        //dataAlta = "0";
         
         int Cp;
         Cp=Integer.parseInt(addCp.getText());
@@ -1226,11 +1177,7 @@ public class ClientsGui extends javax.swing.JFrame {
         int Cc;
         Cc=Integer.parseInt(addCc.getText());
                
-        boolean esVip;
-        esVip=addEsVip.isEnabled();
-        
-        boolean tocaObra;
-        tocaObra=addTocaObra.isEnabled();
+
         
         projecte.Clients client = new projecte.Clients(          
             addNomCom.getText(),
@@ -1246,9 +1193,7 @@ public class ClientsGui extends javax.swing.JFrame {
             addWebsite.getText(),
             Cc,
             addNotes.getText(),
-            addDescompte.getText(),
-            esVip,
-            tocaObra
+            addDescompte.getText()
         );
 
         //El guardem a la primera posició lliure del vector
@@ -1256,23 +1201,19 @@ public class ClientsGui extends javax.swing.JFrame {
         //Si arribem aquí el client s'ha guardat
         JOptionPane.showMessageDialog(this, "Client guardat correctament!!");
         //Resetejem els camps de text.
-        //Resetejem els camps de text.
-                    modNomCom.setText("");
-                    modDataAlta.setText("");
-                    modNomFis.setText("");
-                    modCifNif.setText("");
-                    modPais.setText("");
-                    modPoblacio.setText("");
-                    modDireccio.setText("");
-                    modCp.setText("");
-                    modTel.setText("");
-                    modEmail.setText("");
-                    modWebsite.setText("");
-                    modCc.setText("");
-                    modDescompte.setText("");
-                    modNotes.setText("");
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
+        addNomCom.setText("");
+        addNomFis.setText("");
+        addCifNif.setText("");
+        addPais.setText("");
+        addPoblacio.setText("");
+        addDireccio.setText("");
+        addCp.setText("");
+        addTel.setText("");
+        addEmail.setText("");
+        addWebsite.setText("");
+        addCc.setText("");
+        addDescompte.setText("");
+        addNotes.setText("");
 
            
         
@@ -1301,7 +1242,6 @@ public class ClientsGui extends javax.swing.JFrame {
                 while (true) {
                     try {
                         vector.add((Clients) entrada.readObject());
-                        System.out.println(vector);
                     } catch (EOFException e) {
                         System.out.println("eofe");
                         break;
@@ -1365,96 +1305,79 @@ public class ClientsGui extends javax.swing.JFrame {
     private void btn_actualitzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualitzarActionPerformed
         //Ocultem els altres jpanels
         panel_insert.setVisible(false);
-        
-
-//Nou v4
-
-        //Primer que res hem de saber quin element del vector hem de modificar i això ho tenim guardat a 18ª columna de tableModel tm
-        int index=0;//(int)tm.getValueAt(taulaModelClient.getSelectedRow(), 17);
-        //int asd=((Integer) vector.getIdentifier(17)).intValue();
-        
-         
-        //Fi nou v4
-
-
-        
+                
         //Com ja sé l'índex ja puc actualitzar el vector
-                //Resetejem els camps de text.
-                    modNomCom.setText("");
-                    modDataAlta.setText("");
-                    modNomFis.setText("");
-                    modCifNif.setText("");
-                    modPais.setText("");
-                    modPoblacio.setText("");
-                    modDireccio.setText("");
-                    modCp.setText("");
-                    modTel.setText("");
-                    modEmail.setText("");
-                    modWebsite.setText("");
-                    modCc.setText("");
-                    modDescompte.setText("");
-                    modNotes.setText("");
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
-
+            
+        vector.get(indexupdate).set01nomCom(modNomCom.getText().trim());
+        vector.get(indexupdate).set02dataAlta(modDataAlta.getText().trim());
+        vector.get(indexupdate).set03nomFis(modNomFis.getText().trim());
+        vector.get(indexupdate).set04cifNif(modCifNif.getText().trim());
+        vector.get(indexupdate).set05pais(modPais.getText().trim());
+        vector.get(indexupdate).set06poblacio(modPoblacio.getText().trim());
+        vector.get(indexupdate).set07direccio(modDireccio.getText().trim());
+        vector.get(indexupdate).set08cp(Integer.parseInt(modCp.getText().trim()));
+        vector.get(indexupdate).set09tfon(Integer.parseInt(modTel.getText().trim()));
+        vector.get(indexupdate).set10email(modEmail.getText().trim());
+        vector.get(indexupdate).set11website(modWebsite.getText().trim());
+        vector.get(indexupdate).set12cc(Integer.parseInt(modCc.getText().trim()));
+        vector.get(indexupdate).set13notes(modNotes.getText().trim());
+        vector.get(indexupdate).set14descompte(modDescompte.getText().trim());
         
-        vector.get(index).set2nomCom(modNomCom.getText().trim());
-        vector.get(index).set3dataAlta(modDataAlta.getText().trim());
-        vector.get(index).set4nomFis(modNomFis.getText().trim());
-        vector.get(index).set5cifNif(modCifNif.getText().trim());
-        vector.get(index).set6pais(modPais.getText().trim());
-        vector.get(index).set7poblacio(modPoblacio.getText().trim());
-        vector.get(index).set8direccio(modDireccio.getText().trim());
-        vector.get(index).set9cp(Integer.parseInt(modCp.getText().trim()));
-        vector.get(index).set10tfon(Integer.parseInt(modTel.getText().trim()));
-        vector.get(index).set11email(modEmail.getText().trim());
-        vector.get(index).set12website(modWebsite.getText().trim());
-        vector.get(index).set13cc(Integer.parseInt(modCc.getText().trim()));
-        vector.get(index).set14notes(modNotes.getText().trim());
-        vector.get(index).set15descompte(modDescompte.getText().trim());
-        vector.get(index).set16esVip(Boolean.parseBoolean(modEsVip.getText().trim()));
-        vector.get(index).set17tocaObra(Boolean.parseBoolean(modTocaObra.getText().trim()));
-
         
         //I ara actualitzo la taula
         
-        taulaModelClient.setValueAt(vector.get(index).get2nomCom(),taulaModelClient.getSelectedRow(), 0);
-        taulaModelClient.setValueAt(vector.get(index).get3dataAlta(),taulaModelClient.getSelectedRow(), 1);
-        taulaModelClient.setValueAt(vector.get(index).get4nomFis(),taulaModelClient.getSelectedRow(), 2);
-        taulaModelClient.setValueAt(vector.get(index).get5cifNif(),taulaModelClient.getSelectedRow(), 3);
-        taulaModelClient.setValueAt(vector.get(index).get6pais(),taulaModelClient.getSelectedRow(), 4);
-        taulaModelClient.setValueAt(vector.get(index).get7poblacio(),taulaModelClient.getSelectedRow(), 5);
-        taulaModelClient.setValueAt(vector.get(index).get8direccio(),taulaModelClient.getSelectedRow(), 6);
-        taulaModelClient.setValueAt(vector.get(index).get9cp(),taulaModelClient.getSelectedRow(), 7);
-        taulaModelClient.setValueAt(vector.get(index).get10tfon(),taulaModelClient.getSelectedRow(), 8);
-        taulaModelClient.setValueAt(vector.get(index).get11email(),taulaModelClient.getSelectedRow(), 9);
-        taulaModelClient.setValueAt(vector.get(index).get12website(),taulaModelClient.getSelectedRow(), 10);
-        taulaModelClient.setValueAt(vector.get(index).get13cc(),taulaModelClient.getSelectedRow(), 11);
-        taulaModelClient.setValueAt(vector.get(index).get14notes(),taulaModelClient.getSelectedRow(), 12);
-        taulaModelClient.setValueAt(vector.get(index).get15descompte(),taulaModelClient.getSelectedRow(), 13);        
-        taulaModelClient.setValueAt(vector.get(index).is16esVip(),taulaModelClient.getSelectedRow(), 14);
-        taulaModelClient.setValueAt(vector.get(index).is17tocaObra(),taulaModelClient.getSelectedRow(), 15);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get01nomCom(),taulaModelClient.getSelectedRow(), 0);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get02dataAlta(),taulaModelClient.getSelectedRow(), 1);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get03nomFis(),taulaModelClient.getSelectedRow(), 2);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get04cifNif(),taulaModelClient.getSelectedRow(), 3);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get05pais(),taulaModelClient.getSelectedRow(), 4);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get06poblacio(),taulaModelClient.getSelectedRow(), 5);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get07direccio(),taulaModelClient.getSelectedRow(), 6);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get08cp(),taulaModelClient.getSelectedRow(), 7);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get09tfon(),taulaModelClient.getSelectedRow(), 8);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get10email(),taulaModelClient.getSelectedRow(), 9);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get11website(),taulaModelClient.getSelectedRow(), 10);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get12cc(),taulaModelClient.getSelectedRow(), 11);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get13notes(),taulaModelClient.getSelectedRow(), 12);
+        taulaModelClient.setValueAt(vector.get(indexupdate).get14descompte(),taulaModelClient.getSelectedRow(), 13);    
 
-                
+        
+        //Resetejem els camps de text.
+        modNomCom.setText("");
+        modDataAlta.setText("");
+        modNomFis.setText("");
+        modCifNif.setText("");
+        modPais.setText("");
+        modPoblacio.setText("");
+        modDireccio.setText("");
+        modCp.setText("");
+        modTel.setText("");
+        modEmail.setText("");
+        modWebsite.setText("");
+        modCc.setText("");
+        modDescompte.setText("");
+        modNotes.setText("");
+        
         // Finalment desactivo jtextfields i botó d'actualitzar
-                    modNomCom.setEnabled(false);
-                    modDataAlta.setEnabled(false);
-                    modNomFis.setEnabled(false);
-                    modCifNif.setEnabled(false);
-                    modPais.setEnabled(false);
-                    modPoblacio.setEnabled(false);
-                    modDireccio.setEnabled(false);
-                    modCp.setEnabled(false);
-                    modTel.setEnabled(false);
-                    modEmail.setEnabled(false);
-                    modWebsite.setEnabled(false);
-                    modCc.setEnabled(false);
-                    modDescompte.setEnabled(false);
-                    modNotes.setEnabled(false);
-                    modEsVip.setEnabled(false);
-                    modTocaObra.setEnabled(false); 
+        modNomCom.setEnabled(false);
+        modDataAlta.setEnabled(false);
+        modNomFis.setEnabled(false);
+        modCifNif.setEnabled(false);
+        modPais.setEnabled(false);
+        modPoblacio.setEnabled(false);
+        modDireccio.setEnabled(false);
+        modCp.setEnabled(false);
+        modTel.setEnabled(false);
+        modEmail.setEnabled(false);
+        modWebsite.setEnabled(false);
+        modCc.setEnabled(false);
+        modDescompte.setEnabled(false);
+        modNotes.setEnabled(false);
         
+        ModelTaula<Clients> mt = new ModelTaula(vector);
         
+        //Li assigno el model a la taula
+        taulaModelClient.setModel(mt);
         
     }//GEN-LAST:event_btn_actualitzarActionPerformed
 
@@ -1480,8 +1403,6 @@ public class ClientsGui extends javax.swing.JFrame {
         modCc.setEnabled(false);
         modDescompte.setEnabled(false);
         modNotes.setEnabled(false);
-        modEsVip.setEnabled(false);
-        modTocaObra.setEnabled(false); 
         
         //Omplim la taula en els clients del vector
 
@@ -1493,50 +1414,7 @@ public class ClientsGui extends javax.swing.JFrame {
         
         String dataAlta;
         dataAlta = date.toString().trim();
-        //Nou v4
 
-        //Eliminem del model de la taula les files afegides anteriorment
-        //tm.setNumRows(0);
-        
-        
-
-        //Recorrem el vector
-//        System.out.println(vector.length);
-//        for (i = 0; i < vector.length; i++) {
-//            
-//                System.out.println("Asd");
-//                //Obtenim el client contingut al vector
-//                Clients a = vector.get(i);
-//
-//                //Creem un array d'Strings a partir de les dades del client
-//                Object[] data = new Object[19];                
-//                data[0] = a.getCodi();
-//                data[1] = a.getNomCom();
-//                data[2] = a.getDataAlta();
-//                data[3] = a.getNomFis();
-//                data[4] = a.getCifNif();
-//                data[5] = a.getPais();
-//                data[6] = a.getPoblacio();
-//                data[7] = a.getDireccio();
-//                data[8] = a.getCp();
-//                data[9] = a.getTfon();
-//                data[10] = a.getEmail();
-//                data[11] = a.getWebsite();
-//                data[12] = a.getCc();
-//                data[13] = a.getDescompte();
-//                data[14] = a.getNotes();
-//                data[16] = a.isEsVip();
-//                data[17] = a.isTocaObra();
-//                data[18] = i;
-//                                
-//                //Nou v4
-//
-//                //Afegim una nova fila al model de la taula usant l'array dStrings
-//                tm.addRow(data);
-//
-//            
-//        }
-        //Fi nou v4
     }//GEN-LAST:event_button_modificarMouseClicked
 
     private void modNomComKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modNomComKeyTyped
@@ -1712,13 +1590,9 @@ public class ClientsGui extends javax.swing.JFrame {
         btn_actualitzar.setEnabled(true);
     }//GEN-LAST:event_modNotesKeyTyped
 
-    private void addEsVipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEsVipActionPerformed
+    private void modCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modCpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addEsVipActionPerformed
-
-    private void addTocaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTocaObraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addTocaObraActionPerformed
+    }//GEN-LAST:event_modCpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1784,14 +1658,12 @@ public class ClientsGui extends javax.swing.JFrame {
     private javax.swing.JTextField addDescompte;
     private javax.swing.JTextField addDireccio;
     private javax.swing.JTextField addEmail;
-    private javax.swing.JCheckBox addEsVip;
     private javax.swing.JTextField addNomCom;
     private javax.swing.JTextField addNomFis;
     private javax.swing.JTextArea addNotes;
     private javax.swing.JTextField addPais;
     private javax.swing.JTextField addPoblacio;
     private javax.swing.JTextField addTel;
-    private javax.swing.JCheckBox addTocaObra;
     private javax.swing.JTextField addWebsite;
     private javax.swing.JButton btn_actualitzar;
     private javax.swing.JButton btn_exit;
@@ -1835,21 +1707,17 @@ public class ClientsGui extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField modCc;
     private javax.swing.JTextField modCifNif;
-    private javax.swing.JTextField modCodiClient;
     private javax.swing.JTextField modCp;
     private javax.swing.JTextField modDataAlta;
     private javax.swing.JTextField modDescompte;
     private javax.swing.JTextField modDireccio;
     private javax.swing.JTextField modEmail;
-    private javax.swing.JCheckBox modEsActiu;
-    private javax.swing.JCheckBox modEsVip;
     private javax.swing.JTextField modNomCom;
     private javax.swing.JTextField modNomFis;
     private javax.swing.JTextArea modNotes;
     private javax.swing.JTextField modPais;
     private javax.swing.JTextField modPoblacio;
     private javax.swing.JTextField modTel;
-    private javax.swing.JCheckBox modTocaObra;
     private javax.swing.JTextField modWebsite;
     private javax.swing.JPanel panel_insert;
     private javax.swing.JPanel panel_modificar;
