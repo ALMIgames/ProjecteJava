@@ -5,7 +5,9 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,9 +25,12 @@ public class ArticlesGui extends javax.swing.JFrame {
         initComponents();
         initComponentsMeus();
     }
-        
+    
+    String stringProveidors = "asd ,qwe ,pwpwpw";
+    
     private void initComponentsMeus(){
 
+        
         //Posem un listener a la taula de articles per modificar que actualitze els jtextfileds al canviar de fila seleccionada
         taulaModelArticle.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -150,13 +155,10 @@ public class ArticlesGui extends javax.swing.JFrame {
         jTextField32 = new javax.swing.JTextField();
         addFondo = new javax.swing.JTextField();
         addAmple = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
-        addProveidor = new javax.swing.JTextField();
         addAlt = new javax.swing.JTextField();
         addAcabat = new javax.swing.JTextField();
-        addCodi = new javax.swing.JTextField();
         addRef = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         addNom = new javax.swing.JTextField();
@@ -170,6 +172,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         addDescripcio = new javax.swing.JTextArea();
         jTextField37 = new javax.swing.JTextField();
         jTextField38 = new javax.swing.JTextField();
+        desplegableProveidors = new javax.swing.JComboBox();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -665,12 +668,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(255, 255, 204));
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField5.setText("Codi");
-        jTextField5.setFocusable(false);
-
         jTextField9.setEditable(false);
         jTextField9.setBackground(new java.awt.Color(255, 255, 204));
         jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -688,13 +685,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         jTextField11.setText("Acabat");
         jTextField11.setFocusable(false);
 
-        addProveidor.setBackground(new java.awt.Color(204, 255, 255));
-        addProveidor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addProveidorKeyTyped(evt);
-            }
-        });
-
         addAlt.setBackground(new java.awt.Color(204, 255, 255));
         addAlt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -711,18 +701,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         addAcabat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addAcabatKeyTyped(evt);
-            }
-        });
-
-        addCodi.setBackground(new java.awt.Color(204, 255, 255));
-        addCodi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCodiActionPerformed(evt);
-            }
-        });
-        addCodi.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addCodiKeyTyped(evt);
             }
         });
 
@@ -825,6 +803,13 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
+        desplegableProveidors.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1" }));
+        desplegableProveidors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                desplegableProveidorsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_insertLayout = new javax.swing.GroupLayout(panel_insert);
         panel_insert.setLayout(panel_insertLayout);
         panel_insertLayout.setHorizontalGroup(
@@ -839,9 +824,12 @@ public class ArticlesGui extends javax.swing.JFrame {
                     .addGroup(panel_insertLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_insertLayout.createSequentialGroup()
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_insertLayout.createSequentialGroup()
+                                .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane6))
+                            .addGroup(panel_insertLayout.createSequentialGroup()
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panel_insertLayout.createSequentialGroup()
                                         .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -850,41 +838,42 @@ public class ArticlesGui extends javax.swing.JFrame {
                                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(addAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6))
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(desplegableProveidors, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField34)
+                                    .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(addAlt)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField35)
+                                    .addComponent(jTextField32, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addAmple)
+                                    .addComponent(addPreuProv, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addAmple, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_insertLayout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addCodi, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(131, 131, 131)
-                                .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_insertLayout.createSequentialGroup()
-                                .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_insertLayout.createSequentialGroup()
+                                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8)))
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addPreuVenda)
+                                    .addComponent(addFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         panel_insertLayout.setVerticalGroup(
             panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -893,50 +882,39 @@ public class ArticlesGui extends javax.swing.JFrame {
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_save))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_insertLayout.createSequentialGroup()
-                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addCodi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panel_insertLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addAmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(desplegableProveidors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addAmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(650, Short.MAX_VALUE))
+                .addContainerGap(644, Short.MAX_VALUE))
         );
-
-        first_panel.setLayer(panel_modificar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        first_panel.setLayer(panel_insert, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout first_panelLayout = new javax.swing.GroupLayout(first_panel);
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
+            .addGap(0, 1012, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -950,7 +928,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         );
         first_panelLayout.setVerticalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(first_panelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -961,6 +939,8 @@ public class ArticlesGui extends javax.swing.JFrame {
                     .addGap(0, 806, Short.MAX_VALUE)
                     .addComponent(panel_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+        first_panel.setLayer(panel_modificar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        first_panel.setLayer(panel_insert, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1031,9 +1011,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         
         String dataAlta;
         dataAlta = date.toString().trim();
-               
-        int Codi;
-        Codi=Integer.parseInt(addCodi.getText());
         
         int Alt;
         Alt=Integer.parseInt(addAmple.getText());
@@ -1050,38 +1027,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         float PreuVenda;
         PreuVenda=Integer.parseInt(addPreuVenda.getText());
                
-        
-        projecte.Articles article = new projecte.Articles(          
-            Codi,
-            dataAlta,
-            addProveidor.getText(), /*Objecte*/
-            addRef.getText(),
-            addNom.getText(),
-            addAcabat.getText(),
-            addAlt.getText(),
-            Alt,
-            Ample,
-            Fondo,
-            PreuProv,
-            PreuVenda           
-        );
-
-        //El guardem a la primera posició lliure del vector
-        vector.add(article);
-        //Si arribem aquí el article s'ha guardat
-        JOptionPane.showMessageDialog(this, "Article guardat correctament!!");
-        //Resetejem els camps de text.
-        addCodi.setText("");
-        addProveidor.setText("");
-        addRef.setText("");
-        addNom.setText("");
-        addAcabat.setText("");
-        addAlt.setText("");
-        addAmple.setText("");
-        addFondo.setText("");
-        addPreuProv.setText("");
-        addPreuVenda.setText("");
-        addPreuVenda.setText("");    
     }//GEN-LAST:event_btn_saveMouseClicked
 
     private void btn_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMouseClicked
@@ -1108,7 +1053,6 @@ public class ArticlesGui extends javax.swing.JFrame {
                         vector.add((Articles) entrada.readObject());
                         System.out.println(vector);
                     } catch (EOFException e) {
-                        System.out.println("eofe");
                         break;
                     } catch (IOException|ClassNotFoundException ex) {
                         Logger.getLogger(ArticlesGui.class.getName()).log(Level.SEVERE, null, ex);
@@ -1228,10 +1172,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void addProveidorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addProveidorKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addProveidorKeyTyped
-
     private void addAltKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addAltKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_addAltKeyTyped
@@ -1243,14 +1183,6 @@ public class ArticlesGui extends javax.swing.JFrame {
     private void addAcabatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addAcabatKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_addAcabatKeyTyped
-
-    private void addCodiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCodiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addCodiActionPerformed
-
-    private void addCodiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addCodiKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addCodiKeyTyped
 
     private void addRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addRefKeyTyped
         // TODO add your handling code here:
@@ -1304,33 +1236,31 @@ public class ArticlesGui extends javax.swing.JFrame {
         modPreuProv.setText("");
         modPreuVenda.setText("");
 
-        vector.get(index).setCodi(Integer.parseInt(modCodi.getText().trim()));
-        vector.get(index).setDataAlta(modDataAlta.getText().trim());
-        vector.get(index).setProveidor(modProveidor.getText().trim()); /*objecte*/
-        vector.get(index).setRef(modRef.getText().trim());
-        vector.get(index).setNom(modNom.getText().trim());
-        vector.get(index).setDescripcio(modDescripcio.getText().trim());
-        vector.get(index).setAcabat(modAcabat.getText().trim());
-        vector.get(index).setAlt(Integer.parseInt(modAlt.getText().trim()));
-        vector.get(index).setAmple(Integer.parseInt(modAmple.getText().trim()));
-        vector.get(index).setFondo(Integer.parseInt(modFondo.getText().trim()));
-        vector.get(index).setPreuProv(Integer.parseInt(modPreuProv.getText().trim()));
-        vector.get(index).setPreuVenda(Integer.parseInt(modPreuVenda.getText().trim()));
+        vector.get(index).set01dataAlta(modDataAlta.getText().trim());
+        //vector.get(index).set02proveidor(modProveidor.getText().trim()); /*objecte*/
+        vector.get(index).set03ref(modRef.getText().trim());
+        vector.get(index).set04nom(modNom.getText().trim());
+        vector.get(index).set05descripcio(modDescripcio.getText().trim());
+        vector.get(index).set06acabat(modAcabat.getText().trim());
+        vector.get(index).set07alt(Integer.parseInt(modAlt.getText().trim()));
+        vector.get(index).set08ample(Integer.parseInt(modAmple.getText().trim()));
+        vector.get(index).set09fondo(Integer.parseInt(modFondo.getText().trim()));
+        vector.get(index).set10preuProv(Integer.parseInt(modPreuProv.getText().trim()));
+        vector.get(index).set11preuVenda(Integer.parseInt(modPreuVenda.getText().trim()));
 
         //I ara actualitzo la taula
 
-        taulaModelArticle.setValueAt(vector.get(index).getCodi(),taulaModelArticle.getSelectedRow(), 0);
-        taulaModelArticle.setValueAt(vector.get(index).getDataAlta(),taulaModelArticle.getSelectedRow(), 1);
-        taulaModelArticle.setValueAt(vector.get(index).getProveidor(),taulaModelArticle.getSelectedRow(), 2); /*objecte*/
-        taulaModelArticle.setValueAt(vector.get(index).getRef(),taulaModelArticle.getSelectedRow(), 3);
-        taulaModelArticle.setValueAt(vector.get(index).getNom(),taulaModelArticle.getSelectedRow(), 4);
-        taulaModelArticle.setValueAt(vector.get(index).getDescripcio(),taulaModelArticle.getSelectedRow(), 5);
-        taulaModelArticle.setValueAt(vector.get(index).getAcabat(),taulaModelArticle.getSelectedRow(), 6);
-        taulaModelArticle.setValueAt(vector.get(index).getAlt(),taulaModelArticle.getSelectedRow(), 7);
-        taulaModelArticle.setValueAt(vector.get(index).getAmple(),taulaModelArticle.getSelectedRow(), 8);
-        taulaModelArticle.setValueAt(vector.get(index).getFondo(),taulaModelArticle.getSelectedRow(), 9);
-        taulaModelArticle.setValueAt(vector.get(index).getPreuProv(),taulaModelArticle.getSelectedRow(), 10);
-        taulaModelArticle.setValueAt(vector.get(index).getPreuVenda(),taulaModelArticle.getSelectedRow(), 11);
+        taulaModelArticle.setValueAt(vector.get(index).get01dataAlta(),taulaModelArticle.getSelectedRow(), 0);
+        taulaModelArticle.setValueAt(vector.get(index).get02proveidor(),taulaModelArticle.getSelectedRow(), 1); /*objecte*/
+        taulaModelArticle.setValueAt(vector.get(index).get03ref(),taulaModelArticle.getSelectedRow(), 2);
+        taulaModelArticle.setValueAt(vector.get(index).get04nom(),taulaModelArticle.getSelectedRow(), 3);
+        taulaModelArticle.setValueAt(vector.get(index).get05descripcio(),taulaModelArticle.getSelectedRow(), 4);
+        taulaModelArticle.setValueAt(vector.get(index).get06acabat(),taulaModelArticle.getSelectedRow(), 5);
+        taulaModelArticle.setValueAt(vector.get(index).get07alt(),taulaModelArticle.getSelectedRow(), 6);
+        taulaModelArticle.setValueAt(vector.get(index).get08ample(),taulaModelArticle.getSelectedRow(), 7);
+        taulaModelArticle.setValueAt(vector.get(index).get09fondo(),taulaModelArticle.getSelectedRow(), 8);
+        taulaModelArticle.setValueAt(vector.get(index).get10preuProv(),taulaModelArticle.getSelectedRow(), 9);
+        taulaModelArticle.setValueAt(vector.get(index).get11preuVenda(),taulaModelArticle.getSelectedRow(), 10);
 
         // Finalment desactivo jtextfields i botó d'actualitzar
         modCodi.setEnabled(false);
@@ -1428,6 +1358,10 @@ public class ArticlesGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_modPreuVendaKeyTyped
 
+    private void desplegableProveidorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desplegableProveidorsActionPerformed
+
+    }//GEN-LAST:event_desplegableProveidorsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1476,19 +1410,18 @@ public class ArticlesGui extends javax.swing.JFrame {
     private javax.swing.JTextField addAcabat;
     private javax.swing.JTextField addAlt;
     private javax.swing.JTextField addAmple;
-    private javax.swing.JTextField addCodi;
     private javax.swing.JTextArea addDescripcio;
     private javax.swing.JTextField addFondo;
     private javax.swing.JTextField addNom;
     private javax.swing.JTextField addPreuProv;
     private javax.swing.JTextField addPreuVenda;
-    private javax.swing.JTextField addProveidor;
     private javax.swing.JTextField addRef;
     private javax.swing.JButton btn_actualitzar;
     private javax.swing.JButton btn_exit;
     private javax.swing.JButton btn_save;
     private javax.swing.JButton button_add;
     private javax.swing.JButton button_modificar;
+    private javax.swing.JComboBox desplegableProveidors;
     private javax.swing.JLayeredPane first_panel;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPanel1;
@@ -1517,7 +1450,6 @@ public class ArticlesGui extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField47;
     private javax.swing.JTextField jTextField48;
     private javax.swing.JTextField jTextField49;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField modAcabat;
