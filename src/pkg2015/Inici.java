@@ -39,21 +39,60 @@ public class Inici extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        botoClients = new javax.swing.JButton();
+        botoProveidors = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        botoClients.setText("clients");
+        botoClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoClientsActionPerformed(evt);
+            }
+        });
+
+        botoProveidors.setText("proveidors");
+        botoProveidors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoProveidorsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(botoClients)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botoProveidors)
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botoClients)
+                    .addComponent(botoProveidors))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botoClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoClientsActionPerformed
+        this.setVisible(false);
+        new ProveidorsGui().setVisible(false);
+        new ClientsGui().setVisible(true);
+    }//GEN-LAST:event_botoClientsActionPerformed
+
+    private void botoProveidorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoProveidorsActionPerformed
+        this.setVisible(false);
+        new ProveidorsGui().setVisible(true);
+        new ClientsGui().setVisible(false);
+    }//GEN-LAST:event_botoProveidorsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +130,8 @@ public class Inici extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botoClients;
+    private javax.swing.JButton botoProveidors;
     // End of variables declaration//GEN-END:variables
 }
 

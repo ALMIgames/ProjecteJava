@@ -995,7 +995,7 @@ public class ClientsGui extends javax.swing.JFrame {
                                     .addComponent(addCc)
                                     .addComponent(addDescompte, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         panel_insertLayout.setVerticalGroup(
             panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1059,14 +1059,14 @@ public class ClientsGui extends javax.swing.JFrame {
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(493, Short.MAX_VALUE))
+                .addContainerGap(477, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout first_panelLayout = new javax.swing.GroupLayout(first_panel);
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
+            .addGap(0, 1012, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1443,7 +1443,7 @@ public class ClientsGui extends javax.swing.JFrame {
     }//GEN-LAST:event_modNomComActionPerformed
 
     private void button_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_addActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_button_addActionPerformed
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
