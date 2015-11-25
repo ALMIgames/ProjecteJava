@@ -37,7 +37,7 @@ public class ProveidorsGui extends javax.swing.JFrame {
                 int i=taulaModelProveidor.getSelectedRow();
                 if(i!=-1){
                     
-                    //modNomCom.setText(vector.get(i).get2nomCom());
+                    //modNomCom.setText(Inici.llistaProveidors.get(i).get2nomCom());
                     modNomCom.setText(taulaModelProveidor.getModel().getValueAt(i, 0).toString());
                     modDataAlta.setText(taulaModelProveidor.getModel().getValueAt(i, 1).toString());
                     modNomFis.setText(taulaModelProveidor.getModel().getValueAt(i, 2).toString());
@@ -141,6 +141,7 @@ public class ProveidorsGui extends javax.swing.JFrame {
         button_add = new javax.swing.JButton();
         btn_exit = new javax.swing.JButton();
         button_modificar = new javax.swing.JButton();
+        Enrera = new javax.swing.JButton();
         first_panel = new javax.swing.JLayeredPane();
         panel_modificar = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -276,6 +277,11 @@ public class ProveidorsGui extends javax.swing.JFrame {
                 btn_exitMouseClicked(evt);
             }
         });
+        btn_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_exitActionPerformed(evt);
+            }
+        });
 
         button_modificar.setBackground(new java.awt.Color(255, 153, 255));
         button_modificar.setText("Modificar");
@@ -290,6 +296,20 @@ public class ProveidorsGui extends javax.swing.JFrame {
             }
         });
 
+        Enrera.setBackground(new java.awt.Color(255, 102, 102));
+        Enrera.setText("Enrera");
+        Enrera.setActionCommand("Enrera");
+        Enrera.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EnreraMouseClicked(evt);
+            }
+        });
+        Enrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnreraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -297,6 +317,7 @@ public class ProveidorsGui extends javax.swing.JFrame {
             .addComponent(button_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+            .addComponent(Enrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +326,9 @@ public class ProveidorsGui extends javax.swing.JFrame {
                 .addComponent(button_add)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(button_modificar)
-                .addGap(120, 120, 120)
+                .addGap(95, 95, 95)
+                .addComponent(Enrera)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_exit))
         );
 
@@ -1283,50 +1306,7 @@ public class ProveidorsGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_exitMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // Mètode que s'executa quan obrim l'aplicació
-
-        //Si el fixer existix creem un vector i l'omplim en les dades del fitxer i en cas contrari el dixem sense dades     
-        if (f.exists()) {
-            ObjectInputStream entrada = null;
-
-            //LLegim el fitxer i omplim el vector en els proveidors continguts dins ell
-            try {
-                //Obrim el fitxer per lectura
-                entrada = new ObjectInputStream(new FileInputStream(f));
-
-                //Index del vector per guardar els proveidors trobats
-                int i = 0;
-                while (true) {
-                    try {
-                        vector.add((Proveidors) entrada.readObject());
-                        System.out.println(vector);
-                    } catch (EOFException e) {
-                        System.out.println("eofe");
-                        break;
-                    } catch (IOException|ClassNotFoundException ex) {
-                        Logger.getLogger(ProveidorsGui.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                       
-                }
-
-            } catch (IOException e) {
-                //Si hi ha un error de lectura del fitxer mostrem avís i tanquem l'aplicació
-                JOptionPane.showMessageDialog(this, "Error en obrir el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
-                System.exit(-1);
-            } finally {
-                if (entrada != null) {
-                    try {
-                        entrada.close();
-                    } catch (IOException e) {
-                        //Si hi ha un error de tancament del fitxer mostrem avís i tanquem l'aplicació
-                        JOptionPane.showMessageDialog(this, "Error en tancar el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
-                        System.exit(-1);
-                    }
-                }
-            }
-        } else {
-            System.out.println("Fitxer nou");
-        }
+       
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -1337,11 +1317,11 @@ public class ProveidorsGui extends javax.swing.JFrame {
         //Capturem l'excepció i escrivim
         try {
             //Pes escriure des de 0
-            sortida = new ObjectOutputStream(new FileOutputStream(f));
+            sortida = new ObjectOutputStream(new FileOutputStream(Inici.fProveidors));
             int i;
-            for (i = 0; i < vector.size(); i++) //Escrivim els objectes al fitxer
+            for (i = 0; i < Inici.llistaProveidors.size(); i++) //Escrivim els objectes al fitxer
             {
-                sortida.writeObject(vector.get(i));
+                sortida.writeObject(Inici.llistaProveidors.get(i));
             }
         } catch (IOException e) {
             //Mostrem avís
@@ -1365,44 +1345,44 @@ public class ProveidorsGui extends javax.swing.JFrame {
         panel_insert.setVisible(false);
         
         
-        vector.get(indexupdate).set01nomCom(modNomCom.getText().trim());
-        vector.get(indexupdate).set02dataAlta(modDataAlta.getText().trim());
-        vector.get(indexupdate).set03nomFis(modNomFis.getText().trim());
-        vector.get(indexupdate).set04cifNif(modCifNif.getText().trim());
-        vector.get(indexupdate).set05pais(modPais.getText().trim());
-        vector.get(indexupdate).set06poblacio(modPoblacio.getText().trim());
-        vector.get(indexupdate).set07direccio(modDireccio.getText().trim());
-        vector.get(indexupdate).set08cp(Integer.parseInt(modCp.getText().trim()));
-        vector.get(indexupdate).set09tfon(Integer.parseInt(modTel.getText().trim()));
-        vector.get(indexupdate).set10email(modEmail.getText().trim());
-        vector.get(indexupdate).set11website(modWebsite.getText().trim());
-        vector.get(indexupdate).set12cc(Integer.parseInt(modCc.getText().trim()));
-        vector.get(indexupdate).set13descompte(modDescompte.getText().trim());
-        vector.get(indexupdate).set14notes(modNotes.getText().trim());
-        vector.get(indexupdate).set15entrega(modEntrega.getText().trim());
-        vector.get(indexupdate).set16ports(modPorts.getText().trim());
-        vector.get(indexupdate).set17expo(modExpo.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set01nomCom(modNomCom.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set02dataAlta(modDataAlta.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set03nomFis(modNomFis.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set04cifNif(modCifNif.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set05pais(modPais.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set06poblacio(modPoblacio.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set07direccio(modDireccio.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set08cp(Integer.parseInt(modCp.getText().trim()));
+        Inici.llistaProveidors.get(indexupdate).set09tfon(Integer.parseInt(modTel.getText().trim()));
+        Inici.llistaProveidors.get(indexupdate).set10email(modEmail.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set11website(modWebsite.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set12cc(Integer.parseInt(modCc.getText().trim()));
+        Inici.llistaProveidors.get(indexupdate).set13descompte(modDescompte.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set14notes(modNotes.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set15entrega(modEntrega.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set16ports(modPorts.getText().trim());
+        Inici.llistaProveidors.get(indexupdate).set17expo(modExpo.getText().trim());
 
         
         //I ara actualitzo la taula
         
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get01nomCom(),taulaModelProveidor.getSelectedRow(), 0);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get02dataAlta(),taulaModelProveidor.getSelectedRow(), 1);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get03nomFis(),taulaModelProveidor.getSelectedRow(), 2);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get04cifNif(),taulaModelProveidor.getSelectedRow(), 3);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get05pais(),taulaModelProveidor.getSelectedRow(), 4);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get06poblacio(),taulaModelProveidor.getSelectedRow(), 5);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get07direccio(),taulaModelProveidor.getSelectedRow(), 6);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get08cp(),taulaModelProveidor.getSelectedRow(), 7);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get09tfon(),taulaModelProveidor.getSelectedRow(), 8);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get10email(),taulaModelProveidor.getSelectedRow(), 9);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get11website(),taulaModelProveidor.getSelectedRow(), 10);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get12cc(),taulaModelProveidor.getSelectedRow(), 11);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get13descompte(),taulaModelProveidor.getSelectedRow(), 12);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get14notes(),taulaModelProveidor.getSelectedRow(), 13);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get15entrega(),taulaModelProveidor.getSelectedRow(), 14);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get16ports(),taulaModelProveidor.getSelectedRow(), 15);
-        taulaModelProveidor.setValueAt(vector.get(indexupdate).get17expo(),taulaModelProveidor.getSelectedRow(), 16);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get01nomCom(),taulaModelProveidor.getSelectedRow(), 0);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get02dataAlta(),taulaModelProveidor.getSelectedRow(), 1);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get03nomFis(),taulaModelProveidor.getSelectedRow(), 2);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get04cifNif(),taulaModelProveidor.getSelectedRow(), 3);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get05pais(),taulaModelProveidor.getSelectedRow(), 4);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get06poblacio(),taulaModelProveidor.getSelectedRow(), 5);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get07direccio(),taulaModelProveidor.getSelectedRow(), 6);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get08cp(),taulaModelProveidor.getSelectedRow(), 7);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get09tfon(),taulaModelProveidor.getSelectedRow(), 8);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get10email(),taulaModelProveidor.getSelectedRow(), 9);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get11website(),taulaModelProveidor.getSelectedRow(), 10);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get12cc(),taulaModelProveidor.getSelectedRow(), 11);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get13descompte(),taulaModelProveidor.getSelectedRow(), 12);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get14notes(),taulaModelProveidor.getSelectedRow(), 13);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get15entrega(),taulaModelProveidor.getSelectedRow(), 14);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get16ports(),taulaModelProveidor.getSelectedRow(), 15);
+        taulaModelProveidor.setValueAt(Inici.llistaProveidors.get(indexupdate).get17expo(),taulaModelProveidor.getSelectedRow(), 16);
 
                 
         // Finalment desactivo jtextfields i botó d'actualitzar
@@ -1444,7 +1424,7 @@ public class ProveidorsGui extends javax.swing.JFrame {
                     modExpo.setText("");
       
                             
-        ModelTaula<Clients> mt = new ModelTaula(vector);
+        ModelTaula<Clients> mt = new ModelTaula(Inici.llistaProveidors);
         
         //Li assigno el model a la taula
         taulaModelProveidor.setModel(mt);
@@ -1477,10 +1457,10 @@ public class ProveidorsGui extends javax.swing.JFrame {
         modPorts.setEnabled(false);
         modExpo.setEnabled(false);             
         
-        //Omplim la taula en els proveidors del vector
+        //Omplim la taula en els proveidors del Inici.llistaProveidors
 
-        //LLegim el vector i anem omplint la taula
-        //Index del vector
+        //LLegim el Inici.llistaProveidors i anem omplint la taula
+        //Index del Inici.llistaProveidors
         int i;
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
@@ -1505,7 +1485,7 @@ public class ProveidorsGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField15ActionPerformed
 
     private void button_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modificarActionPerformed
-        ModelTaula<Proveidors> mt = new ModelTaula(vector);
+        ModelTaula<Proveidors> mt = new ModelTaula(Inici.llistaProveidors);
         
         //Li assigno el model a la taula
         taulaModelProveidor.setModel(mt);
@@ -1698,8 +1678,8 @@ public class ProveidorsGui extends javax.swing.JFrame {
             addExpo.getText()
         );
 
-        //El guardem a la primera posició lliure del vector
-        vector.add(proveidor);
+        //El guardem a la primera posició lliure del Inici.llistaProveidors
+        Inici.llistaProveidors.add(proveidor);
         //Si arribem aquí el proveidor s'ha guardat
         JOptionPane.showMessageDialog(this, "Proveidor guardat correctament!!");
         //Resetejem els camps de text.
@@ -1732,6 +1712,19 @@ public class ProveidorsGui extends javax.swing.JFrame {
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_saveActionPerformed
+
+    private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_exitActionPerformed
+
+    private void EnreraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnreraMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EnreraMouseClicked
+
+    private void EnreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnreraActionPerformed
+        this.setVisible(false);
+        new Inici().setVisible(true);
+    }//GEN-LAST:event_EnreraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1766,16 +1759,11 @@ public class ProveidorsGui extends javax.swing.JFrame {
         });
     }
 
-    //Variables nostres
-    //Array per guardar els proveidors durant l'execució
-    private static ArrayList<Proveidors> vector=new ArrayList<>();
 
-    //Nom del fitxer de proveidor
-    private static final File f = new File("proveidor.dat");
-    
     
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Enrera;
     private javax.swing.JTextField addCc;
     private javax.swing.JTextField addCifNif;
     private javax.swing.JTextField addCp;

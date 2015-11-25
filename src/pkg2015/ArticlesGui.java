@@ -5,17 +5,13 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
 import projecte.Articles;
 import projecte.Proveidors;
 
@@ -42,7 +38,7 @@ public class ArticlesGui extends javax.swing.JFrame {
                     //modNomCom.setText(vector.get(i).get2nomCom());
                     modCodi.setText(taulaModelArticle.getModel().getValueAt(i, 0).toString());
                     modDataAlta.setText(taulaModelArticle.getModel().getValueAt(i, 1).toString());
-                    modProveidor.setText(taulaModelArticle.getModel().getValueAt(i, 2).toString());
+                    //modProveidor.setText(taulaModelArticle.getModel().getValueAt(i, 2).toString());
                     modRef.setText(taulaModelArticle.getModel().getValueAt(i, 3).toString());
                     modNom.setText(taulaModelArticle.getModel().getValueAt(i, 4).toString());
                     modDescripcio.setText(taulaModelArticle.getModel().getValueAt(i, 5).toString());
@@ -56,7 +52,7 @@ public class ArticlesGui extends javax.swing.JFrame {
                     
                     modCodi.setEnabled(true);
                     modDataAlta.setEnabled(false);
-                    modProveidor.setEnabled(true);
+                    //modProveidor.setEnabled(true);
                     modRef.setEnabled(true);
                     modNom.setEnabled(true);
                     modDescripcio.setEnabled(true);
@@ -73,7 +69,7 @@ public class ArticlesGui extends javax.swing.JFrame {
                 else{
                     modCodi.setText("");
                     modDataAlta.setText("");
-                    modProveidor.setText("");
+                    //modProveidor.setText("");
                     modRef.setText("");
                     modNom.setText("");
                     modDescripcio.setText("");
@@ -86,7 +82,7 @@ public class ArticlesGui extends javax.swing.JFrame {
                     
                     modCodi.setEnabled(false);
                     modDataAlta.setEnabled(false);
-                    modProveidor.setEnabled(false);
+                    //modProveidor.setEnabled(false);
                     modRef.setEnabled(false);
                     modNom.setEnabled(false);
                     modDescripcio.setEnabled(false);
@@ -119,6 +115,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         button_add = new javax.swing.JButton();
         btn_exit = new javax.swing.JButton();
         button_modificar = new javax.swing.JButton();
+        Enrera = new javax.swing.JButton();
         first_panel = new javax.swing.JLayeredPane();
         panel_modificar = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -128,7 +125,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         modDataAlta = new javax.swing.JTextField();
         jTextField44 = new javax.swing.JTextField();
         modAlt = new javax.swing.JTextField();
-        modProveidor = new javax.swing.JTextField();
         jTextField45 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
         jTextField46 = new javax.swing.JTextField();
@@ -149,6 +145,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         modPreuProv = new javax.swing.JTextField();
         modAcabat = new javax.swing.JTextField();
         modPreuVenda = new javax.swing.JTextField();
+        comboProveidor = new javax.swing.JComboBox();
         panel_insert = new javax.swing.JPanel();
         jTextField13 = new javax.swing.JTextField();
         btn_save = new javax.swing.JButton();
@@ -226,6 +223,11 @@ public class ArticlesGui extends javax.swing.JFrame {
                 btn_exitMouseClicked(evt);
             }
         });
+        btn_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_exitActionPerformed(evt);
+            }
+        });
 
         button_modificar.setBackground(new java.awt.Color(255, 153, 255));
         button_modificar.setText("Modificar");
@@ -240,6 +242,20 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
+        Enrera.setBackground(new java.awt.Color(255, 102, 102));
+        Enrera.setText("Enrera");
+        Enrera.setActionCommand("Enrera");
+        Enrera.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EnreraMouseClicked(evt);
+            }
+        });
+        Enrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnreraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -247,6 +263,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             .addComponent(button_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(button_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+            .addComponent(Enrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +272,9 @@ public class ArticlesGui extends javax.swing.JFrame {
                 .addComponent(button_add)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(button_modificar)
-                .addGap(120, 120, 120)
+                .addGap(87, 87, 87)
+                .addComponent(Enrera)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_exit))
         );
 
@@ -336,13 +355,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         modAlt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modAltKeyTyped(evt);
-            }
-        });
-
-        modProveidor.setBackground(new java.awt.Color(204, 255, 255));
-        modProveidor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                modProveidorKeyTyped(evt);
             }
         });
 
@@ -506,6 +518,13 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
+        comboProveidor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboProveidor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboProveidorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_modificarLayout = new javax.swing.GroupLayout(panel_modificar);
         panel_modificar.setLayout(panel_modificarLayout);
         panel_modificarLayout.setHorizontalGroup(
@@ -515,11 +534,11 @@ public class ArticlesGui extends javax.swing.JFrame {
                 .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel_modificarLayout.createSequentialGroup()
-                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane8))
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modDataAlta, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                            .addComponent(jTextField44, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_modificarLayout.createSequentialGroup()
                         .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panel_modificarLayout.createSequentialGroup()
@@ -559,9 +578,9 @@ public class ArticlesGui extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(modProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(comboProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(modRef, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -590,13 +609,13 @@ public class ArticlesGui extends javax.swing.JFrame {
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(modCodi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(modRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(modPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(modPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -620,7 +639,7 @@ public class ArticlesGui extends javax.swing.JFrame {
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(473, Short.MAX_VALUE))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
 
         panel_insert.setMaximumSize(new java.awt.Dimension(1000, 800));
@@ -985,7 +1004,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         //Resetejem els camps de text.
                     modCodi.setText("");
                     modDataAlta.setText("");
-                    modProveidor.setText("");
+                    //modProveidor.setText("");
                     modRef.setText("");
                     modNom.setText("");
                     modDescripcio.setText("");
@@ -1035,49 +1054,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_exitMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // Mètode que s'executa quan obrim l'aplicació
-
-        //Si el fixer existix creem un vector i l'omplim en les dades del fitxer i en cas contrari el dixem sense dades     
-        if (f.exists()) {
-            ObjectInputStream entrada = null;
-
-            //LLegim el fitxer i omplim el vector en els articles continguts dins ell
-            try {
-                //Obrim el fitxer per lectura
-                entrada = new ObjectInputStream(new FileInputStream(f));
-
-                //Index del vector per guardar els articles trobats
-                int i = 0;
-                while (true) {
-                    try {
-                        vector.add((Articles) entrada.readObject());
-                        System.out.println(vector);
-                    } catch (EOFException e) {
-                        break;
-                    } catch (IOException|ClassNotFoundException ex) {
-                        Logger.getLogger(ArticlesGui.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                       
-                }
-
-            } catch (IOException e) {
-                //Si hi ha un error de lectura del fitxer mostrem avís i tanquem l'aplicació
-                JOptionPane.showMessageDialog(this, "Error en obrir el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
-                System.exit(-1);
-            } finally {
-                if (entrada != null) {
-                    try {
-                        entrada.close();
-                    } catch (IOException e) {
-                        //Si hi ha un error de tancament del fitxer mostrem avís i tanquem l'aplicació
-                        JOptionPane.showMessageDialog(this, "Error en tancar el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
-                        System.exit(-1);
-                    }
-                }
-            }
-        } else {
-            System.out.println("Fitxer nou");
-        }
+  
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -1088,11 +1065,11 @@ public class ArticlesGui extends javax.swing.JFrame {
         //Capturem l'excepció i escrivim
         try {
             //Pes escriure des de 0
-            sortida = new ObjectOutputStream(new FileOutputStream(f));
+            sortida = new ObjectOutputStream(new FileOutputStream(Inici.fArticles));
             int i;
-            for (i = 0; i < vector.size(); i++) //Escrivim els objectes al fitxer
+            for (i = 0; i < Inici.llistaArticles.size(); i++) //Escrivim els objectes al fitxer
             {
-                sortida.writeObject(vector.get(i));
+                sortida.writeObject(Inici.llistaArticles.get(i));
             }
         } catch (IOException e) {
             //Mostrem avís
@@ -1121,7 +1098,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         btn_actualitzar.setEnabled(false);
         modCodi.setEnabled(false);
         modDataAlta.setEnabled(false);
-        modProveidor.setEnabled(false);
+        //modProveidor.setEnabled(false);
         modRef.setEnabled(false);
         modNom.setEnabled(false);
         modDescripcio.setEnabled(false);
@@ -1146,14 +1123,15 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_button_modificarMouseClicked
 
     private void button_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modificarActionPerformed
-        ModelTaula<Articles> mt = new ModelTaula(vector);
+        ModelTaula<Articles> mt = new ModelTaula(Inici.llistaArticles);
         
-        //Li assigno el model a la taula
         taulaModelArticle.setModel(mt);
+        
+        carregarProveidors();
     }//GEN-LAST:event_button_modificarActionPerformed
 
     private void button_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_addActionPerformed
-        // TODO add your handling code here:
+        carregarProveidors();
     }//GEN-LAST:event_button_addActionPerformed
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
@@ -1225,7 +1203,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         //Resetejem els camps de text.
         modCodi.setText("");
         modDataAlta.setText("");
-        modProveidor.setText("");
+        //modProveidor.setText("");
         modRef.setText("");
         modNom.setText("");
         modDescripcio.setText("");
@@ -1236,36 +1214,35 @@ public class ArticlesGui extends javax.swing.JFrame {
         modPreuProv.setText("");
         modPreuVenda.setText("");
 
-        vector.get(index).set01dataAlta(modDataAlta.getText().trim());
-        //vector.get(index).set02proveidor(modProveidor.getText().trim()); /*objecte*/
-        vector.get(index).set03ref(modRef.getText().trim());
-        vector.get(index).set04nom(modNom.getText().trim());
-        vector.get(index).set05descripcio(modDescripcio.getText().trim());
-        vector.get(index).set06acabat(modAcabat.getText().trim());
-        vector.get(index).set07alt(Integer.parseInt(modAlt.getText().trim()));
-        vector.get(index).set08ample(Integer.parseInt(modAmple.getText().trim()));
-        vector.get(index).set09fondo(Integer.parseInt(modFondo.getText().trim()));
-        vector.get(index).set10preuProv(Integer.parseInt(modPreuProv.getText().trim()));
-        vector.get(index).set11preuVenda(Integer.parseInt(modPreuVenda.getText().trim()));
+        Inici.llistaArticles.get(index).set01dataAlta(modDataAlta.getText().trim());
+        Inici.llistaArticles.get(index).set03ref(modRef.getText().trim());
+        Inici.llistaArticles.get(index).set04nom(modNom.getText().trim());
+        Inici.llistaArticles.get(index).set05descripcio(modDescripcio.getText().trim());
+        Inici.llistaArticles.get(index).set06acabat(modAcabat.getText().trim());
+        Inici.llistaArticles.get(index).set07alt(Integer.parseInt(modAlt.getText().trim()));
+        Inici.llistaArticles.get(index).set08ample(Integer.parseInt(modAmple.getText().trim()));
+        Inici.llistaArticles.get(index).set09fondo(Integer.parseInt(modFondo.getText().trim()));
+        Inici.llistaArticles.get(index).set10preuProv(Integer.parseInt(modPreuProv.getText().trim()));
+        Inici.llistaArticles.get(index).set11preuVenda(Integer.parseInt(modPreuVenda.getText().trim()));
 
         //I ara actualitzo la taula
 
-        taulaModelArticle.setValueAt(vector.get(index).get01dataAlta(),taulaModelArticle.getSelectedRow(), 0);
-        taulaModelArticle.setValueAt(vector.get(index).get02proveidor(),taulaModelArticle.getSelectedRow(), 1); /*objecte*/
-        taulaModelArticle.setValueAt(vector.get(index).get03ref(),taulaModelArticle.getSelectedRow(), 2);
-        taulaModelArticle.setValueAt(vector.get(index).get04nom(),taulaModelArticle.getSelectedRow(), 3);
-        taulaModelArticle.setValueAt(vector.get(index).get05descripcio(),taulaModelArticle.getSelectedRow(), 4);
-        taulaModelArticle.setValueAt(vector.get(index).get06acabat(),taulaModelArticle.getSelectedRow(), 5);
-        taulaModelArticle.setValueAt(vector.get(index).get07alt(),taulaModelArticle.getSelectedRow(), 6);
-        taulaModelArticle.setValueAt(vector.get(index).get08ample(),taulaModelArticle.getSelectedRow(), 7);
-        taulaModelArticle.setValueAt(vector.get(index).get09fondo(),taulaModelArticle.getSelectedRow(), 8);
-        taulaModelArticle.setValueAt(vector.get(index).get10preuProv(),taulaModelArticle.getSelectedRow(), 9);
-        taulaModelArticle.setValueAt(vector.get(index).get11preuVenda(),taulaModelArticle.getSelectedRow(), 10);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get01dataAlta(),taulaModelArticle.getSelectedRow(), 0);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get02proveidor(),taulaModelArticle.getSelectedRow(), 1); /*objecte*/
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get03ref(),taulaModelArticle.getSelectedRow(), 2);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get04nom(),taulaModelArticle.getSelectedRow(), 3);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get05descripcio(),taulaModelArticle.getSelectedRow(), 4);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get06acabat(),taulaModelArticle.getSelectedRow(), 5);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get07alt(),taulaModelArticle.getSelectedRow(), 6);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get08ample(),taulaModelArticle.getSelectedRow(), 7);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get09fondo(),taulaModelArticle.getSelectedRow(), 8);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get10preuProv(),taulaModelArticle.getSelectedRow(), 9);
+        taulaModelArticle.setValueAt(Inici.llistaArticles.get(index).get11preuVenda(),taulaModelArticle.getSelectedRow(), 10);
 
         // Finalment desactivo jtextfields i botó d'actualitzar
         modCodi.setEnabled(false);
         modDataAlta.setEnabled(false);
-        modProveidor.setEnabled(false);
+        //modProveidor.setEnabled(false);
         modRef.setEnabled(false);
         modNom.setEnabled(false);
         modDescripcio.setEnabled(false);
@@ -1289,10 +1266,6 @@ public class ArticlesGui extends javax.swing.JFrame {
     private void modAltKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modAltKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_modAltKeyTyped
-
-    private void modProveidorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modProveidorKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modProveidorKeyTyped
 
     private void jTextField45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField45ActionPerformed
         // TODO add your handling code here:
@@ -1362,6 +1335,23 @@ public class ArticlesGui extends javax.swing.JFrame {
 
     }//GEN-LAST:event_desplegableProveidorsActionPerformed
 
+    private void comboProveidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProveidorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboProveidorActionPerformed
+
+    private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_exitActionPerformed
+
+    private void EnreraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnreraMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EnreraMouseClicked
+
+    private void EnreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnreraActionPerformed
+        this.setVisible(false);
+        new Inici().setVisible(true);
+    }//GEN-LAST:event_EnreraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1398,15 +1388,15 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
     }
 
-    //Variables nostres
-    //Vector per guardar els articles durant l'execució
-    private static ArrayList<Articles> vector=new ArrayList<>();
 
-    //Nom del fitxer de articles
-    private static final File f = new File("articles.dat");
      
+    private void carregarProveidors() {
+        comboProveidor.setModel(new DefaultComboBoxModel(Inici.llistaProveidors.toArray()));
+        desplegableProveidors.setModel(new DefaultComboBoxModel(Inici.llistaProveidors.toArray()));
+    }
       
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Enrera;
     private javax.swing.JTextField addAcabat;
     private javax.swing.JTextField addAlt;
     private javax.swing.JTextField addAmple;
@@ -1421,6 +1411,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     private javax.swing.JButton btn_save;
     private javax.swing.JButton button_add;
     private javax.swing.JButton button_modificar;
+    private javax.swing.JComboBox comboProveidor;
     private javax.swing.JComboBox desplegableProveidors;
     private javax.swing.JLayeredPane first_panel;
     private javax.swing.JDialog jDialog1;
@@ -1462,7 +1453,6 @@ public class ArticlesGui extends javax.swing.JFrame {
     private javax.swing.JTextField modNom;
     private javax.swing.JTextField modPreuProv;
     private javax.swing.JTextField modPreuVenda;
-    private javax.swing.JTextField modProveidor;
     private javax.swing.JTextField modRef;
     private javax.swing.JPanel panel_insert;
     private javax.swing.JPanel panel_modificar;

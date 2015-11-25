@@ -120,6 +120,7 @@
                   <Component id="button_add" alignment="0" max="32767" attributes="0"/>
                   <Component id="btn_exit" alignment="0" max="32767" attributes="0"/>
                   <Component id="button_modificar" alignment="0" pref="123" max="32767" attributes="0"/>
+                  <Component id="Enrera" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -129,7 +130,9 @@
                       <Component id="button_add" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="button_modificar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="Enrera" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_exit" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -157,6 +160,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_exitMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_exitActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="button_modificar">
@@ -169,6 +173,19 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_modificarMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_modificarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Enrera">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Enrera"/>
+                <Property name="actionCommand" type="java.lang.String" value="Enrera"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EnreraMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EnreraActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -250,12 +267,12 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jTextField44" min="-2" pref="110" max="-2" attributes="0"/>
-                                      <Component id="modDataAlta" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="modDataAlta" pref="166" max="32767" attributes="0"/>
+                                      <Component id="jTextField44" pref="166" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane8" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane8" min="-2" pref="807" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -300,9 +317,9 @@
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                                   <Component id="jTextField10" min="-2" pref="67" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="modProveidor" min="-2" pref="229" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jTextField23" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <Component id="comboProveidor" min="-2" pref="229" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jTextField23" min="-2" pref="76" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="modRef" min="-2" pref="138" max="-2" attributes="0"/>
                                               </Group>
@@ -344,13 +361,13 @@
                               <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="modCodi" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="modProveidor" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField23" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="modRef" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField49" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="modPreuProv" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField47" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="modPreuVenda" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboProveidor" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -380,7 +397,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="157" max="-2" attributes="0"/>
-                          <EmptySpace pref="473" max="32767" attributes="0"/>
+                          <EmptySpace pref="448" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -547,16 +564,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="modAltKeyTyped"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="modProveidor">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="cc" type="rgb"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="modProveidorKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField45">
@@ -787,6 +794,21 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modPreuVendaActionPerformed"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="modPreuVendaKeyTyped"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboProveidor">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboProveidorActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

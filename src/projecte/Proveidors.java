@@ -181,4 +181,8 @@ public class Proveidors implements Serializable {
 
   
    
+    @Override
+    public String toString() {
+        return _01nomCom; //To change body of generated methods, choose Tools | Templates.
+    }
 }
