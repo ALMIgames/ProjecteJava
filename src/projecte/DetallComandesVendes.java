@@ -5,150 +5,131 @@ import java.io.Serializable;
 
 public class DetallComandesVendes implements Serializable {
 
-    private int codi;
-    private ComandesVendes comandaVendes; /*objecte*/
-    private int uts;
-    private Articles article; /*objecte*/
-    private String ref; 
-    private String nom; 
-    private String descripcio;
-    private String acabat;
-    private int alt; 
-    private int ample; 
-    private int fondo;
-    private String notes; 
-    private float importUt;
-    private float importTotal;
+    private ComandesVendes _01comandaVendes; /*objecte->guardar id o ref**/
+    private int _02uts;
+    private Articles _03article; /*objecte->guardar ref**/
+    private String _04nom; 
+    private String _05descripcio;
+    private String _06acabat;
+    private int _07alt; 
+    private int _08ample; 
+    private int _09fondo;
+    private String _10notes; 
+    private float _11importUt;
+    private float _12importTotal;
 
-    public DetallComandesVendes(int codi, ComandesVendes comandaVendes, int uts, 
-    Articles article, String ref, String nom, String descripcio, String acabat,
-    int alt, int ample, int fondo, String notes, float importUt, float importTotal) {
-        this.codi = codi;
-        this.comandaVendes = comandaVendes;
-        this.uts = uts;
-        this.article = article;
-        this.ref = ref;
-        this.nom = nom;
-        this.descripcio = descripcio;
-        this.acabat = acabat;
-        this.alt = alt;
-        this.ample = ample;
-        this.fondo = fondo;
-        this.notes = notes;
-        this.importUt = importUt;
-        this.importTotal = importTotal;
+    public DetallComandesVendes(ComandesVendes _01comandaVendes, int _02uts, Articles _03article,
+    String _04nom, String _05descripcio, String _06acabat, int _07alt, int _08ample, int _09fondo,
+    String _10notes, float _11importUt, float _12importTotal) {
+        this._01comandaVendes = _01comandaVendes;
+        this._02uts = _02uts;
+        this._03article = _03article;
+        this._04nom = _04nom;
+        this._05descripcio = _05descripcio;
+        this._06acabat = _06acabat;
+        this._07alt = _07alt;
+        this._08ample = _08ample;
+        this._09fondo = _09fondo;
+        this._10notes = _10notes;
+        this._11importUt = _11importUt;
+        this._12importTotal = _12importTotal;
     }
 
-    public int getCodi() {
-        return codi;
+    public ComandesVendes get01comandaVendes() {
+        return _01comandaVendes;
     }
 
-    public void setCodi(int codi) {
-        this.codi = codi;
+    public void set01comandaVendes(ComandesVendes _01comandaVendes) {
+        this._01comandaVendes = _01comandaVendes;
     }
 
-    public ComandesVendes getComandaVendes() {
-        return comandaVendes;
+    public int get02uts() {
+        return _02uts;
     }
 
-    public void setComandaVendes(ComandesVendes comandaVendes) {
-        this.comandaVendes = comandaVendes;
+    public void set02uts(int _02uts) {
+        this._02uts = _02uts;
     }
 
-    public int getUts() {
-        return uts;
+    public Articles get03article() {
+        return _03article;
     }
 
-    public void setUts(int uts) {
-        this.uts = uts;
+    public void set03article(Articles _03article) {
+        this._03article = _03article;
     }
 
-    public Articles getArticle() {
-        return article;
+    public String get04nom() {
+        return _04nom;
     }
 
-    public void setArticle(Articles article) {
-        this.article = article;
+    public void set04nom(String _04nom) {
+        this._04nom = _04nom;
     }
 
-    public String getRef() {
-        return ref;
+    public String get05descripcio() {
+        return _05descripcio;
     }
 
-    public void setRef(String ref) {
-        this.ref = ref;
+    public void set05descripcio(String _05descripcio) {
+        this._05descripcio = _05descripcio;
     }
 
-    public String getNom() {
-        return nom;
+    public String get06acabat() {
+        return _06acabat;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void set06acabat(String _06acabat) {
+        this._06acabat = _06acabat;
     }
 
-    public String getDescripcio() {
-        return descripcio;
+    public int get07alt() {
+        return _07alt;
     }
 
-    public void setDescripcio(String descripcio) {
-        this.descripcio = descripcio;
+    public void set07alt(int _07alt) {
+        this._07alt = _07alt;
     }
 
-    public String getAcabat() {
-        return acabat;
+    public int get08ample() {
+        return _08ample;
     }
 
-    public void setAcabat(String acabat) {
-        this.acabat = acabat;
+    public void set08ample(int _08ample) {
+        this._08ample = _08ample;
     }
 
-    public int getAlt() {
-        return alt;
+    public int get09fondo() {
+        return _09fondo;
     }
 
-    public void setAlt(int alt) {
-        this.alt = alt;
+    public void set09fondo(int _09fondo) {
+        this._09fondo = _09fondo;
     }
 
-    public int getAmple() {
-        return ample;
+    public String get10notes() {
+        return _10notes;
     }
 
-    public void setAmple(int ample) {
-        this.ample = ample;
+    public void set10notes(String _10notes) {
+        this._10notes = _10notes;
     }
 
-    public int getFondo() {
-        return fondo;
+    public float get11importUt() {
+        return _11importUt;
     }
 
-    public void setFondo(int fondo) {
-        this.fondo = fondo;
+    public void set11importUt(float _11importUt) {
+        this._11importUt = _11importUt;
     }
 
-    public String getNotes() {
-        return notes;
+    public float get12importTotal() {
+        return _12importTotal;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void set12importTotal(float _12importTotal) {
+        this._12importTotal = _12importTotal;
     }
 
-    public float getImportUt() {
-        return importUt;
-    }
-
-    public void setImportUt(float importUt) {
-        this.importUt = importUt;
-    }
-
-    public float getImportTotal() {
-        return importTotal;
-    }
-
-    public void setImportTotal(float importTotal) {
-        this.importTotal = importTotal;
-    }
    
 }
