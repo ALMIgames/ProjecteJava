@@ -227,7 +227,7 @@ public class ClientsGui extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(96, 229));
         jPanel2.setPreferredSize(new java.awt.Dimension(96, 229));
 
-        button_add.setBackground(new java.awt.Color(255, 153, 255));
+        button_add.setBackground(new java.awt.Color(255, 255, 255));
         button_add.setText("Afegir");
         button_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,7 +240,7 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        btn_exit.setBackground(new java.awt.Color(255, 102, 102));
+        btn_exit.setBackground(new java.awt.Color(255, 255, 255));
         btn_exit.setText("Sortir");
         btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -253,7 +253,7 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        button_modificar.setBackground(new java.awt.Color(255, 153, 255));
+        button_modificar.setBackground(new java.awt.Color(255, 255, 255));
         button_modificar.setText("Modificar");
         button_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -266,7 +266,7 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        Enrera.setBackground(new java.awt.Color(255, 102, 102));
+        Enrera.setBackground(new java.awt.Color(255, 255, 255));
         Enrera.setText("Enrera");
         Enrera.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -285,7 +285,7 @@ public class ClientsGui extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(button_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(button_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+            .addComponent(button_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
             .addComponent(Enrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -298,7 +298,8 @@ public class ClientsGui extends javax.swing.JFrame {
                 .addGap(87, 87, 87)
                 .addComponent(Enrera)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_exit))
+                .addComponent(btn_exit)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         first_panel.setMaximumSize(new java.awt.Dimension(1000, 800));
@@ -354,7 +355,7 @@ public class ClientsGui extends javax.swing.JFrame {
         }
 
         jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText("Nom Comercial");
         jTextField4.setFocusable(false);
@@ -365,7 +366,7 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setText("Nom Fiscal");
         jTextField6.setFocusable(false);
@@ -376,12 +377,11 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField10.setEditable(false);
-        jTextField10.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField10.setBackground(new java.awt.Color(255, 255, 255));
         jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField10.setText("Poblacio");
         jTextField10.setFocusable(false);
 
-        modNomFis.setBackground(new java.awt.Color(204, 255, 255));
         modNomFis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modNomFisActionPerformed(evt);
@@ -393,7 +393,6 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        modNomCom.setBackground(new java.awt.Color(204, 255, 255));
         modNomCom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modNomComActionPerformed(evt);
@@ -405,6 +404,7 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
+        btn_actualitzar.setBackground(new java.awt.Color(255, 255, 255));
         btn_actualitzar.setText("Modificar");
         btn_actualitzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -412,7 +412,6 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        jTextField15.setBackground(new java.awt.Color(204, 204, 255));
         jTextField15.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField15.setText("Modificar clients");
@@ -422,7 +421,6 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        modCifNif.setBackground(new java.awt.Color(204, 255, 255));
         modCifNif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modCifNifActionPerformed(evt);
@@ -435,12 +433,11 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField7.setEditable(false);
-        jTextField7.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
         jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField7.setText("CIF/NIF");
         jTextField7.setFocusable(false);
 
-        modPais.setBackground(new java.awt.Color(204, 255, 255));
         modPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modPaisActionPerformed(evt);
@@ -453,55 +450,49 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField8.setEditable(false);
-        jTextField8.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField8.setBackground(new java.awt.Color(255, 255, 255));
         jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField8.setText("Pais");
         jTextField8.setFocusable(false);
 
         jTextField24.setEditable(false);
-        jTextField24.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField24.setBackground(new java.awt.Color(255, 255, 255));
         jTextField24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField24.setText("Direccio");
         jTextField24.setFocusable(false);
 
-        jTextField25.setEditable(false);
-        jTextField25.setBackground(new java.awt.Color(255, 255, 204));
         jTextField25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField25.setText("CP");
         jTextField25.setFocusable(false);
 
-        jTextField26.setEditable(false);
-        jTextField26.setBackground(new java.awt.Color(255, 255, 204));
         jTextField26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField26.setText("Telefon");
         jTextField26.setFocusable(false);
 
         jTextField27.setEditable(false);
-        jTextField27.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField27.setBackground(new java.awt.Color(255, 255, 255));
         jTextField27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField27.setText("Website");
         jTextField27.setFocusable(false);
 
         jTextField28.setEditable(false);
-        jTextField28.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField28.setBackground(new java.awt.Color(255, 255, 255));
         jTextField28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField28.setText("CC");
         jTextField28.setFocusable(false);
 
         jTextField30.setEditable(false);
-        jTextField30.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField30.setBackground(new java.awt.Color(255, 255, 255));
         jTextField30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField30.setText("Email");
         jTextField30.setFocusable(false);
 
-        modTel.setBackground(new java.awt.Color(204, 255, 255));
         modTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modTelKeyTyped(evt);
             }
         });
 
-        modCp.setBackground(new java.awt.Color(204, 255, 255));
         modCp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modCpActionPerformed(evt);
@@ -513,14 +504,12 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        modDireccio.setBackground(new java.awt.Color(204, 255, 255));
         modDireccio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modDireccioKeyTyped(evt);
             }
         });
 
-        modPoblacio.setBackground(new java.awt.Color(204, 255, 255));
         modPoblacio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modPoblacioActionPerformed(evt);
@@ -533,12 +522,11 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField29.setEditable(false);
-        jTextField29.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField29.setBackground(new java.awt.Color(255, 255, 255));
         jTextField29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField29.setText("Descompte");
         jTextField29.setFocusable(false);
 
-        modDescompte.setBackground(new java.awt.Color(204, 255, 255));
         modDescompte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modDescompteActionPerformed(evt);
@@ -550,21 +538,18 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        modCc.setBackground(new java.awt.Color(204, 255, 255));
         modCc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modCcKeyTyped(evt);
             }
         });
 
-        modWebsite.setBackground(new java.awt.Color(204, 255, 255));
         modWebsite.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modWebsiteKeyTyped(evt);
             }
         });
 
-        modEmail.setBackground(new java.awt.Color(204, 255, 255));
         modEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modEmailActionPerformed(evt);
@@ -577,7 +562,7 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField31.setEditable(false);
-        jTextField31.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField31.setBackground(new java.awt.Color(255, 255, 255));
         jTextField31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField31.setText("Notes");
         jTextField31.setFocusable(false);
@@ -722,7 +707,7 @@ public class ClientsGui extends javax.swing.JFrame {
         panel_insert.setVisible(false);
 
         jTextField13.setEditable(false);
-        jTextField13.setBackground(new java.awt.Color(204, 204, 255));
+        jTextField13.setBackground(new java.awt.Color(255, 255, 255));
         jTextField13.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField13.setText("Afegir nous clients");
@@ -734,6 +719,7 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
+        btn_save.setBackground(new java.awt.Color(255, 255, 255));
         btn_save.setText("Guardar");
         btn_save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -742,19 +728,17 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField32.setEditable(false);
-        jTextField32.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField32.setBackground(new java.awt.Color(255, 255, 255));
         jTextField32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField32.setText("Email");
         jTextField32.setFocusable(false);
 
-        addTel.setBackground(new java.awt.Color(204, 255, 255));
         addTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addTelKeyTyped(evt);
             }
         });
 
-        addCp.setBackground(new java.awt.Color(204, 255, 255));
         addCp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addCpKeyTyped(evt);
@@ -762,13 +746,13 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Nom Comercial");
         jTextField5.setFocusable(false);
 
         jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField9.setBackground(new java.awt.Color(255, 255, 255));
         jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField9.setText("Nom Fiscal");
         jTextField9.setFocusable(false);
@@ -779,26 +763,23 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField11.setBackground(new java.awt.Color(255, 255, 255));
         jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField11.setText("Poblacio");
         jTextField11.setFocusable(false);
 
-        addNomFis.setBackground(new java.awt.Color(204, 255, 255));
         addNomFis.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addNomFisKeyTyped(evt);
             }
         });
 
-        addDireccio.setBackground(new java.awt.Color(204, 255, 255));
         addDireccio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addDireccioKeyTyped(evt);
             }
         });
 
-        addPoblacio.setBackground(new java.awt.Color(204, 255, 255));
         addPoblacio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPoblacioActionPerformed(evt);
@@ -811,19 +792,17 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField33.setEditable(false);
-        jTextField33.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField33.setBackground(new java.awt.Color(255, 255, 255));
         jTextField33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField33.setText("Descompte");
         jTextField33.setFocusable(false);
 
-        addDescompte.setBackground(new java.awt.Color(204, 255, 255));
         addDescompte.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addDescompteKeyTyped(evt);
             }
         });
 
-        addNomCom.setBackground(new java.awt.Color(204, 255, 255));
         addNomCom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addNomComActionPerformed(evt);
@@ -835,7 +814,6 @@ public class ClientsGui extends javax.swing.JFrame {
             }
         });
 
-        addCifNif.setBackground(new java.awt.Color(204, 255, 255));
         addCifNif.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addCifNifKeyTyped(evt);
@@ -843,12 +821,11 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField12.setEditable(false);
-        jTextField12.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField12.setBackground(new java.awt.Color(255, 255, 255));
         jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField12.setText("CIF/NIF");
         jTextField12.setFocusable(false);
 
-        addPais.setBackground(new java.awt.Color(204, 255, 255));
         addPais.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addPaisKeyTyped(evt);
@@ -856,38 +833,35 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField18.setEditable(false);
-        jTextField18.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField18.setBackground(new java.awt.Color(255, 255, 255));
         jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField18.setText("Pais");
         jTextField18.setFocusable(false);
 
         jTextField34.setEditable(false);
-        jTextField34.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField34.setBackground(new java.awt.Color(255, 255, 255));
         jTextField34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField34.setText("Direccio");
         jTextField34.setFocusable(false);
 
         jTextField35.setEditable(false);
-        jTextField35.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField35.setBackground(new java.awt.Color(255, 255, 255));
         jTextField35.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField35.setText("CP");
         jTextField35.setFocusable(false);
 
-        addCc.setBackground(new java.awt.Color(204, 255, 255));
         addCc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addCcKeyTyped(evt);
             }
         });
 
-        addWebsite.setBackground(new java.awt.Color(204, 255, 255));
         addWebsite.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addWebsiteKeyTyped(evt);
             }
         });
 
-        addEmail.setBackground(new java.awt.Color(204, 255, 255));
         addEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addEmailActionPerformed(evt);
@@ -900,29 +874,31 @@ public class ClientsGui extends javax.swing.JFrame {
         });
 
         jTextField36.setEditable(false);
-        jTextField36.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField36.setBackground(new java.awt.Color(255, 255, 255));
         jTextField36.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField36.setText("Notes");
         jTextField36.setFocusable(false);
+
+        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
 
         addNotes.setColumns(20);
         addNotes.setRows(5);
         jScrollPane6.setViewportView(addNotes);
 
         jTextField37.setEditable(false);
-        jTextField37.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField37.setBackground(new java.awt.Color(255, 255, 255));
         jTextField37.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField37.setText("Telefon");
         jTextField37.setFocusable(false);
 
         jTextField38.setEditable(false);
-        jTextField38.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField38.setBackground(new java.awt.Color(255, 255, 255));
         jTextField38.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField38.setText("Website");
         jTextField38.setFocusable(false);
 
         jTextField39.setEditable(false);
-        jTextField39.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField39.setBackground(new java.awt.Color(255, 255, 255));
         jTextField39.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField39.setText("CC");
         jTextField39.setFocusable(false);
@@ -1050,7 +1026,7 @@ public class ClientsGui extends javax.swing.JFrame {
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1083,17 +1059,20 @@ public class ClientsGui extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel2, 800, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(265, 265, 265))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

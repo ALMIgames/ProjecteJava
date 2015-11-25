@@ -176,21 +176,21 @@ private void initComponentsArticles(){
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        botoClients.setText("clients");
+        botoClients.setText("Clients");
         botoClients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoClientsActionPerformed(evt);
             }
         });
 
-        botoProveidors.setText("proveidors");
+        botoProveidors.setText("Proveidors");
         botoProveidors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoProveidorsActionPerformed(evt);
             }
         });
 
-        articles.setText("articles");
+        articles.setText("Articles");
         articles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 articlesActionPerformed(evt);
@@ -202,23 +202,23 @@ private void initComponentsArticles(){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(botoClients)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botoProveidors)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(articles)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botoClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botoProveidors, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                    .addComponent(articles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botoClients)
-                    .addComponent(botoProveidors)
-                    .addComponent(articles))
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(botoClients)
+                .addGap(18, 18, 18)
+                .addComponent(botoProveidors)
+                .addGap(18, 18, 18)
+                .addComponent(articles)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         pack();

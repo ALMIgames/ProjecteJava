@@ -23,27 +23,27 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-              <Component id="botoClients" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="botoProveidors" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="botoClients" max="32767" attributes="0"/>
+                  <Component id="botoProveidors" alignment="1" pref="421" max="32767" attributes="0"/>
+                  <Component id="articles" alignment="0" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="articles" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="131" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botoClients" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botoProveidors" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="articles" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="161" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <Component id="botoClients" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="botoProveidors" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="articles" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="120" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,7 +51,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="botoClients">
       <Properties>
-        <Property name="text" type="java.lang.String" value="clients"/>
+        <Property name="text" type="java.lang.String" value="Clients"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botoClientsActionPerformed"/>
@@ -59,7 +59,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="botoProveidors">
       <Properties>
-        <Property name="text" type="java.lang.String" value="proveidors"/>
+        <Property name="text" type="java.lang.String" value="Proveidors"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botoProveidorsActionPerformed"/>
@@ -67,7 +67,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="articles">
       <Properties>
-        <Property name="text" type="java.lang.String" value="articles"/>
+        <Property name="text" type="java.lang.String" value="Articles"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="articlesActionPerformed"/>

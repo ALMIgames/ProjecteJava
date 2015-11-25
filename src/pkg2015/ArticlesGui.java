@@ -48,7 +48,6 @@ public class ArticlesGui extends javax.swing.JFrame {
                     modPreuProv.setText(taulaModelArticle.getModel().getValueAt(i, 9).toString()); 
                     modPreuVenda.setText((String)taulaModelArticle.getModel().getValueAt(i, 10).toString()); 
                           
-                    
                     modDataAlta.setEnabled(false);
                     desplegableProveidors.setEnabled(true);
                     comboProveidor.setEnabled(true);
@@ -238,7 +237,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         Enrera.setText("Enrera");
-        Enrera.setActionCommand("Enrera");
         Enrera.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EnreraMouseClicked(evt);
@@ -266,10 +264,11 @@ public class ArticlesGui extends javax.swing.JFrame {
                 .addComponent(button_add)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(button_modificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
                 .addComponent(Enrera)
                 .addGap(18, 18, 18)
-                .addComponent(btn_exit))
+                .addComponent(btn_exit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         first_panel.setMaximumSize(new java.awt.Dimension(1000, 800));
@@ -285,7 +284,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         jScrollPane2.setMinimumSize(new java.awt.Dimension(1176, 500));
         jScrollPane2.setPreferredSize(new java.awt.Dimension(1176, 500));
 
-        taulaModelArticle.setBackground(new java.awt.Color(255, 255, 255));
         taulaModelArticle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -335,7 +333,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        jTextField15.setBackground(new java.awt.Color(255, 255, 255));
         jTextField15.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField15.setText("Modificar articles");
@@ -348,15 +345,12 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        modDataAlta.setBackground(new java.awt.Color(255, 255, 255));
-
         jTextField44.setEditable(false);
         jTextField44.setBackground(new java.awt.Color(255, 255, 255));
         jTextField44.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField44.setText("Descricipcio");
         jTextField44.setFocusable(false);
 
-        modAlt.setBackground(new java.awt.Color(255, 255, 255));
         modAlt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modAltKeyTyped(evt);
@@ -403,7 +397,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         jTextField22.setText("Nom");
         jTextField22.setFocusable(false);
 
-        modNom.setBackground(new java.awt.Color(255, 255, 255));
         modNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modNomKeyTyped(evt);
@@ -421,7 +414,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        modAmple.setBackground(new java.awt.Color(255, 255, 255));
         modAmple.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modAmpleKeyTyped(evt);
@@ -445,23 +437,25 @@ public class ArticlesGui extends javax.swing.JFrame {
         jTextField48.setText("Fondo (mm)");
         jTextField48.setFocusable(false);
 
-        modFondo.setBackground(new java.awt.Color(255, 255, 255));
         modFondo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modFondoKeyTyped(evt);
             }
         });
 
-        modRef.setBackground(new java.awt.Color(255, 255, 255));
         modRef.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modRefKeyTyped(evt);
             }
         });
 
-        modDescripcio.setBackground(new java.awt.Color(255, 255, 255));
         modDescripcio.setColumns(20);
         modDescripcio.setRows(5);
+        modDescripcio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                modDescripcioKeyTyped(evt);
+            }
+        });
         jScrollPane8.setViewportView(modDescripcio);
 
         jTextField49.setEditable(false);
@@ -470,7 +464,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         jTextField49.setText("Preu Proveidor (€)");
         jTextField49.setFocusable(false);
 
-        modPreuProv.setBackground(new java.awt.Color(255, 255, 255));
         modPreuProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modPreuProvActionPerformed(evt);
@@ -482,7 +475,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        modAcabat.setBackground(new java.awt.Color(255, 255, 255));
         modAcabat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modAcabatActionPerformed(evt);
@@ -494,7 +486,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        modPreuVenda.setBackground(new java.awt.Color(255, 255, 255));
         modPreuVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modPreuVendaActionPerformed(evt);
@@ -506,7 +497,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        comboProveidor.setBackground(new java.awt.Color(255, 255, 255));
         comboProveidor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboProveidor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,7 +646,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         jTextField32.setMaximumSize(new java.awt.Dimension(115, 27));
         jTextField32.setMinimumSize(new java.awt.Dimension(115, 27));
 
-        addFondo.setBackground(new java.awt.Color(255, 255, 255));
         addFondo.setMaximumSize(new java.awt.Dimension(115, 27));
         addFondo.setMinimumSize(new java.awt.Dimension(115, 27));
         addFondo.setPreferredSize(new java.awt.Dimension(115, 27));
@@ -666,7 +655,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addAmple.setBackground(new java.awt.Color(255, 255, 255));
         addAmple.setMaximumSize(new java.awt.Dimension(115, 27));
         addAmple.setMinimumSize(new java.awt.Dimension(115, 27));
         addAmple.setPreferredSize(new java.awt.Dimension(115, 27));
@@ -696,7 +684,6 @@ public class ArticlesGui extends javax.swing.JFrame {
         jTextField11.setMinimumSize(new java.awt.Dimension(115, 27));
         jTextField11.setPreferredSize(new java.awt.Dimension(115, 27));
 
-        addAlt.setBackground(new java.awt.Color(255, 255, 255));
         addAlt.setMaximumSize(new java.awt.Dimension(115, 27));
         addAlt.setMinimumSize(new java.awt.Dimension(115, 27));
         addAlt.setPreferredSize(new java.awt.Dimension(115, 27));
@@ -706,7 +693,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addAcabat.setBackground(new java.awt.Color(255, 255, 255));
         addAcabat.setMaximumSize(new java.awt.Dimension(115, 27));
         addAcabat.setMinimumSize(new java.awt.Dimension(115, 27));
         addAcabat.setPreferredSize(new java.awt.Dimension(115, 27));
@@ -721,7 +707,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addRef.setBackground(new java.awt.Color(255, 255, 255));
         addRef.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addRefKeyTyped(evt);
@@ -739,7 +724,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addNom.setBackground(new java.awt.Color(255, 255, 255));
         addNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addNomKeyTyped(evt);
@@ -775,7 +759,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addPreuVenda.setBackground(new java.awt.Color(255, 255, 255));
         addPreuVenda.setMaximumSize(new java.awt.Dimension(115, 27));
         addPreuVenda.setMinimumSize(new java.awt.Dimension(115, 27));
         addPreuVenda.setPreferredSize(new java.awt.Dimension(115, 27));
@@ -790,7 +773,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addPreuProv.setBackground(new java.awt.Color(255, 255, 255));
         addPreuProv.setMaximumSize(new java.awt.Dimension(115, 27));
         addPreuProv.setMinimumSize(new java.awt.Dimension(115, 27));
         addPreuProv.setPreferredSize(new java.awt.Dimension(115, 27));
@@ -840,7 +822,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        desplegableProveidors.setBackground(new java.awt.Color(255, 255, 255));
         desplegableProveidors.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1" }));
         desplegableProveidors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -951,7 +932,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1012, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -992,12 +973,12 @@ public class ArticlesGui extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(216, 216, 216))
+                        .addGap(11, 11, 11)
+                        .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1318,7 +1299,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField38ActionPerformed
 
     private void modAltKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modAltKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modAltKeyTyped
 
     private void jTextField45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField45ActionPerformed
@@ -1330,7 +1311,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField10ActionPerformed
 
     private void modNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modNomKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modNomKeyTyped
 
     private void jTextField47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField47ActionPerformed
@@ -1338,7 +1319,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField47ActionPerformed
 
     private void modAmpleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modAmpleKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modAmpleKeyTyped
 
     private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
@@ -1346,11 +1327,11 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField23ActionPerformed
 
     private void modFondoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modFondoKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modFondoKeyTyped
 
     private void modRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modRefKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modRefKeyTyped
 
     private void modPreuProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modPreuProvActionPerformed
@@ -1358,7 +1339,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_modPreuProvActionPerformed
 
     private void modPreuProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modPreuProvKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modPreuProvKeyTyped
 
     private void modAcabatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modAcabatActionPerformed
@@ -1366,7 +1347,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_modAcabatActionPerformed
 
     private void modAcabatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modAcabatKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modAcabatKeyTyped
 
     private void modPreuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modPreuVendaActionPerformed
@@ -1374,7 +1355,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_modPreuVendaActionPerformed
 
     private void modPreuVendaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modPreuVendaKeyTyped
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_modPreuVendaKeyTyped
 
     private void desplegableProveidorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desplegableProveidorsActionPerformed
@@ -1382,7 +1363,7 @@ public class ArticlesGui extends javax.swing.JFrame {
     }//GEN-LAST:event_desplegableProveidorsActionPerformed
 
     private void comboProveidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProveidorActionPerformed
-        // TODO add your handling code here:
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_comboProveidorActionPerformed
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
@@ -1397,6 +1378,10 @@ public class ArticlesGui extends javax.swing.JFrame {
         this.setVisible(false);
         new Inici().setVisible(true);
     }//GEN-LAST:event_EnreraActionPerformed
+
+    private void modDescripcioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modDescripcioKeyTyped
+btn_actualitzar.setEnabled(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_modDescripcioKeyTyped
 
     /**
      * @param args the command line arguments
