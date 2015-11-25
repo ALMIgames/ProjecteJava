@@ -180,7 +180,9 @@ public class ArticlesGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manteniment d'alumnes");
-        setMinimumSize(new java.awt.Dimension(1200, 800));
+        setMaximumSize(new java.awt.Dimension(1200, 600));
+        setMinimumSize(new java.awt.Dimension(1200, 600));
+        setPreferredSize(new java.awt.Dimension(1200, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -190,16 +192,15 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(1200, 800));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1200, 800));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1200, 600));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1200, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 600));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.setMaximumSize(new java.awt.Dimension(96, 229));
-        jPanel2.setMinimumSize(new java.awt.Dimension(96, 229));
-        jPanel2.setPreferredSize(new java.awt.Dimension(96, 229));
+        jPanel2.setMaximumSize(new java.awt.Dimension(96, 800));
+        jPanel2.setMinimumSize(new java.awt.Dimension(96, 800));
+        jPanel2.setPreferredSize(new java.awt.Dimension(96, 800));
 
-        button_add.setBackground(new java.awt.Color(255, 153, 255));
         button_add.setText("Afegir");
         button_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -212,7 +213,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        btn_exit.setBackground(new java.awt.Color(255, 102, 102));
         btn_exit.setText("Sortir");
         btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -225,7 +225,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        button_modificar.setBackground(new java.awt.Color(255, 153, 255));
         button_modificar.setText("Modificar");
         button_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -238,7 +237,6 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        Enrera.setBackground(new java.awt.Color(255, 102, 102));
         Enrera.setText("Enrera");
         Enrera.setActionCommand("Enrera");
         Enrera.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,7 +256,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(button_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(button_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+            .addComponent(button_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
             .addComponent(Enrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -268,9 +266,9 @@ public class ArticlesGui extends javax.swing.JFrame {
                 .addComponent(button_add)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(button_modificar)
-                .addGap(87, 87, 87)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Enrera)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btn_exit))
         );
 
@@ -278,11 +276,16 @@ public class ArticlesGui extends javax.swing.JFrame {
         first_panel.setMinimumSize(new java.awt.Dimension(1000, 800));
         first_panel.setPreferredSize(new java.awt.Dimension(1000, 524));
 
-        panel_modificar.setMaximumSize(new java.awt.Dimension(1000, 800));
-        panel_modificar.setMinimumSize(new java.awt.Dimension(1000, 800));
-        panel_modificar.setPreferredSize(new java.awt.Dimension(1000, 800));
+        panel_modificar.setMaximumSize(new java.awt.Dimension(1000, 500));
+        panel_modificar.setMinimumSize(new java.awt.Dimension(1000, 500));
+        panel_modificar.setPreferredSize(new java.awt.Dimension(1000, 500));
         panel_modificar.setVisible(false);
 
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(1176, 500));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(1176, 500));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(1176, 500));
+
+        taulaModelArticle.setBackground(new java.awt.Color(255, 255, 255));
         taulaModelArticle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -306,6 +309,9 @@ public class ArticlesGui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        taulaModelArticle.setMaximumSize(new java.awt.Dimension(947, 216));
+        taulaModelArticle.setMinimumSize(new java.awt.Dimension(947, 216));
+        taulaModelArticle.setPreferredSize(new java.awt.Dimension(947, 216));
         taulaModelArticle.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(taulaModelArticle);
         if (taulaModelArticle.getColumnModel().getColumnCount() > 0) {
@@ -329,25 +335,28 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        jTextField15.setBackground(new java.awt.Color(204, 204, 255));
+        jTextField15.setBackground(new java.awt.Color(255, 255, 255));
         jTextField15.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField15.setText("Modificar articles");
+        jTextField15.setMaximumSize(new java.awt.Dimension(746, 27));
+        jTextField15.setMinimumSize(new java.awt.Dimension(746, 27));
+        jTextField15.setPreferredSize(new java.awt.Dimension(746, 27));
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
 
-        modDataAlta.setText("DataAlta");
+        modDataAlta.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextField44.setEditable(false);
-        jTextField44.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField44.setBackground(new java.awt.Color(255, 255, 255));
         jTextField44.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField44.setText("Descricipcio");
         jTextField44.setFocusable(false);
 
-        modAlt.setBackground(new java.awt.Color(204, 255, 255));
+        modAlt.setBackground(new java.awt.Color(255, 255, 255));
         modAlt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modAltKeyTyped(evt);
@@ -355,7 +364,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField45.setEditable(false);
-        jTextField45.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField45.setBackground(new java.awt.Color(255, 255, 255));
         jTextField45.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField45.setText("Ample (mm)");
         jTextField45.setFocusable(false);
@@ -366,19 +375,19 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField21.setEditable(false);
-        jTextField21.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField21.setBackground(new java.awt.Color(255, 255, 255));
         jTextField21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField21.setText("Acabat");
         jTextField21.setFocusable(false);
 
         jTextField46.setEditable(false);
-        jTextField46.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField46.setBackground(new java.awt.Color(255, 255, 255));
         jTextField46.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField46.setText("Alt (mm)");
         jTextField46.setFocusable(false);
 
         jTextField10.setEditable(false);
-        jTextField10.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField10.setBackground(new java.awt.Color(255, 255, 255));
         jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField10.setText("Proveidor");
         jTextField10.setFocusable(false);
@@ -389,12 +398,12 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField22.setEditable(false);
-        jTextField22.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField22.setBackground(new java.awt.Color(255, 255, 255));
         jTextField22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField22.setText("Nom");
         jTextField22.setFocusable(false);
 
-        modNom.setBackground(new java.awt.Color(204, 255, 255));
+        modNom.setBackground(new java.awt.Color(255, 255, 255));
         modNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modNomKeyTyped(evt);
@@ -402,7 +411,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField47.setEditable(false);
-        jTextField47.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField47.setBackground(new java.awt.Color(255, 255, 255));
         jTextField47.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField47.setText("Preu Venda (€)");
         jTextField47.setFocusable(false);
@@ -412,7 +421,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        modAmple.setBackground(new java.awt.Color(204, 255, 255));
+        modAmple.setBackground(new java.awt.Color(255, 255, 255));
         modAmple.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modAmpleKeyTyped(evt);
@@ -420,7 +429,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField23.setEditable(false);
-        jTextField23.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField23.setBackground(new java.awt.Color(255, 255, 255));
         jTextField23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField23.setText("Referencia");
         jTextField23.setFocusable(false);
@@ -431,36 +440,37 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField48.setEditable(false);
-        jTextField48.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField48.setBackground(new java.awt.Color(255, 255, 255));
         jTextField48.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField48.setText("Fondo (mm)");
         jTextField48.setFocusable(false);
 
-        modFondo.setBackground(new java.awt.Color(204, 255, 255));
+        modFondo.setBackground(new java.awt.Color(255, 255, 255));
         modFondo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modFondoKeyTyped(evt);
             }
         });
 
-        modRef.setBackground(new java.awt.Color(204, 255, 255));
+        modRef.setBackground(new java.awt.Color(255, 255, 255));
         modRef.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 modRefKeyTyped(evt);
             }
         });
 
+        modDescripcio.setBackground(new java.awt.Color(255, 255, 255));
         modDescripcio.setColumns(20);
         modDescripcio.setRows(5);
         jScrollPane8.setViewportView(modDescripcio);
 
         jTextField49.setEditable(false);
-        jTextField49.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField49.setBackground(new java.awt.Color(255, 255, 255));
         jTextField49.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField49.setText("Preu Proveidor (€)");
         jTextField49.setFocusable(false);
 
-        modPreuProv.setBackground(new java.awt.Color(204, 255, 255));
+        modPreuProv.setBackground(new java.awt.Color(255, 255, 255));
         modPreuProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modPreuProvActionPerformed(evt);
@@ -472,7 +482,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        modAcabat.setBackground(new java.awt.Color(204, 255, 255));
+        modAcabat.setBackground(new java.awt.Color(255, 255, 255));
         modAcabat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modAcabatActionPerformed(evt);
@@ -484,7 +494,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        modPreuVenda.setBackground(new java.awt.Color(204, 255, 255));
+        modPreuVenda.setBackground(new java.awt.Color(255, 255, 255));
         modPreuVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modPreuVendaActionPerformed(evt);
@@ -496,6 +506,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
+        comboProveidor.setBackground(new java.awt.Color(255, 255, 255));
         comboProveidor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboProveidor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,117 +520,119 @@ public class ArticlesGui extends javax.swing.JFrame {
             panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_modificarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(panel_modificarLayout.createSequentialGroup()
-                        .addComponent(jTextField44)
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modDataAlta)
+                            .addComponent(jTextField44))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_modificarLayout.createSequentialGroup()
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(modFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_modificarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_actualitzar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(panel_modificarLayout.createSequentialGroup()
+                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_actualitzar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_modificarLayout.createSequentialGroup()
                         .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel_modificarLayout.createSequentialGroup()
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(modRef, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_modificarLayout.createSequentialGroup()
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField22)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                                .addGap(6, 6, 6)
+                                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboProveidor, 0, 174, Short.MAX_VALUE)
+                                    .addComponent(modNom))))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_modificarLayout.createSequentialGroup()
+                                .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modRef, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_modificarLayout.createSequentialGroup()
-                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modNom, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modDataAlta)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panel_modificarLayout.createSequentialGroup()
+                                .addComponent(modPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_modificarLayout.createSequentialGroup()
                                 .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(modPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panel_modificarLayout.createSequentialGroup()
-                                .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField48)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modAlt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(modFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_modificarLayout.createSequentialGroup()
                                 .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modAmple, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(107, 107, 107)))))
-                .addContainerGap())
+                                .addComponent(modAmple, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField21)
+                            .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(modAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         panel_modificarLayout.setVerticalGroup(
             panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_modificarLayout.createSequentialGroup()
-                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_modificarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_modificarLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(btn_actualitzar, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_actualitzar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modAmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(modPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboProveidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(modAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(modNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(modFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(modAmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(modAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(448, Short.MAX_VALUE))
+                .addGroup(panel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_modificarLayout.createSequentialGroup()
+                        .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(modDataAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        panel_insert.setMaximumSize(new java.awt.Dimension(1000, 800));
-        panel_insert.setMinimumSize(new java.awt.Dimension(1000, 800));
-        panel_insert.setPreferredSize(new java.awt.Dimension(1000, 800));
+        panel_insert.setMaximumSize(new java.awt.Dimension(1000, 500));
+        panel_insert.setMinimumSize(new java.awt.Dimension(1000, 500));
+        panel_insert.setPreferredSize(new java.awt.Dimension(1000, 500));
         panel_insert.setVisible(false);
 
         jTextField13.setEditable(false);
-        jTextField13.setBackground(new java.awt.Color(204, 204, 255));
+        jTextField13.setBackground(new java.awt.Color(255, 255, 255));
         jTextField13.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField13.setText("Afegir nous articles");
         jTextField13.setFocusable(false);
+        jTextField13.setMaximumSize(new java.awt.Dimension(746, 27));
+        jTextField13.setMinimumSize(new java.awt.Dimension(746, 27));
+        jTextField13.setPreferredSize(new java.awt.Dimension(746, 27));
         jTextField13.setRequestFocusEnabled(false);
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -627,6 +640,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
+        btn_save.setBackground(new java.awt.Color(255, 255, 255));
         btn_save.setText("Guardar");
         btn_save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -635,19 +649,27 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField32.setEditable(false);
-        jTextField32.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField32.setBackground(new java.awt.Color(255, 255, 255));
         jTextField32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField32.setText("Preu Proveidor (€)");
         jTextField32.setFocusable(false);
+        jTextField32.setMaximumSize(new java.awt.Dimension(115, 27));
+        jTextField32.setMinimumSize(new java.awt.Dimension(115, 27));
 
-        addFondo.setBackground(new java.awt.Color(204, 255, 255));
+        addFondo.setBackground(new java.awt.Color(255, 255, 255));
+        addFondo.setMaximumSize(new java.awt.Dimension(115, 27));
+        addFondo.setMinimumSize(new java.awt.Dimension(115, 27));
+        addFondo.setPreferredSize(new java.awt.Dimension(115, 27));
         addFondo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addFondoKeyTyped(evt);
             }
         });
 
-        addAmple.setBackground(new java.awt.Color(204, 255, 255));
+        addAmple.setBackground(new java.awt.Color(255, 255, 255));
+        addAmple.setMaximumSize(new java.awt.Dimension(115, 27));
+        addAmple.setMinimumSize(new java.awt.Dimension(115, 27));
+        addAmple.setPreferredSize(new java.awt.Dimension(115, 27));
         addAmple.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addAmpleKeyTyped(evt);
@@ -655,7 +677,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField9.setBackground(new java.awt.Color(255, 255, 255));
         jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField9.setText("Proveidor");
         jTextField9.setFocusable(false);
@@ -666,19 +688,28 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField11.setBackground(new java.awt.Color(255, 255, 255));
         jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField11.setText("Acabat");
         jTextField11.setFocusable(false);
+        jTextField11.setMaximumSize(new java.awt.Dimension(115, 27));
+        jTextField11.setMinimumSize(new java.awt.Dimension(115, 27));
+        jTextField11.setPreferredSize(new java.awt.Dimension(115, 27));
 
-        addAlt.setBackground(new java.awt.Color(204, 255, 255));
+        addAlt.setBackground(new java.awt.Color(255, 255, 255));
+        addAlt.setMaximumSize(new java.awt.Dimension(115, 27));
+        addAlt.setMinimumSize(new java.awt.Dimension(115, 27));
+        addAlt.setPreferredSize(new java.awt.Dimension(115, 27));
         addAlt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addAltKeyTyped(evt);
             }
         });
 
-        addAcabat.setBackground(new java.awt.Color(204, 255, 255));
+        addAcabat.setBackground(new java.awt.Color(255, 255, 255));
+        addAcabat.setMaximumSize(new java.awt.Dimension(115, 27));
+        addAcabat.setMinimumSize(new java.awt.Dimension(115, 27));
+        addAcabat.setPreferredSize(new java.awt.Dimension(115, 27));
         addAcabat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAcabatActionPerformed(evt);
@@ -690,7 +721,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addRef.setBackground(new java.awt.Color(204, 255, 255));
+        addRef.setBackground(new java.awt.Color(255, 255, 255));
         addRef.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addRefKeyTyped(evt);
@@ -698,7 +729,7 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField12.setEditable(false);
-        jTextField12.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField12.setBackground(new java.awt.Color(255, 255, 255));
         jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField12.setText("Referencia");
         jTextField12.setFocusable(false);
@@ -708,7 +739,7 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addNom.setBackground(new java.awt.Color(204, 255, 255));
+        addNom.setBackground(new java.awt.Color(255, 255, 255));
         addNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 addNomKeyTyped(evt);
@@ -716,29 +747,38 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField18.setEditable(false);
-        jTextField18.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField18.setBackground(new java.awt.Color(255, 255, 255));
         jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField18.setText("Nom");
         jTextField18.setFocusable(false);
 
         jTextField34.setEditable(false);
-        jTextField34.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField34.setBackground(new java.awt.Color(255, 255, 255));
         jTextField34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField34.setText("Alt (mm)");
         jTextField34.setFocusable(false);
+        jTextField34.setMaximumSize(new java.awt.Dimension(115, 27));
+        jTextField34.setMinimumSize(new java.awt.Dimension(115, 27));
+        jTextField34.setPreferredSize(new java.awt.Dimension(115, 27));
 
         jTextField35.setEditable(false);
-        jTextField35.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField35.setBackground(new java.awt.Color(255, 255, 255));
         jTextField35.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField35.setText("Ample (mm)");
         jTextField35.setFocusable(false);
+        jTextField35.setMaximumSize(new java.awt.Dimension(115, 27));
+        jTextField35.setMinimumSize(new java.awt.Dimension(115, 27));
+        jTextField35.setPreferredSize(new java.awt.Dimension(115, 27));
         jTextField35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField35ActionPerformed(evt);
             }
         });
 
-        addPreuVenda.setBackground(new java.awt.Color(204, 255, 255));
+        addPreuVenda.setBackground(new java.awt.Color(255, 255, 255));
+        addPreuVenda.setMaximumSize(new java.awt.Dimension(115, 27));
+        addPreuVenda.setMinimumSize(new java.awt.Dimension(115, 27));
+        addPreuVenda.setPreferredSize(new java.awt.Dimension(115, 27));
         addPreuVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPreuVendaActionPerformed(evt);
@@ -750,7 +790,10 @@ public class ArticlesGui extends javax.swing.JFrame {
             }
         });
 
-        addPreuProv.setBackground(new java.awt.Color(204, 255, 255));
+        addPreuProv.setBackground(new java.awt.Color(255, 255, 255));
+        addPreuProv.setMaximumSize(new java.awt.Dimension(115, 27));
+        addPreuProv.setMinimumSize(new java.awt.Dimension(115, 27));
+        addPreuProv.setPreferredSize(new java.awt.Dimension(115, 27));
         addPreuProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPreuProvActionPerformed(evt);
@@ -763,32 +806,41 @@ public class ArticlesGui extends javax.swing.JFrame {
         });
 
         jTextField36.setEditable(false);
-        jTextField36.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField36.setBackground(new java.awt.Color(255, 255, 255));
         jTextField36.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField36.setText("Descricipcio");
         jTextField36.setFocusable(false);
+
+        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
 
         addDescripcio.setColumns(20);
         addDescripcio.setRows(5);
         jScrollPane6.setViewportView(addDescripcio);
 
         jTextField37.setEditable(false);
-        jTextField37.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField37.setBackground(new java.awt.Color(255, 255, 255));
         jTextField37.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField37.setText("Fondo (mm)");
         jTextField37.setFocusable(false);
+        jTextField37.setMaximumSize(new java.awt.Dimension(115, 27));
+        jTextField37.setMinimumSize(new java.awt.Dimension(115, 27));
+        jTextField37.setPreferredSize(new java.awt.Dimension(115, 27));
 
         jTextField38.setEditable(false);
-        jTextField38.setBackground(new java.awt.Color(255, 255, 204));
+        jTextField38.setBackground(new java.awt.Color(255, 255, 255));
         jTextField38.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField38.setText("Preu Venda (€)");
         jTextField38.setFocusable(false);
+        jTextField38.setMaximumSize(new java.awt.Dimension(115, 27));
+        jTextField38.setMinimumSize(new java.awt.Dimension(115, 27));
+        jTextField38.setPreferredSize(new java.awt.Dimension(115, 27));
         jTextField38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField38ActionPerformed(evt);
             }
         });
 
+        desplegableProveidors.setBackground(new java.awt.Color(255, 255, 255));
         desplegableProveidors.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1" }));
         desplegableProveidors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -801,99 +853,98 @@ public class ArticlesGui extends javax.swing.JFrame {
         panel_insertLayout.setHorizontalGroup(
             panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_insertLayout.createSequentialGroup()
-                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panel_insertLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_insertLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panel_insertLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_insertLayout.createSequentialGroup()
+                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
+                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(desplegableProveidors, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(addPreuVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
+                                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(addNom, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(addPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(addFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addAmple, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(addAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                    .addGroup(panel_insertLayout.createSequentialGroup()
+                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(addAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_insertLayout.createSequentialGroup()
                                 .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane6))
-                            .addGroup(panel_insertLayout.createSequentialGroup()
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panel_insertLayout.createSequentialGroup()
-                                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(addNom)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(addAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6))
-                                    .addGroup(panel_insertLayout.createSequentialGroup()
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(desplegableProveidors, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField34)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panel_insertLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panel_insertLayout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(addAlt)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField35)
-                                    .addComponent(jTextField32, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(addAmple)
-                                    .addComponent(addPreuProv, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_insertLayout.createSequentialGroup()
-                                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(panel_insertLayout.createSequentialGroup()
-                                        .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(8, 8, 8)))
-                                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(addPreuVenda)
-                                    .addComponent(addFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(176, 176, 176))
+                    .addGroup(panel_insertLayout.createSequentialGroup()
+                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         panel_insertLayout.setVerticalGroup(
             panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_insertLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(13, 13, 13)
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_save))
+                .addGap(18, 18, 18)
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(desplegableProveidors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addPreuProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addAmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addAmple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(desplegableProveidors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addPreuVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addAcabat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_insertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout first_panelLayout = new javax.swing.GroupLayout(first_panel);
@@ -922,7 +973,7 @@ public class ArticlesGui extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
-                    .addGap(0, 806, Short.MAX_VALUE)
+                    .addGap(0, 24, Short.MAX_VALUE)
                     .addComponent(panel_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         first_panel.setLayer(panel_modificar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -933,17 +984,20 @@ public class ArticlesGui extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel2, 800, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(first_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(216, 216, 216))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
