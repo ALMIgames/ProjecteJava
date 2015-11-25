@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Articles implements Serializable {
 
     private String _01dataAlta;
-    private Proveidors _02proveidor; /*objecte*/
+    private String _02proveidor;
     private String _03ref; 
     private String _04nom; 
     private String _05descripcio;
@@ -17,7 +17,7 @@ public class Articles implements Serializable {
     private float _10preuProv;
     private float _11preuVenda;
 
-    public Articles(String _01dataAlta, Proveidors _02proveidor, String _03ref, String _04nom, String _05descripcio, String _06acabat, int _07alt, int _08ample, int _09fondo, float _10preuProv, float _11preuVenda) {
+    public Articles(String _01dataAlta, String _02proveidor, String _03ref, String _04nom, String _05descripcio, String _06acabat, int _07alt, int _08ample, int _09fondo, float _10preuProv, float _11preuVenda) {
         this._01dataAlta = _01dataAlta;
         this._02proveidor = _02proveidor;
         this._03ref = _03ref;
@@ -39,11 +39,11 @@ public class Articles implements Serializable {
         this._01dataAlta = _01dataAlta;
     }
 
-    public Proveidors get02proveidor() {
+    public String get02proveidor() {
         return _02proveidor;
     }
 
-    public void set02proveidor(Proveidors _02proveidor) {
+    public void set02proveidor(String _02proveidor) {
         this._02proveidor = _02proveidor;
     }
 
