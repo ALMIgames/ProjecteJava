@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pkg2015;
 
 import java.io.*;
@@ -20,30 +16,15 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import projecte.Clients;
 
-//NOTES TODO: Canviar Inici.llistaClients a array d'objectes
-//insertar objecte a la taula complet i no per columnes (populate jtable with objects)
-//fer println quan llegeixo el fitxer per comprovar que esta ple
-
-
-/**
- *
- * @author alumne
- */
 public class ClientsGui extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PrimerGui
-     */
     public ClientsGui() {
         initComponents();
         initComponentsMeus();
     }
     
-    /*DESCARTADA, BUSCA PEPEPEPE, ALLA S'EXPLICA*/
     int indexupdate;
-    int indexDataAlta; //Ja que no se com generar un id en autoincrement sense una base de dades
-    //el que fare sera crear un id a partir de la data.
-    
+   
     private void initComponentsMeus(){
  
         //Posem un listener a la taula de clients per modificar que actualitze els jtextfileds al canviar de fila seleccionada
@@ -91,26 +72,7 @@ public class ClientsGui extends javax.swing.JFrame {
                     for(int x = 0; data != (taulaModelClient.getModel().getValueAt(x, 1).toString()); x++){
                         indexupdate++;
                     }
-                    /*
-                    //PEPEPEPE
-                    DESCARTO LA IDEA PER QUE DESPRES NO EM SERVEIX, JA QUE DESPRES NECESSITO UN INT 
-                    REFERENCIANT LA LINIA, PERO A PARTIR D'AQUI HE PENSAT QUE EN LA DATA JA QUE ES UNICA
-                    PUC FER UN FOREACH PER TREURE LA LINIA QUE COINCIDEIX I TINDRE L'ID
-                        
-                    LLASTIMA, COMENÇAVA A AGRADAR-ME LA IDEA
-                    */
-                    
-                    //creem l'ID a partir de la data
-                    /*
-                    String str = taulaModelClient.getModel().getValueAt(i, 1).toString();//agafo l'string
-                    str = str.replaceAll("[^\\d.]", "");//trec tots els caracters no numerics
-                    str = str.substring(0, str.length() - 4);//trec els ultims 4 digits (2015) ja que si 
-                    //no es un numero massa gran per a un int i un long no el puc usar per a les funcions
-                    indexDataAlta =  Integer.parseInt(str);//passo l'string a int
-                    System.out.println("******************************************************************");
-                    System.out.println(indexDataAlta);//per si de cas auqi el puc revisar
-                    System.out.println("******************************************************************");
-                   */
+                   
                 }
                 
                 

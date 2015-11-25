@@ -39,11 +39,17 @@ public class Inici extends javax.swing.JFrame {
     public Inici() {
         initComponents();
         initComponentsProveidors();
+        initComponentsClients();
+        initComponentsArticles();
     }
 
+    private static boolean proLlegit;
+    private static boolean cliLlegit;
+    private static boolean artLlegit;
+    
 /*PROVEIDORS*/
-  public static ArrayList<Proveidors> llistaProveidors=new ArrayList<>();   
-  public static final File fProveidors = new File("proveidor.dat");
+    public static ArrayList<Proveidors> llistaProveidors=new ArrayList<>();   
+    public static final File fProveidors = new File("proveidor.dat");
   
 /*CLIENTS*/
     public static ArrayList<Clients> llistaClients=new ArrayList<>();
@@ -54,6 +60,7 @@ public class Inici extends javax.swing.JFrame {
     public static final File fArticles = new File("articles.dat");
   
 private void initComponentsProveidors(){  
+    if(proLlegit == false){
         if (fProveidors.exists()) {
             ObjectInputStream entrada = null;
             try {
@@ -84,9 +91,12 @@ private void initComponentsProveidors(){
         } else {
             System.out.println("Fitxer nou");
         }
+    proLlegit = true;   
+    }
 }
 
 private void initComponentsClients(){  
+    if(cliLlegit == false){
         if (fClients.exists()) {
             ObjectInputStream entrada = null;
             try {
@@ -117,10 +127,13 @@ private void initComponentsClients(){
         } else {
             System.out.println("Fitxer nou");
         }
+    cliLlegit = true;
+    }
 }
 
 private void initComponentsArticles(){
-    if (fArticles.exists()) {
+    if (artLlegit == false){
+        if (fArticles.exists()) {
             ObjectInputStream entrada = null;
             try {
                 entrada = new ObjectInputStream(new FileInputStream(fArticles));
@@ -150,6 +163,8 @@ private void initComponentsArticles(){
         } else {
             System.out.println("Fitxer nou");
         }
+    artLlegit = true;
+    }
 }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
