@@ -20,11 +20,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-<<<<<<< HEAD
     <Property name="title" type="java.lang.String" value="Projecte Java 2015"/>
-=======
-    <Property name="title" type="java.lang.String" value="Manteniment d&apos;alumnes"/>
->>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1200, 800]"/>
     </Property>
@@ -215,11 +211,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
                   <EmptySpace min="0" pref="1012" max="32767" attributes="0"/>
-=======
-                  <EmptySpace min="0" pref="1010" max="32767" attributes="0"/>
->>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>

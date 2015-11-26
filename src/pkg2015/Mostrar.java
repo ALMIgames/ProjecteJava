@@ -16,11 +16,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.UIManager;
 import static pkg2015.Inici.llistaArticles;
 import static pkg2015.Inici.llistaProveidors;
 import projecte.Articles;
 import projecte.Proveidors;
+import projecte.ThrowPersonal;
 
 public class Mostrar extends javax.swing.JFrame {
 
@@ -381,7 +384,11 @@ public class Mostrar extends javax.swing.JFrame {
 
     private void EnreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnreraActionPerformed
         this.setVisible(false);
-        new Inici().setVisible(true);
+        try {
+            new Inici().setVisible(true);
+        } catch (ThrowPersonal ex) {
+            Logger.getLogger(Mostrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_EnreraActionPerformed
 
     private void Enrera1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Enrera1MouseClicked
