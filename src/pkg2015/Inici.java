@@ -23,7 +23,13 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.AbstractTableModel;
+<<<<<<< HEAD
 import projecte.*;
+=======
+import projecte.Articles;
+import projecte.Clients;
+import projecte.Proveidors;
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
 
 /**
  *
@@ -34,7 +40,11 @@ public class Inici extends javax.swing.JFrame {
     /**
      * Creates new form Inici
      */
+<<<<<<< HEAD
     public Inici() throws ThrowPersonal {
+=======
+    public Inici() {
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
         initComponents();
         initComponentsProveidors();
         initComponentsClients();
@@ -57,7 +67,11 @@ public class Inici extends javax.swing.JFrame {
     public static ArrayList<Articles> llistaArticles=new ArrayList<>();
     public static final File fArticles = new File("articles.dat");
   
+<<<<<<< HEAD
 private void initComponentsProveidors() throws ThrowPersonal{  
+=======
+private void initComponentsProveidors(){  
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
     if(proLlegit == false){
         if (fProveidors.exists()) {
             ObjectInputStream entrada = null;
@@ -74,7 +88,12 @@ private void initComponentsProveidors() throws ThrowPersonal{
                     }
                 }
             } catch (IOException e) {
+<<<<<<< HEAD
                 throw new ThrowPersonal("Error en tancar el fitxer...");
+=======
+                JOptionPane.showMessageDialog(this, "Error en obrir el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
+                System.exit(-1);
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
             } finally {
                 if (entrada != null) {
                     try {
@@ -92,7 +111,11 @@ private void initComponentsProveidors() throws ThrowPersonal{
     }
 }
 
+<<<<<<< HEAD
 private void initComponentsClients() throws ThrowPersonal{  
+=======
+private void initComponentsClients(){  
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
     if(cliLlegit == false){
         if (fClients.exists()) {
             ObjectInputStream entrada = null;
@@ -108,9 +131,15 @@ private void initComponentsClients() throws ThrowPersonal{
                         Logger.getLogger(ClientsGui.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+<<<<<<< HEAD
                 
             } catch (IOException e) {
                 throw new ThrowPersonal("Error en tancar el fitxer...");
+=======
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Error en obrir el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
+                System.exit(-1);
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
             } finally {
                 if (entrada != null) {
                     try {
@@ -128,7 +157,11 @@ private void initComponentsClients() throws ThrowPersonal{
     }
 }
 
+<<<<<<< HEAD
 private void initComponentsArticles() throws ThrowPersonal{
+=======
+private void initComponentsArticles(){
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
     if (artLlegit == false){
         if (fArticles.exists()) {
             ObjectInputStream entrada = null;
@@ -145,7 +178,12 @@ private void initComponentsArticles() throws ThrowPersonal{
                     }
                 }
             } catch (IOException e) {
+<<<<<<< HEAD
                 throw new ThrowPersonal("Error en tancar el fitxer...");
+=======
+                JOptionPane.showMessageDialog(this, "Error en obrir el fitxer :" + e.getMessage() + "\nL'aplicació es tancarà!!");
+                System.exit(-1);
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
             } finally {
                 if (entrada != null) {
                     try {
@@ -169,10 +207,15 @@ private void initComponentsArticles() throws ThrowPersonal{
         botoClients = new javax.swing.JButton();
         botoProveidors = new javax.swing.JButton();
         articles = new javax.swing.JButton();
+<<<<<<< HEAD
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Projecte Java 2015");
+=======
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
 
         botoClients.setText("Clients");
         botoClients.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +238,7 @@ private void initComponentsArticles() throws ThrowPersonal{
             }
         });
 
+<<<<<<< HEAD
         jButton1.setText("Llistar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +246,8 @@ private void initComponentsArticles() throws ThrowPersonal{
             }
         });
 
+=======
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -211,8 +257,12 @@ private void initComponentsArticles() throws ThrowPersonal{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botoClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botoProveidors, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+<<<<<<< HEAD
                     .addComponent(articles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                    .addComponent(articles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -224,9 +274,13 @@ private void initComponentsArticles() throws ThrowPersonal{
                 .addComponent(botoProveidors)
                 .addGap(18, 18, 18)
                 .addComponent(articles)
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(75, Short.MAX_VALUE))
+=======
+                .addContainerGap(120, Short.MAX_VALUE))
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
         );
 
         pack();
@@ -248,11 +302,14 @@ private void initComponentsArticles() throws ThrowPersonal{
         new ArticlesGui().setVisible(true);
     }//GEN-LAST:event_articlesActionPerformed
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
         new Mostrar().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+=======
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
     /**
      * @param args the command line arguments
      */
@@ -283,11 +340,15 @@ private void initComponentsArticles() throws ThrowPersonal{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+<<<<<<< HEAD
                 try {
                     new Inici().setVisible(true);
                 } catch (ThrowPersonal ex) {
                     Logger.getLogger(Inici.class.getName()).log(Level.SEVERE, null, ex);
                 }
+=======
+                new Inici().setVisible(true);
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
             }
         });
     }
@@ -296,7 +357,10 @@ private void initComponentsArticles() throws ThrowPersonal{
     private javax.swing.JButton articles;
     private javax.swing.JButton botoClients;
     private javax.swing.JButton botoProveidors;
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
+=======
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
     // End of variables declaration//GEN-END:variables
 }
 
@@ -394,8 +458,11 @@ class ModelTaula<T> extends AbstractTableModel {
 
     }
 
+<<<<<<< HEAD
         public String ThrowPersonal() {
             return "Error en obrir el fitxer. L'aplicació es tancarà!";
         }
 
+=======
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
 }

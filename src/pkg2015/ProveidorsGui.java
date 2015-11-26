@@ -237,7 +237,11 @@ public class ProveidorsGui extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+<<<<<<< HEAD
         setTitle("Projecte Java 2015");
+=======
+        setTitle("Manteniment d'alumnes");
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
         setMinimumSize(new java.awt.Dimension(1200, 800));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -1192,7 +1196,11 @@ public class ProveidorsGui extends javax.swing.JFrame {
         first_panel.setLayout(first_panelLayout);
         first_panelLayout.setHorizontalGroup(
             first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 1012, Short.MAX_VALUE)
+=======
+            .addGap(0, 1010, Short.MAX_VALUE)
+>>>>>>> e048cc6b05c525be00fee77fdb80fb43cf526535
             .addGroup(first_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, first_panelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
