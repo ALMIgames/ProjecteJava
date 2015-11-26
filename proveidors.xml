@@ -1,0 +1,21 @@
+<list>
+  <projecte.Proveidors>
+    <NomComercial>nomcom</NomComercial>
+    <DataAlta>Wed Nov 25 17:31:59 CET 2015</DataAlta>
+    <NomFiscal>1</NomFiscal>
+    <CIFNIF>1</CIFNIF>
+    <Pais>1</Pais>
+    <Poblacio>1</Poblacio>
+    <Direccio>1</Direccio>
+    <CP>1</CP>
+    <Telefon>1</Telefon>
+    <Email>1</Email>
+    <Website>1</Website>
+    <CC>1</CC>
+    <Descompte>1</Descompte>
+    <Notes>11</Notes>
+    <DataEntrega>1</DataEntrega>
+    <Ports>1</Ports>
+    <Expo>1</Expo>
+  </projecte.Proveidors>
+</list>

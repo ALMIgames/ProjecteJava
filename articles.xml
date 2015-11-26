@@ -1,0 +1,28 @@
+<list>
+  <projecte.Articles>
+    <DataAlta>Wed Nov 25 18:17:03 CET 2015</DataAlta>
+    <Proveidor>nomcom</Proveidor>
+    <Referencia>2</Referencia>
+    <Nom>2</Nom>
+    <Descripcio>2</Descripcio>
+    <Acabat>2</Acabat>
+    <Altura>2</Altura>
+    <Amplada>2</Amplada>
+    <Fondaria>2</Fondaria>
+    <PreuProveidor>2.0</PreuProveidor>
+    <PreuVenda>2.0</PreuVenda>
+  </projecte.Articles>
+  <projecte.Articles>
+    <DataAlta>Wed Nov 25 22:45:35 CET 2015</DataAlta>
+    <Proveidor>nomcom</Proveidor>
+    <Referencia>2</Referencia>
+    <Nom>2</Nom>
+    <Descripcio>2</Descripcio>
+    <Acabat>2</Acabat>
+    <Altura>2</Altura>
+    <Amplada>2</Amplada>
+    <Fondaria>2</Fondaria>
+    <PreuProveidor>2.0</PreuProveidor>
+    <PreuVenda>2.0</PreuVenda>
+  </projecte.Articles>
+</list>

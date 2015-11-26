@@ -1,0 +1,34 @@
+<list>
+  <projecte.Clients>
+    <NomComercial>3</NomComercial>
+    <DataAlta>Tue Nov 24 15:53:56 CET 2015</DataAlta>
+    <NomFiscal>1</NomFiscal>
+    <CIFNIF>1</CIFNIF>
+    <Pais>asd</Pais>
+    <Poblacio>1</Poblacio>
+    <Direccio>1</Direccio>
+    <CP>4</CP>
+    <Telefon>1</Telefon>
+    <Email>1</Email>
+    <Website>1</Website>
+    <CC>1</CC>
+    <Notes>1</Notes>
+    <Descompte>1</Descompte>
+  </projecte.Clients>
+  <projecte.Clients>
+    <NomComercial>2</NomComercial>
+    <DataAlta>Tue Nov 24 15:54:02 CET 2015</DataAlta>
+    <NomFiscal>2</NomFiscal>
+    <CIFNIF>2</CIFNIF>
+    <Pais>2</Pais>
+    <Poblacio>2</Poblacio>
+    <Direccio>2</Direccio>
+    <CP>2</CP>
+    <Telefon>2</Telefon>
+    <Email>2</Email>
+    <Website>2</Website>
+    <CC>2</CC>
+    <Notes>2</Notes>
+    <Descompte>2</Descompte>
+  </projecte.Clients>
+</list>
